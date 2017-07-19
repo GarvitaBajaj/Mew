@@ -1,0 +1,7 @@
+#Wed Jul 05 20:51:08 IST 2017
+base.0=C\:\\Users\\Student\\Desktop\\Git Repo\\Provider-Scheduling\\Android-app\\Mew\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_7a6e5447bd5d6b16860f515d4a8ad6f5680a96cf
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=C\:\\Users\\Student\\Desktop\\Git Repo\\Provider-Scheduling\\Android-app\\Mew\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_c9c4f5bc910932ecf6e71c9b59718e1f4386e619\\classes.dex
+base.1=C\:\\Users\\Student\\Desktop\\Git Repo\\Provider-Scheduling\\Android-app\\Mew\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_c9c4f5bc910932ecf6e71c9b59718e1f4386e619
+file.0=C\:\\Users\\Student\\Desktop\\Git Repo\\Provider-Scheduling\\Android-app\\Mew\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_7a6e5447bd5d6b16860f515d4a8ad6f5680a96cf\\classes.dex

@@ -1,0 +1,26 @@
+[
+    {
+        "outputFile": "C:\\Users\\Student\\Desktop\\Git Repo\\Provider-Scheduling\\Android-app\\Mew\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-be\\values-be.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 105,
+                    "endColumn": 204,
+                    "endOffset": 305
+                },
+                "from": {
+                    "file": "C:\\Users\\Student\\.android\\build-cache\\e06c14726c8941a155c60701fb5f2175b38b98d8\\output\\res\\values-be\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 285,
+                        "endColumn": 204,
+                        "endOffset": 489
+                    }
+                }
+            }
+        ]
+    }
+]

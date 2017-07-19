@@ -1,0 +1,58 @@
+JFDML JFormDesigner: "6.0.1.0.112" Java: "1.8.0_121" encoding: "UTF-8"
+
+new FormModel {
+	"i18n.autoExternalize": true
+	"i18n.bundleName": "properties"
+	"i18n.keyPrefix": "UploadAlgoFile"
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class info.clearthought.layout.TableLayout ) {
+			"$columnSpecs": "228.0, 143.0"
+			"$rowSpecs": "39.0, pref, pref, pref"
+			"hGap": 5
+			"vGap": 5
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": new FormMessage( null, "UploadAlgoFile.label1.text" )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField1"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+				"gridY": 1
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": new FormMessage( null, "UploadAlgoFile.button1.text" )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "browseForAlgo", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+				"gridX": 1
+				"gridY": 1
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": new FormMessage( null, "UploadAlgoFile.label2.text" )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+				"gridY": 2
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField2"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+				"gridX": 1
+				"gridY": 2
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button2"
+				"text": new FormMessage( null, "UploadAlgoFile.button2.text" )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "uploadFile", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.TableConstraints ) {
+				"gridY": 3
+				"gridX": 1
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}
