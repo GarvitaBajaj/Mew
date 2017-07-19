@@ -1,0 +1,197 @@
+{
+  "project_info": {
+    "project_number": "178776028514",
+    "firebase_url": "https://mewclient-801a9.firebaseio.com",
+    "project_id": "mewclient-801a9",
+    "storage_bucket": "mewclient-801a9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:178776028514:android:98d63832774cf0fa",
+        "android_client_info": {
+          "package_name": "recruitment.iiitd.edu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "178776028514-bfsm2hmdnp2cjs3flj1h86nl7uojs114.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB446ULk8o62kWYaimrRmdPwpgOoi4dc3g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:178776028514:android:c7e89da6ae9a1627",
+        "android_client_info": {
+          "package_name": "recruitment.iiitd.edu.mew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "178776028514-bfsm2hmdnp2cjs3flj1h86nl7uojs114.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB446ULk8o62kWYaimrRmdPwpgOoi4dc3g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:178776028514:android:14d1eeb8947412ee",
+        "android_client_info": {
+          "package_name": "recruitment.iiitd.edu.model"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "178776028514-bfsm2hmdnp2cjs3flj1h86nl7uojs114.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB446ULk8o62kWYaimrRmdPwpgOoi4dc3g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:178776028514:android:7dd1975107d0c76a",
+        "android_client_info": {
+          "package_name": "recruitment.iiitd.edu.rabbitmq"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "178776028514-bfsm2hmdnp2cjs3flj1h86nl7uojs114.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB446ULk8o62kWYaimrRmdPwpgOoi4dc3g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:178776028514:android:848e17a049c899ef",
+        "android_client_info": {
+          "package_name": "recruitment.iiitd.edu.sensing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "178776028514-bfsm2hmdnp2cjs3flj1h86nl7uojs114.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB446ULk8o62kWYaimrRmdPwpgOoi4dc3g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:178776028514:android:b06d67b5aaf9f102",
+        "android_client_info": {
+          "package_name": "recruitment.iiitd.edu.utils"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "178776028514-bfsm2hmdnp2cjs3flj1h86nl7uojs114.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB446ULk8o62kWYaimrRmdPwpgOoi4dc3g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

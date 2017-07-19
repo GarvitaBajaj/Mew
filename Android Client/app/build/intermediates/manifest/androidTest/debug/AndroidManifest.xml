@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="recruitment.iiitd.edu.mew.test">
+
+    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="22" />
+
+    <application>
+        <uses-library android:name="android.test.runner" />
+    </application>
+
+    <instrumentation android:name="android.test.InstrumentationTestRunner"
+                     android:targetPackage="recruitment.iiitd.edu.mew"
+                     android:handleProfiling="false"
+                     android:functionalTest="false"
+                     android:label="Tests for recruitment.iiitd.edu.mew"/>
+</manifest>

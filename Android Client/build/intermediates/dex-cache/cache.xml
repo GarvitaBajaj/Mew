@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="0a877779c28e5a5ec10109728e3b15eaaf430fbd">
+        <dex dex="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_7a6e5447bd5d6b16860f515d4a8ad6f5680a96cf\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\libs\commons-codec-1.9.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9ce04e34240f674bc72680f8b843b1457383161a">
+        <dex dex="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\build\intermediates\pre-dexed\debug\commons-codec-1.9_c935ff98c62241764855e2d97d6d8bd1b3c997bb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\libs\commons-io-1.3.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="b6dde38349ba9bb5e6ea6320531eae969985dae5">
+        <dex dex="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\build\intermediates\pre-dexed\debug\commons-io-1.3.2_6b53f50bd5ace4d49e97d56bf3cd70b35a5c1e9f.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\libs\commons-codec-1.9.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9ce04e34240f674bc72680f8b843b1457383161a">
+        <dex dex="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\build\intermediates\transforms\dex\debug\folders\1000\2\commons-codec-1.9_c935ff98c62241764855e2d97d6d8bd1b3c997bb\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\libs\rabbitmq-client.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="cc4a7a4dad37656dc38995dd1cb3f4963ee0c408">
+        <dex dex="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\build\intermediates\pre-dexed\debug\rabbitmq-client_8e0a738706bcb3b271887b50f9d1f0bd1c25d27a.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\libs\commons-io-1.3.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="b6dde38349ba9bb5e6ea6320531eae969985dae5">
+        <dex dex="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\build\intermediates\transforms\dex\debug\folders\1000\2\commons-io-1.3.2_6b53f50bd5ace4d49e97d56bf3cd70b35a5c1e9f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\libs\rabbitmq-client.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="cc4a7a4dad37656dc38995dd1cb3f4963ee0c408">
+        <dex dex="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\build\intermediates\transforms\dex\debug\folders\1000\2\rabbitmq-client_8e0a738706bcb3b271887b50f9d1f0bd1c25d27a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\libs\opencsv-2.4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="60597690a065746f9dd950e2e47e5f476b6c7367">
+        <dex dex="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\build\intermediates\transforms\dex\debug\folders\1000\2\opencsv-2.4_970e7155c72acc1b1d5ecc5719e645498e4d583d\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\libs\commons-cli-1.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="11c98b99ad538f2f67633afd4d7f4d98ecfbb408">
+        <dex dex="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\build\intermediates\pre-dexed\debug\commons-cli-1.1_db77103a231f537e2bfba26df4ec613fb9a17f83.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\libs\opencsv-2.4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="60597690a065746f9dd950e2e47e5f476b6c7367">
+        <dex dex="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\build\intermediates\pre-dexed\debug\opencsv-2.4_970e7155c72acc1b1d5ecc5719e645498e4d583d.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\libs\commons-cli-1.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="11c98b99ad538f2f67633afd4d7f4d98ecfbb408">
+        <dex dex="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\build\intermediates\transforms\dex\debug\folders\1000\2\commons-cli-1.1_db77103a231f537e2bfba26df4ec613fb9a17f83\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
+        <dex dex="C:\Users\Student\Desktop\Git Repo\Provider-Scheduling\Android-app\Mew\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_c9c4f5bc910932ecf6e71c9b59718e1f4386e619\classes.dex" />
+    </item>
+
+</items>
