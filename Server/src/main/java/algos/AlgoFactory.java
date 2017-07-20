@@ -25,15 +25,6 @@ public class AlgoFactory {
 				e.printStackTrace();
 			}
 			return null;
-		}if("nvalues".equalsIgnoreCase(type)){ 
-			Class<?> t = null;
-			try{
-				t = Class.forName("algos.NValues");
-				return (Algo) t.getConstructor(JSONObject.class).newInstance(query);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return null;
 		}if("minAST".equalsIgnoreCase(type)){ 
 			Class<?> t = null;
 			try{
