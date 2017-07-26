@@ -123,10 +123,10 @@ public class UploadAlgoFile extends JFrame {
 				e1.printStackTrace();
 			}
 			try{
-//				boolean success = (new File(path+"AlgoFactory.java")).delete();
-//				if(success)System.out.println("File deleted succesfully");
-//				boolean rename=new File(path+"tempAlgoFactory.java").renameTo(new File(path+"AlgoFactory.java"));
-//				if(rename)System.out.println("File renamed successfully");
+				boolean success = (new File(path+"AlgoFactory.java")).delete();
+				if(success)System.out.println("File deleted succesfully");
+				boolean rename=new File(path+"tempAlgoFactory.java").renameTo(new File(path+"AlgoFactory.java"));
+				if(rename)System.out.println("File renamed successfully");
 				dispose();
 			} catch (Exception e1) {
 				e1.printStackTrace();
