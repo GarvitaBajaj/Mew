@@ -2,7 +2,7 @@
  * Created by JFormDesigner on Thu Jul 06 21:43:40 IST 2017
  */
 
-package algos;
+package algoHelpers;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -69,7 +69,8 @@ public class UploadAlgoFile extends JFrame {
 			JOptionPane.showMessageDialog(uploadAlgo, "Label can not contain special characters (only alphanumeric characters allowed)");	
 		}
 		else{
-			String path = Paths.get(".").toAbsolutePath().normalize().toString()+"\\src\\main\\java\\algos\\";
+			String pathHelper = Paths.get(".").toAbsolutePath().normalize().toString()+"\\src\\main\\java\\algoHelpers\\";
+			String path=Paths.get(".").toAbsolutePath().normalize().toString()+"\\src\\main\\java\\algos\\";
 			File source=new File(textField1.getText());
 			String fileName="";
 			try {
@@ -82,8 +83,8 @@ public class UploadAlgoFile extends JFrame {
 			//run the jar command line to add this file to the algos package
 			//use this label and filename to overwrite AlgoFactory.java
 			try {
-				BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path+"AlgoFactory.java")));         
-				FileWriter fw = new FileWriter(path+"tempAlgoFactory.java", true);
+				BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(pathHelper+"AlgoFactory.java")));         
+				FileWriter fw = new FileWriter(pathHelper+"tempAlgoFactory.java", true);
 				BufferedWriter bw = new BufferedWriter(fw);
 				String line;
 				int lineNumber=0;
@@ -123,9 +124,9 @@ public class UploadAlgoFile extends JFrame {
 				e1.printStackTrace();
 			}
 			try{
-				boolean success = (new File(path+"AlgoFactory.java")).delete();
+				boolean success = (new File(pathHelper+"AlgoFactory.java")).delete();
 				if(success)System.out.println("File deleted succesfully");
-				boolean rename=new File(path+"tempAlgoFactory.java").renameTo(new File(path+"AlgoFactory.java"));
+				boolean rename=new File(pathHelper+"tempAlgoFactory.java").renameTo(new File(pathHelper+"AlgoFactory.java"));
 				if(rename)System.out.println("File renamed successfully");
 				dispose();
 			} catch (Exception e1) {

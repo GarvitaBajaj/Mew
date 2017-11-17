@@ -1,4 +1,4 @@
-package algos;
+package algoHelpers;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

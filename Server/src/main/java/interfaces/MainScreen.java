@@ -15,6 +15,7 @@ import java.io.InputStreamReader;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLDecoder;
+import java.nio.file.Paths;
 import java.security.CodeSource;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -27,7 +28,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import ParameterModule.ParameterModule;
-import algos.UploadAlgoFile;
+import algoHelpers.UploadAlgoFile;
 import net.miginfocom.swing.*;
 
 /**
@@ -253,6 +254,29 @@ public class MainScreen extends JFrame {
 		});
 	}
 
+	private void listAvailableAlgos(ActionEvent e) {
+		//this should open a new frame which will show a table
+		EventQueue.invokeLater(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				try 
+				{
+					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				AvailableAlgos panel = AvailableAlgos.getInstance();
+				panel.setTitle("List of available algorithms");
+				panel.setModalExclusionType(Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
+				panel.pack();
+				panel.setVisible(true);
+				panel.setResizable(false);
+			}
+		});
+	}
+
 	//	private void setupDB(ActionEvent e) {
 	//		//open a dialog to enter the file location
 	//				EventQueue.invokeLater(new Runnable()
@@ -288,7 +312,7 @@ public class MainScreen extends JFrame {
 		newParameters = new JButton();
 		button1 = new JButton();
 		button4 = new JButton();
-		button5 = new JButton();
+		availAlgos = new JButton();
 		button6 = new JButton();
 
 		//======== this ========
@@ -350,9 +374,10 @@ public class MainScreen extends JFrame {
 		button4.addActionListener(e -> listWorkers(e));
 		contentPane.add(button4, "cell 0 6");
 
-		//---- button5 ----
-		button5.setText(bundle.getString("MainScreen.button5.text"));
-		contentPane.add(button5, "cell 1 6");
+		//---- availAlgos ----
+		availAlgos.setText(bundle.getString("MainScreen.availAlgos.text"));
+		availAlgos.addActionListener(e -> listAvailableAlgos(e));
+		contentPane.add(availAlgos, "cell 1 6");
 
 		//---- button6 ----
 		button6.setText(bundle.getString("MainScreen.button6.text"));
@@ -373,7 +398,7 @@ public class MainScreen extends JFrame {
 	private JButton newParameters;
 	private JButton button1;
 	private JButton button4;
-	private JButton button5;
+	private JButton availAlgos;
 	private JButton button6;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

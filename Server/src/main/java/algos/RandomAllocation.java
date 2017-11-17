@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.deser.Deserializers.Base;
 
+import algoHelpers.Algo;
+import algoHelpers.BaseMethods;
+
 @Component
 public class RandomAllocation implements Algo{
 

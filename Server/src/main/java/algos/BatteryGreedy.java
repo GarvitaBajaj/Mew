@@ -15,6 +15,7 @@ import org.json.JSONObject;
 import database.*;
 import org.springframework.stereotype.Component;
 
+import algoHelpers.Algo;
 import background.MewServerResponseGateway;
 import interfaces.MainScreen;
 import utils.Provider;

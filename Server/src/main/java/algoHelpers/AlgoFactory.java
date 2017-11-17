@@ -1,4 +1,4 @@
-package algos;
+package algoHelpers;
 
 import org.json.JSONObject;
 
