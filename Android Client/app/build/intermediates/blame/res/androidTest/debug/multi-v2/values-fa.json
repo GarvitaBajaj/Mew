@@ -1,0 +1,43 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\garvita\\Desktop\\Mew\\Android Client\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-fa\\values-fa.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\garvita\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-10.0.1.aar\\addb510d0e20b584e3a39c061486c2b5\\res\\values-fa\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "285",
+                        "endColumns": "213",
+                        "endOffsets": "498"
+                    },
+                    "to": {
+                        "startLines": "15",
+                        "startColumns": "4",
+                        "startOffsets": "1495",
+                        "endColumns": "213",
+                        "endOffsets": "1704"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\garvita\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-22.2.1.aar\\c00be9c49c19dad696e2057aabbfd9bf\\res\\values-fa\\values-fa.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "291,401,504,615,703,806,921,1033,1136,1234,1344,1447,1556",
+                        "endColumns": "109,102,110,87,102,114,111,102,97,109,102,108,124",
+                        "endOffsets": "396,499,610,698,801,916,1028,1131,1229,1339,1442,1551,1676"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,215,318,429,517,620,735,847,950,1048,1158,1261,1370",
+                        "endColumns": "109,102,110,87,102,114,111,102,97,109,102,108,124",
+                        "endOffsets": "210,313,424,512,615,730,842,945,1043,1153,1256,1365,1490"
+                    }
+                }
+            ]
+        }
+    ]
+}

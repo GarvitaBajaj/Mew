@@ -71,8 +71,8 @@ public class MySQLcredentials extends JDialog {
 				Reader reader = new BufferedReader(new FileReader(aSQLScriptFilePath));
 				sr.runScript(reader);
 				Connection con1=DriverManager.getConnection(dbString,username,password);
-				JOptionPane.showInternalMessageDialog(sqlObject.getContentPane(), "Database connection established");
-				System.out.println("Database connection established");
+				JOptionPane.showInternalMessageDialog(sqlObject.getContentPane(), "Connection established with new database - mew");
+				System.out.println("Connection established with new database - mew");
 				dispose();
 				return con1;
 			} catch (Exception e) {

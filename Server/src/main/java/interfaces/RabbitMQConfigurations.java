@@ -37,7 +37,6 @@ public class RabbitMQConfigurations extends JFrame {
 	//	public static ApplicationContext schedulerContext;
 	protected final String SERVER_RESOURCES_QUEUE = "queue.ps.resources";
 	public String rabbitUser, rabbitPwd, rabbitPort;
-	public static ConnectionFactory connectionFactory=null;
 	public static ConnectionFactory conFact=null;
 	protected final String SERVER_QUERY_QUEUE = "queue.ps.queries";
 
@@ -60,7 +59,6 @@ public class RabbitMQConfigurations extends JFrame {
 		if(rabbitObject==null){
 			rabbitObject=new RabbitMQConfigurations();
 		}
-		//		rabbitObject.setVisible(true);		
 		return rabbitObject;
 	}
 	public ConnectionFactory conFactory;
@@ -71,10 +69,9 @@ public class RabbitMQConfigurations extends JFrame {
 			defineConFactory();
 		} catch (IOException e1) {
 			e1.printStackTrace();
-		} catch (TimeoutException e1) {
+		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
-		JOptionPane.showInternalMessageDialog(rabbitObject.getContentPane(), "Server setup complete");
 		dispose();
 	}
 
@@ -86,7 +83,7 @@ public class RabbitMQConfigurations extends JFrame {
 
 	public void publishThread(){
 		try {
-			Connection connection = connectionFactory.newConnection();
+			Connection connection = conFact.newConnection();
 			Channel ch = connection.createChannel();
 			ch.confirmSelect();
 			ch.exchangeDeclare(RESOURCE_QUERY_EXCHANGE_NAME, "topic",true);
@@ -104,19 +101,18 @@ public class RabbitMQConfigurations extends JFrame {
 	}
 	
 	@Bean
-	public ConnectionFactory defineConFactory() throws IOException, TimeoutException{
+	public ConnectionFactory defineConFactory() throws Exception{
 		rabbitUser=rabbitmquser.getText();
 		rabbitPwd=String.valueOf(rabbitmqpwd.getPassword());
-		connectionFactory = new ConnectionFactory();
-		connectionFactory.setHost("localhost");
-		connectionFactory.setUsername(rabbitUser);
-		connectionFactory.setPassword(rabbitPwd);
-		conFact=connectionFactory;
+		conFact = new ConnectionFactory();
+		conFact.setHost("localhost");
+		conFact.setUsername(rabbitUser);
+		conFact.setPassword(rabbitPwd);
 		startListening();
-		return connectionFactory;
+		return conFact;
 	}
 
-	public void startListening(){
+	public void startListening() throws Exception{
 		com.rabbitmq.client.Connection connection;
 		try {
 			connection = conFact.newConnection();
@@ -266,9 +262,11 @@ public class RabbitMQConfigurations extends JFrame {
 				}
 			};
 			channel2.basicConsume(queriesQueue, true, consumer2);
-		} catch (IOException | TimeoutException e1) {
+			JOptionPane.showInternalMessageDialog(rabbitObject.getContentPane(), "Server setup complete");
+		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+			JOptionPane.showInternalMessageDialog(rabbitObject.getContentPane(), "An exception occurred");
 		}
 
 	}

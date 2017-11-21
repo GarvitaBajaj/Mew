@@ -1,0 +1,43 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\garvita\\Desktop\\Mew\\Android Client\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ko\\values-ko.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\garvita\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-10.0.1.aar\\addb510d0e20b584e3a39c061486c2b5\\res\\values-ko\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "285",
+                        "endColumns": "179",
+                        "endOffsets": "464"
+                    },
+                    "to": {
+                        "startLines": "15",
+                        "startColumns": "4",
+                        "startOffsets": "1380",
+                        "endColumns": "179",
+                        "endOffsets": "1555"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\garvita\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-22.2.1.aar\\c00be9c49c19dad696e2057aabbfd9bf\\res\\values-ko\\values-ko.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "291,386,480,582,664,762,868,966,1061,1156,1256,1352,1451",
+                        "endColumns": "94,93,101,81,97,105,97,94,94,99,95,98,114",
+                        "endOffsets": "381,475,577,659,757,863,961,1056,1151,1251,1347,1446,1561"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,200,294,396,478,576,682,780,875,970,1070,1166,1265",
+                        "endColumns": "94,93,101,81,97,105,97,94,94,99,95,98,114",
+                        "endOffsets": "195,289,391,473,571,677,775,870,965,1065,1161,1260,1375"
+                    }
+                }
+            ]
+        }
+    ]
+}

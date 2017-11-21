@@ -1,0 +1,43 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\garvita\\Desktop\\Mew\\Android Client\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-ja\\values-ja.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\garvita\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-22.2.1.aar\\c00be9c49c19dad696e2057aabbfd9bf\\res\\values-ja\\values-ja.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "291,388,481,586,668,766,874,976,1075,1170,1273,1368,1464",
+                        "endColumns": "96,92,104,81,97,107,101,98,94,102,94,95,110",
+                        "endOffsets": "383,476,581,663,761,869,971,1070,1165,1268,1363,1459,1570"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,202,295,400,482,580,688,790,889,984,1087,1182,1278",
+                        "endColumns": "96,92,104,81,97,107,101,98,94,102,94,95,110",
+                        "endOffsets": "197,290,395,477,575,683,785,884,979,1082,1177,1273,1384"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\garvita\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-10.0.1.aar\\addb510d0e20b584e3a39c061486c2b5\\res\\values-ja\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "285",
+                        "endColumns": "180",
+                        "endOffsets": "465"
+                    },
+                    "to": {
+                        "startLines": "15",
+                        "startColumns": "4",
+                        "startOffsets": "1389",
+                        "endColumns": "180",
+                        "endOffsets": "1565"
+                    }
+                }
+            ]
+        }
+    ]
+}

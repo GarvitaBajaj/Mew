@@ -1,0 +1,43 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\garvita\\Desktop\\Mew\\Android Client\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sk\\values-sk.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\garvita\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-10.0.1.aar\\addb510d0e20b584e3a39c061486c2b5\\res\\values-sk\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "285",
+                        "endColumns": "197",
+                        "endOffsets": "482"
+                    },
+                    "to": {
+                        "startLines": "15",
+                        "startColumns": "4",
+                        "startOffsets": "1498",
+                        "endColumns": "197",
+                        "endOffsets": "1691"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\garvita\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-22.2.1.aar\\c00be9c49c19dad696e2057aabbfd9bf\\res\\values-sk\\values-sk.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "291,398,498,609,695,803,921,1026,1135,1234,1340,1451,1560",
+                        "endColumns": "106,99,110,85,107,117,104,108,98,105,110,108,123",
+                        "endOffsets": "393,493,604,690,798,916,1021,1130,1229,1335,1446,1555,1679"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,212,312,423,509,617,735,840,949,1048,1154,1265,1374",
+                        "endColumns": "106,99,110,85,107,117,104,108,98,105,110,108,123",
+                        "endOffsets": "207,307,418,504,612,730,835,944,1043,1149,1260,1369,1493"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,4 +1,4 @@
-create database mew;
+create database IF NOT EXISTS mew;
 use mew;
 drop TABLE IF EXISTS nodes;
 create table mew.nodes (DeviceID varchar(30), battery double, linkspeed int(11), AccRunning boolean, AccPower double, GPSRunning boolean, GPSPower double, GyrRunning boolean, GyrPower double, SensorsAvailable int, servicingTask boolean, old_lat double, old_lon double, new_lat double, new_lon double, providerMode boolean, MicPower double,
