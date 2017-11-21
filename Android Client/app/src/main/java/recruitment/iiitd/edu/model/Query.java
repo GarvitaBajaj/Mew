@@ -196,7 +196,7 @@ public class Query {
 	public static void sendQueryToServer(JSONObject jsonQuery, Context context) throws InterruptedException, JSONException {
 		Log.d(Constants.TAG, "Trying to send query");
 		Map<String, Object> querymsg = new HashMap<String, Object>();
-//		querymsg.put("TYPE", Constants.MESSAGE_TYPE.QUERY.getValue());
+//		querymsg.put"(TYPE", Constants.MESSAGE_TYPE.QUERY.getValue());
 		querymsg.put("Query", jsonQuery);
 
 		Log.d("Query",jsonQuery.toString());

@@ -38,7 +38,7 @@ public class AvailableAlgos extends JFrame {
 		try {
 			DefaultTableModel dtm = new DefaultTableModel(0, 3);
 			// add header of the table
-			String header[] = new String[] { "Algorithms Available" };
+			String header[] = new String[] { "S. No.", "Name of the algorithm" };
 			dtm.setColumnIdentifiers(header);
 			table1.setModel(dtm);
 			String path=Paths.get(".").toAbsolutePath().normalize().toString()+"\\src\\main\\java\\algos\\";
@@ -48,7 +48,7 @@ public class AvailableAlgos extends JFrame {
 			    for (int i = 0; i < listOfFiles.length; i++) {
 			      if (listOfFiles[i].isFile()) {
 			        System.out.println(listOfFiles[i].getName().substring(0, listOfFiles[i].getName().length()-5));
-			        dtm.addRow(new Object[] { listOfFiles[i].getName().substring(0, listOfFiles[i].getName().length()-5)});
+			        dtm.addRow(new Object[] { String.valueOf(i+1),listOfFiles[i].getName().substring(0, listOfFiles[i].getName().length()-5)});
 			      } 
 			    }
 		} catch (Exception e1) {

@@ -37,6 +37,7 @@ public class MySQLcredentials extends JDialog {
 		sqlObject.setVisible(true);
 		return sqlObject;
 	}
+	
 	private void sendSQLinfo(ActionEvent e) {
 		MainScreen.mysqlPort=sqlPort.getText();
 		MainScreen.mysqlDB=sqlDB.getText();

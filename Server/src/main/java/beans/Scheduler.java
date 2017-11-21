@@ -25,6 +25,7 @@ public class Scheduler {
 
 
 	public void schedule() {
+		System.out.println("Entered scheduler");
 		if(!queryQueue.isEmpty()){
 			Long startTime = queryQueue.firstKey();
 			if(startTime>maxTime){

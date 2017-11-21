@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.*;
+import java.util.concurrent.BlockingDeque;
+import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.TimeoutException;
 
 import javax.swing.*;
@@ -23,6 +25,8 @@ import beans.*;
 
 import org.springframework.context.annotation.Bean;
 import net.miginfocom.swing.*;
+import utils.Constants;
+import utils.Pair;
 
 /**
  * @author Garvita Bajaj
@@ -30,10 +34,11 @@ import net.miginfocom.swing.*;
 public class RabbitMQConfigurations extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-//	public static ApplicationContext schedulerContext;
+	//	public static ApplicationContext schedulerContext;
 	protected final String SERVER_RESOURCES_QUEUE = "queue.ps.resources";
 	public String rabbitUser, rabbitPwd, rabbitPort;
-	public static ConnectionFactory conFact;
+	public static ConnectionFactory connectionFactory=null;
+	public static ConnectionFactory conFact=null;
 	protected final String SERVER_QUERY_QUEUE = "queue.ps.queries";
 
 	protected final String resourcesRoutingKey = "resources";
@@ -43,22 +48,24 @@ public class RabbitMQConfigurations extends JFrame {
 	public static String SELECTION_EXCHANGE_NAME = "exchange.ps.selection";
 
 	protected static String RESOURCE_QUERY_EXCHANGE_NAME = "exchange.ps.resquery";
+	private BlockingDeque<Pair<String, String>> queue = new LinkedBlockingDeque< Pair<String, String> >();
 
 	public RabbitMQConfigurations() {
 		initComponents();
 	}
-	
+
 	public static RabbitMQConfigurations rabbitObject=null;
+
 	public static RabbitMQConfigurations getInstance(){
 		if(rabbitObject==null){
 			rabbitObject=new RabbitMQConfigurations();
 		}
-		rabbitObject.setVisible(true);
+		//		rabbitObject.setVisible(true);		
 		return rabbitObject;
 	}
 	public ConnectionFactory conFactory;
 
-	
+
 	private void initializeRabbitMQ(ActionEvent e) {
 		try {
 			defineConFactory();
@@ -71,11 +78,36 @@ public class RabbitMQConfigurations extends JFrame {
 		dispose();
 	}
 
+	public void addMessageToQueue(Map<String,Object> msg, String routing_key){
+		Pair<String,String> resourcePair=new Pair<>(new JSONObject(msg).toString(),routing_key);
+		queue.add(resourcePair);
+		publishThread();
+	}
+
+	public void publishThread(){
+		try {
+			Connection connection = connectionFactory.newConnection();
+			Channel ch = connection.createChannel();
+			ch.confirmSelect();
+			ch.exchangeDeclare(RESOURCE_QUERY_EXCHANGE_NAME, "topic",true);
+			Pair<String,String> message = queue.takeFirst();
+			String routingKey = message.getRight();
+			ch.basicPublish(RESOURCE_QUERY_EXCHANGE_NAME, routingKey , null, message.getLeft().getBytes());
+			ch.waitForConfirmsOrDie(30000);
+			ch.close();
+			connection.close();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	@Bean
 	public ConnectionFactory defineConFactory() throws IOException, TimeoutException{
 		rabbitUser=rabbitmquser.getText();
 		rabbitPwd=String.valueOf(rabbitmqpwd.getPassword());
-		ConnectionFactory connectionFactory = new ConnectionFactory();
+		connectionFactory = new ConnectionFactory();
 		connectionFactory.setHost("localhost");
 		connectionFactory.setUsername(rabbitUser);
 		connectionFactory.setPassword(rabbitPwd);
@@ -83,7 +115,7 @@ public class RabbitMQConfigurations extends JFrame {
 		startListening();
 		return connectionFactory;
 	}
-	
+
 	public void startListening(){
 		com.rabbitmq.client.Connection connection;
 		try {
@@ -102,7 +134,7 @@ public class RabbitMQConfigurations extends JFrame {
 					String message = new String(body, "UTF-8");
 					final JSONObject jsonMsgs=new JSONObject(message);
 					int msgType=jsonMsgs.getInt("TYPE");
-//					channel.basicAck(envelope.getDeliveryTag(), true);
+					//					channel.basicAck(envelope.getDeliveryTag(), true);
 					switch(msgType) {
 
 					case(1):
@@ -204,41 +236,41 @@ public class RabbitMQConfigurations extends JFrame {
 				}
 			};
 			channel.basicConsume(queueName, true, consumer);
-			
-			
+
+
 			Channel channel2=connection.createChannel();
 			DeclareOk q1 = channel2.queueDeclare(SERVER_QUERY_QUEUE, true, false, false, null);
 			String queriesQueue = q1.getQueue();
 			channel2.queueBind(queriesQueue, RESOURCE_QUERY_EXCHANGE_NAME, queriesRoutingKey);
 			System.out.println("Queries Queue Created");
 			Consumer consumer2 = new DefaultConsumer(channel2) {
-			      @Override
-			      public void handleDelivery(String consumerTag, Envelope envelope,
-			                                 AMQP.BasicProperties properties, byte[] body) throws IOException {
-			        String message = new String(body, "UTF-8");
-			        JSONObject jsonMsgs = new JSONObject(message);
-					
+				@Override
+				public void handleDelivery(String consumerTag, Envelope envelope,
+						AMQP.BasicProperties properties, byte[] body) throws IOException {
+					String message = new String(body, "UTF-8");
+					JSONObject jsonMsgs = new JSONObject(message);
+
 					JSONObject query = jsonMsgs.getJSONObject("Query");
 					Long startTime = query.getLong("fromTime");
-					
+
 					Scheduler.queryQueue.put(startTime, query);
 					System.out.println("Received '" + message + "'");
-			        
+
 					Scheduler scheduler = MainScreen.schedulerContext.getBean(Scheduler.class);
 					if(scheduler!=null){
-					scheduler.schedule();
+						System.out.println("New query received");
+						scheduler.schedule();
 					}else{
-						System.out.println("dikkat");
 						JOptionPane.showMessageDialog(null, "some problem");
 					}
-			      }
-			    };
-			    channel2.basicConsume(queriesQueue, true, consumer2);
+				}
+			};
+			channel2.basicConsume(queriesQueue, true, consumer2);
 		} catch (IOException | TimeoutException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		}//connectionFactory.newConnection();
-		
+		}
+
 	}
 
 	private void initComponents() {
@@ -259,17 +291,17 @@ public class RabbitMQConfigurations extends JFrame {
 		setTitle(bundle.getString("RabbitMQConfigurations.this.title"));
 		Container contentPane = getContentPane();
 		contentPane.setLayout(new MigLayout(
-			"hidemode 3",
-			// columns
-			"[118,fill]" +
-			"[134,fill]",
-			// rows
-			"[32]" +
-			"[26]" +
-			"[17]" +
-			"[]" +
-			"[]" +
-			"[]"));
+				"hidemode 3",
+				// columns
+				"[118,fill]" +
+				"[134,fill]",
+				// rows
+				"[32]" +
+				"[26]" +
+				"[17]" +
+				"[]" +
+				"[]" +
+				"[]"));
 
 		//---- label1 ----
 		label1.setText(bundle.getString("RabbitMQConfigurations.label1.text"));

@@ -89,7 +89,7 @@ public class MainScreen extends JFrame {
 		return context;
 	}
 
-	private void initializeDB(ActionEvent e) {
+	public static void showScreenMySQL(){
 		//open the frame to get the SQL configuration file
 		EventQueue.invokeLater(new Runnable()
 		{
@@ -110,7 +110,11 @@ public class MainScreen extends JFrame {
 				panel.setVisible(true);
 				panel.setResizable(false);
 			}
-		});
+		});		
+	}
+
+	private void initializeDB(ActionEvent e) {
+		showScreenMySQL();
 	}
 
 	private void getRabbitMQConf(ActionEvent e) {
@@ -192,45 +196,6 @@ public class MainScreen extends JFrame {
 		});
 	}
 
-	private void button8ActionPerformed(ActionEvent e) {
-		// TODO add your code here
-		//		try {
-		//			String fileName = "shellFile.sh";
-		//			URL location=MainScreen.class.getProtectionDomain().getCodeSource().getLocation();
-		//			String p = URLDecoder.decode(location.getFile(), "UTF-8");
-		//			System.out.println(location);
-		//	        String inputFilePath = p + fileName;
-		//	        System.out.println(inputFilePath);
-		//			Process process = Runtime.getRuntime().exec(inputFilePath);
-		//		} catch (IOException e2) {
-		//			// TODO Auto-generated catch block
-		//			e2.printStackTrace();
-		//		}
-		System.out.println(new File(".").getAbsolutePath());
-		//		CodeSource src = MainScreen.class.getProtectionDomain().getCodeSource();
-		//		try{
-		//		if (src != null) {
-		//		  URL jar = src.getLocation();
-		//		  String p = URLDecoder.decode(jar.getFile(), "UTF-8");
-		//		  System.out.println(p);
-		//		  System.out.println(MainScreen.class.getResource(MainScreen.class.getSimpleName()));
-		//		  ZipInputStream zip = new ZipInputStream(jar.openStream());
-		//		  while(true) {
-		//		    ZipEntry e1 = zip.getNextEntry();
-		//		    if (e1 == null)
-		//		      break;
-		//		    String name = e1.getName();
-		//		    System.out.println(name);
-		////		    if (name.startsWith("path/to/your/dir/")) {
-		////		      
-		////		    }
-		//		  }
-		//		}
-		//		} catch(Exception e1){
-		//			e1.printStackTrace();
-		//		}
-	}
-
 	private void listWorkers(ActionEvent e) {
 		//display a dialog with the output of select statement
 		EventQueue.invokeLater(new Runnable()
@@ -244,7 +209,7 @@ public class MainScreen extends JFrame {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				MySQLcredentials panel = new MySQLcredentials();
+				WorkerList panel = new WorkerList();
 				panel.setTitle("Available workers");
 				panel.setModalExclusionType(Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
 				panel.pack();
@@ -269,6 +234,29 @@ public class MainScreen extends JFrame {
 				}
 				AvailableAlgos panel = AvailableAlgos.getInstance();
 				panel.setTitle("List of available algorithms");
+				panel.setModalExclusionType(Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
+				panel.pack();
+				panel.setVisible(true);
+				panel.setResizable(false);
+			}
+		});
+	}
+
+	private void issueTaskRequest(ActionEvent e) {
+		//create a JSON query with different parameters using a dialog box
+		EventQueue.invokeLater(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				try 
+				{
+					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				TaskRequest panel = TaskRequest.getInstance();
+				panel.setTitle("Generate a new task");
 				panel.setModalExclusionType(Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
 				panel.pack();
 				panel.setVisible(true);
@@ -313,25 +301,25 @@ public class MainScreen extends JFrame {
 		button1 = new JButton();
 		button4 = new JButton();
 		availAlgos = new JButton();
-		button6 = new JButton();
+		issueTask = new JButton();
 
 		//======== this ========
 		Container contentPane = getContentPane();
 		contentPane.setLayout(new MigLayout(
-			"hidemode 3",
-			// columns
-			"[131,fill]" +
-			"[135,fill]",
-			// rows
-			"[27]" +
-			"[]" +
-			"[]" +
-			"[26]" +
-			"[24]" +
-			"[]" +
-			"[]" +
-			"[]" +
-			"[]"));
+				"hidemode 3",
+				// columns
+				"[131,fill]" +
+				"[135,fill]",
+				// rows
+				"[27]" +
+				"[]" +
+				"[]" +
+				"[26]" +
+				"[24]" +
+				"[]" +
+				"[]" +
+				"[]" +
+				"[]"));
 
 		//---- label1 ----
 		label1.setText(bundle.getString("MainScreen.label1.text"));
@@ -379,9 +367,10 @@ public class MainScreen extends JFrame {
 		availAlgos.addActionListener(e -> listAvailableAlgos(e));
 		contentPane.add(availAlgos, "cell 1 6");
 
-		//---- button6 ----
-		button6.setText(bundle.getString("MainScreen.button6.text"));
-		contentPane.add(button6, "cell 1 7");
+		//---- issueTask ----
+		issueTask.setText(bundle.getString("MainScreen.issueTask.text"));
+		issueTask.addActionListener(e -> issueTaskRequest(e));
+		contentPane.add(issueTask, "cell 1 7");
 		pack();
 		setLocationRelativeTo(getOwner());
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -399,6 +388,6 @@ public class MainScreen extends JFrame {
 	private JButton button1;
 	private JButton button4;
 	private JButton availAlgos;
-	private JButton button6;
+	private JButton issueTask;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

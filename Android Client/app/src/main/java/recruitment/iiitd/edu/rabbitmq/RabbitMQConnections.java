@@ -151,7 +151,7 @@ public class RabbitMQConnections {
 	public void addMessageToQueue(Map<String,Object> msg, String routing_key){
 		System.out.println("RabbitMQ msg: "+new JSONObject(msg).toString());
 		Pair<String,String> resourcePair=new Pair<>(new JSONObject(msg).toString(),routing_key);
-			queue.add(resourcePair);
+		queue.add(resourcePair);
 //		Log.d("Message Type", msg.get("TYPE").toString());
 	}
 
@@ -182,19 +182,20 @@ public class RabbitMQConnections {
 						ch.exchangeDeclare(exchangeName, exchangeType, durable);
 						Pair<String,String> message = queue.takeFirst();
 						String routingKey = message.getRight();
-						Log.e("Routing key ",routingKey);
 						ch.basicPublish(exchangeName, routingKey , null, message.getLeft().getBytes());
-						Log.d("MEW", "[s] " + message.getRight() + " Queue Length " + queue.size());
+						Log.d("MEW", "Message sent successfully: " + message.getRight() + " Queue Length " + queue.size());
 						ch.waitForConfirmsOrDie(30000);
 						ch.close();
 						connection.close();
 //					}
 				} catch (InterruptedException e) {
 						LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e.getMessage());
+						e.printStackTrace();
 //					FirebaseCrash.logcat(Log.ERROR, "Exception caught", e.getMessage());
 //					FirebaseCrash.report(e);
 				} catch (Exception e) {
 					Log.d("MEW", "Connection broken: " + e.getMessage());
+					e.printStackTrace();
 						LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
 //					FirebaseCrash.logcat(Log.ERROR, "Exception caught", e.getMessage());
 //					FirebaseCrash.report(e);
