@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\Users\\garvita\\Desktop\\Mew\\Android Client\\app\\build\\intermediates\\res\\merged\\release\\xml\\pref_general.xml",
+        "source": "C:\\Users\\garvita\\Desktop\\Mew\\Android Client\\app\\src\\main\\res\\xml\\pref_general.xml"
+    },
+    {
+        "merged": "C:\\Users\\garvita\\Desktop\\Mew\\Android Client\\app\\build\\intermediates\\res\\merged\\release\\xml\\policies.xml",
+        "source": "C:\\Users\\garvita\\Desktop\\Mew\\Android Client\\app\\src\\main\\res\\xml\\policies.xml"
+    }
+]
