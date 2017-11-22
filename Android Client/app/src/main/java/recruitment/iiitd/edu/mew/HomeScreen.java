@@ -69,7 +69,7 @@ public class HomeScreen extends AppCompatActivity {
 	LogTimer logTimer;
 	Intent i1 ;
 	Context mContext;
-	public boolean screenAlarms=false;
+//	public boolean screenAlarms=false;
 
 	//varibles specific to locking/unlocking the screen at regular intervals
 	public static WifiManager wm;
@@ -134,64 +134,64 @@ public class HomeScreen extends AppCompatActivity {
 		PendingIntent pendingIntentstop = PendingIntent.getBroadcast(this, Constants.FIRE_SCREEN_OFF, stopIntent, 0);
 		stopAlarm.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
 									  SystemClock.elapsedRealtime() + Constants.SCREEN_DURATION, Constants.SCREEN_INTERVAL, pendingIntentstop);
-		screenAlarms=true;
+//		screenAlarms=true;
 	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home_screen);
-		wm = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
+		wm = (WifiManager) this.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 		wifiLock = wm.createWifiLock(WifiManager.WIFI_MODE_FULL_HIGH_PERF, TAG);
 		deviceManger = (DevicePolicyManager)getSystemService(Context.DEVICE_POLICY_SERVICE);
 		activityManager = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
 		compName = new ComponentName(this, MyAdmin.class);
 //		enableAdmin();
-		wakeUpScreenPeriodically();
+//		wakeUpScreenPeriodically();
 		mContext = this;
 //		setNeverSleepPolicy();
 
-		if(Build.VERSION.SDK_INT>=17) {
-			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog, int id) {
-					mockLocation = true;
-					AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-					builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog, int id) {
-							MobilityTrace.sharedPref = mContext.getSharedPreferences("MobilityTraces", Context.MODE_PRIVATE);
-							SharedPreferences.Editor editor = MobilityTrace.sharedPref.edit();
-							editor.putInt(MobilityTrace.LAST_TRACE, 0);
-							editor.commit();
-
-						}
-					});
-					builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog, int id) {
-							return;
-						}
-					});
-
-					builder.setMessage("Do you want to start from beginning?");
-					builder.setTitle("Location Alert");
-					AlertDialog lDialog = builder.create();
-					lDialog.show();
-					SharedPreferences.Editor editor=getApplicationContext().getSharedPreferences("StateValues", Context.MODE_PRIVATE).edit();
-					editor.putBoolean("mockLocation",true);
-					editor.commit();
-				}
-			});
-			builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog, int id) {
-					mockLocation = false;
-				}
-			});
-
-			builder.setMessage("Do you want to enable mock locations for this session?");
-			builder.setTitle("Location Alert");
-			AlertDialog dialog = builder.create();
-			dialog.show();
-		}
+//		if(Build.VERSION.SDK_INT>=17) {
+//			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//			builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//				public void onClick(DialogInterface dialog, int id) {
+//					mockLocation = true;
+//					AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+//					builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//						public void onClick(DialogInterface dialog, int id) {
+//							MobilityTrace.sharedPref = mContext.getSharedPreferences("MobilityTraces", Context.MODE_PRIVATE);
+//							SharedPreferences.Editor editor = MobilityTrace.sharedPref.edit();
+//							editor.putInt(MobilityTrace.LAST_TRACE, 0);
+//							editor.commit();
+//
+//						}
+//					});
+//					builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+//						public void onClick(DialogInterface dialog, int id) {
+//							return;
+//						}
+//					});
+//
+//					builder.setMessage("Do you want to start from beginning?");
+//					builder.setTitle("Location Alert");
+//					AlertDialog lDialog = builder.create();
+//					lDialog.show();
+//					SharedPreferences.Editor editor=getApplicationContext().getSharedPreferences("StateValues", Context.MODE_PRIVATE).edit();
+//					editor.putBoolean("mockLocation",true);
+//					editor.commit();
+//				}
+//			});
+//			builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+//				public void onClick(DialogInterface dialog, int id) {
+//					mockLocation = false;
+//				}
+//			});
+//
+//			builder.setMessage("Do you want to enable mock locations for this session?");
+//			builder.setTitle("Location Alert");
+//			AlertDialog dialog = builder.create();
+//			dialog.show();
+//		}
 
 		Constants.DEVICE_ID= Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
 
@@ -309,53 +309,53 @@ public class HomeScreen extends AppCompatActivity {
 			return true;
 		}
 
-		if(id==R.id.action_query){
-			Intent i=new Intent(this,QueryForm.class);
-			i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-			startActivity(i);
-		}
-
-		if(id==R.id.action_backup){
-
-			File file1 = new File(new File(Environment.getExternalStorageDirectory() + "/Mew/").getPath());
-			final File to = new File(file1.getAbsolutePath() + System.currentTimeMillis());
-			file1.renameTo(to);
-
-			Intent intent = new Intent(Intent.ACTION_SEND_MULTIPLE);
-			intent.putExtra(Intent.EXTRA_EMAIL, new String[] {"garvitab@iiitd.ac.in"});//,"apurv09064@iiitd.ac.in"});
-			intent.putExtra(Intent.EXTRA_SUBJECT, "Log file for "+Constants.DEVICE_ID);
-			intent.putExtra(Intent.EXTRA_TEXT, "This is an auto generated email. It contains the log file for the last experiment run.");
-			ArrayList<Uri> uris = new ArrayList<Uri>();
-
-			File directory = new File(to,"/Logging/");
-			File file=new File(directory,"logging.csv");
-			if (!file.exists() || !file.canRead()) {
-				Toast.makeText(this, "Logging.csv unavailable", Toast.LENGTH_SHORT).show();
-				finish();
-			}
-			Uri uri = Uri.parse("file://" + file);
-			uris.add(0,uri);
-			directory = new File(to,"/Query_Timestamps/");
-			file=new File(directory,"queries.csv");
-			if (!file.exists() || !file.canRead()) {
-				Toast.makeText(this, "Queries.csv unavailable", Toast.LENGTH_SHORT).show();
-			}
-			else {
-				uri = Uri.parse("file://" + file);
-				uris.add(1, uri);
-			}
-			file=new File(directory,"timestamps.csv");
-			if (!file.exists() || !file.canRead()) {
-				Toast.makeText(this, "timestamps.csv unavailable", Toast.LENGTH_LONG).show();
-			}
-			else {
-				uri = Uri.parse("file://" + file);
-				uris.add(2, uri);
-			}
-			intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
-			intent.setType("message/rfc822");
-			startActivity(intent);
-		}
+//		if(id==R.id.action_query){
+//			Intent i=new Intent(this,QueryForm.class);
+//			i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//			startActivity(i);
+//		}
+//
+//		if(id==R.id.action_backup){
+//
+//			File file1 = new File(new File(Environment.getExternalStorageDirectory() + "/Mew/").getPath());
+//			final File to = new File(file1.getAbsolutePath() + System.currentTimeMillis());
+//			file1.renameTo(to);
+//
+//			Intent intent = new Intent(Intent.ACTION_SEND_MULTIPLE);
+//			intent.putExtra(Intent.EXTRA_EMAIL, new String[] {"garvitab@iiitd.ac.in"});//,"apurv09064@iiitd.ac.in"});
+//			intent.putExtra(Intent.EXTRA_SUBJECT, "Log file for "+Constants.DEVICE_ID);
+//			intent.putExtra(Intent.EXTRA_TEXT, "This is an auto generated email. It contains the log file for the last experiment run.");
+//			ArrayList<Uri> uris = new ArrayList<Uri>();
+//
+//			File directory = new File(to,"/Logging/");
+//			File file=new File(directory,"logging.csv");
+//			if (!file.exists() || !file.canRead()) {
+//				Toast.makeText(this, "Logging.csv unavailable", Toast.LENGTH_SHORT).show();
+//				finish();
+//			}
+//			Uri uri = Uri.parse("file://" + file);
+//			uris.add(0,uri);
+//			directory = new File(to,"/Query_Timestamps/");
+//			file=new File(directory,"queries.csv");
+//			if (!file.exists() || !file.canRead()) {
+//				Toast.makeText(this, "Queries.csv unavailable", Toast.LENGTH_SHORT).show();
+//			}
+//			else {
+//				uri = Uri.parse("file://" + file);
+//				uris.add(1, uri);
+//			}
+//			file=new File(directory,"timestamps.csv");
+//			if (!file.exists() || !file.canRead()) {
+//				Toast.makeText(this, "timestamps.csv unavailable", Toast.LENGTH_LONG).show();
+//			}
+//			else {
+//				uri = Uri.parse("file://" + file);
+//				uris.add(2, uri);
+//			}
+//			intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
+//			intent.setType("message/rfc822");
+//			startActivity(intent);
+//		}
 		return super.onOptionsItemSelected(item);
 	}
 
@@ -384,13 +384,13 @@ public class HomeScreen extends AppCompatActivity {
 		//release all locks if held
 		if(wifiLock.isHeld())
 			wifiLock.release();
-		if(screenAlarms) {
-			if (mWakeLock.isHeld())
-				mWakeLock.release();
-
-			//cancel the alarms used to turn on/off the screens
-			cancelScreenAlarms();
-		}
+//		if(screenAlarms) {
+//			if (mWakeLock.isHeld())
+//				mWakeLock.release();
+//
+//			//cancel the alarms used to turn on/off the screens
+//			cancelScreenAlarms();
+//		}
 		logTimer.stoptimertask();
 		android.os.Process.killProcess(android.os.Process.myPid());
 		System.exit(0);
