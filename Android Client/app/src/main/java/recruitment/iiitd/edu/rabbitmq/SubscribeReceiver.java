@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.hardware.Sensor;
 import android.util.Log;
 
-import com.google.firebase.crash.FirebaseCrash;
+//import com.google.firebase.crash.FirebaseCrash;
 
 import org.json.JSONException;
 import org.json.JSONObject;

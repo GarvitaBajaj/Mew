@@ -19,8 +19,9 @@ import android.os.Environment;
 import android.os.PowerManager;
 import android.os.SystemClock;
 import android.provider.Settings;
-import android.support.v7.app.ActionBarActivity;
+//import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,7 +31,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.crash.FirebaseCrash;
+//import com.google.firebase.crash.FirebaseCrash;
 
 import org.json.JSONObject;
 
@@ -59,7 +60,7 @@ import recruitment.iiitd.edu.utils.LogTimer;
 import recruitment.iiitd.edu.utils.MobilityTrace;
 
 
-public class HomeScreen extends ActionBarActivity {
+public class HomeScreen extends AppCompatActivity {
 
 	private final String TAG = this.getClass().getCanonicalName();
 	private Switch resourceProvider,queryListener;

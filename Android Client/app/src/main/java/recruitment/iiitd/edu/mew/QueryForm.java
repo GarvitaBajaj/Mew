@@ -1,7 +1,8 @@
 package recruitment.iiitd.edu.mew;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+//import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
 import android.util.Log;
 import android.view.Menu;
@@ -12,7 +13,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.firebase.crash.FirebaseCrash;
+//import com.google.firebase.crash.FirebaseCrash;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,7 +26,7 @@ import recruitment.iiitd.edu.utils.LogTimer;
 import recruitment.iiitd.edu.utils.QueryFiltersLatLon;
 
 
-public class QueryForm extends ActionBarActivity {
+public class QueryForm extends AppCompatActivity {
 
 	Spinner sensors;
 	EditText ed1,ed2,ed3,ed4,ed5,ed6;

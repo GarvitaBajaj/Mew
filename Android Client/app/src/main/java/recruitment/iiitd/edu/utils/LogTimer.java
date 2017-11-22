@@ -8,7 +8,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
 
-import com.google.firebase.crash.FirebaseCrash;
+//import com.google.firebase.crash.FirebaseCrash;
 
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.location.Location;
 import android.util.Log;
 
-import com.google.firebase.crash.FirebaseCrash;
+//import com.google.firebase.crash.FirebaseCrash;
 
 import java.io.InputStreamReader;
 

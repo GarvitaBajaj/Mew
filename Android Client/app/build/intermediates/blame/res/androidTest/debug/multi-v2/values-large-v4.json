@@ -4,20 +4,13 @@
             "outputFile": "C:\\Users\\garvita\\Desktop\\Mew\\Android Client\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\garvita\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-22.2.1.aar\\c00be9c49c19dad696e2057aabbfd9bf\\res\\values-large\\values-large.xml",
+                    "source": "C:\\Users\\garvita\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.1.aar\\0ef0af3c5e9c0ab70e4522d98fece691\\res\\values-large-v4\\values-large-v4.xml",
                     "from": {
-                        "startLines": "4,7,8,11,12,13,14,15,16,19,20",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "292,592,664,961,1025,1092,1159,1225,1291,1589,1693",
-                        "endColumns": "61,71,58,63,66,66,65,65,54,103,115",
-                        "endOffsets": "349,659,718,1020,1087,1154,1220,1286,1341,1688,1804"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,117,189,248,312,379,446,512,578,633,737",
-                        "endColumns": "61,71,58,63,66,66,65,65,54,103,115",
-                        "endOffsets": "112,184,243,307,374,441,507,573,628,732,848"
+                        "startLines": "2,3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,114,185,256,326,396,464,532,636",
+                        "endColumns": "58,70,70,69,69,67,67,103,115",
+                        "endOffsets": "109,180,251,321,391,459,527,631,747"
                     }
                 }
             ]

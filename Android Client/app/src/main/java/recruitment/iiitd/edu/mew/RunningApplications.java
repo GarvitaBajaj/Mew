@@ -8,7 +8,7 @@ import android.content.SharedPreferences.Editor;
 import android.location.LocationManager;
 import android.util.Log;
 
-import com.google.firebase.crash.FirebaseCrash;
+//import com.google.firebase.crash.FirebaseCrash;
 
 import org.json.JSONObject;
 

@@ -7,7 +7,7 @@ import android.text.InputFilter;
 import android.text.Spanned;
 import android.util.Log;
 
-import com.google.firebase.crash.FirebaseCrash;
+//import com.google.firebase.crash.FirebaseCrash;
 
 public class QueryFiltersLatLon implements InputFilter {
 
