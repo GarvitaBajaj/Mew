@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Attendance-Register</string>
+    <string name="labelSelect">Your role:</string>
+</resources>
