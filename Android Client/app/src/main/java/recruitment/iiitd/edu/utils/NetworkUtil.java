@@ -222,13 +222,14 @@ public class NetworkUtil {
 					return false;
 				}
 			} catch (MalformedURLException e1) {
-
-				LogTimer.blockingDeque.add(System.currentTimeMillis()+" "+ mContext.getClass().toString()+ " "+e1.getMessage());
+e1.printStackTrace();
+//				LogTimer.blockingDeque.add(System.currentTimeMillis()+" "+ mContext.getClass().toString()+ " "+e1.getMessage());
 //				FirebaseCrash.logcat(Log.ERROR, "Exception caught", "Collecting data");
 //				FirebaseCrash.report(e1);
 				return false;
 			} catch (IOException e) {
-				LogTimer.blockingDeque.add(System.currentTimeMillis()+" "+ mContext.getClass().toString()+ " "+e.getMessage());
+				e.printStackTrace();
+				//				LogTimer.blockingDeque.add(System.currentTimeMillis()+" "+ mContext.getClass().toString()+ " "+e.getMessage());
 //				FirebaseCrash.logcat(Log.ERROR, "Exception caught", "Collecting data");
 //				FirebaseCrash.report(e);
 				return false;

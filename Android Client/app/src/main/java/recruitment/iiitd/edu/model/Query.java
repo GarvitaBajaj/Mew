@@ -15,7 +15,7 @@ import java.util.Map;
 
 import recruitment.iiitd.edu.utils.Constants;
 import recruitment.iiitd.edu.rabbitmq.RabbitMQConnections;
-import recruitment.iiitd.edu.utils.LogTimer;
+//import recruitment.iiitd.edu.utils.LogTimer;
 
 public class Query {
 
@@ -213,14 +213,16 @@ public class Query {
 			jsonquery.put("selection",query.getSelection());
 			jsonquery.put("requesterID", Constants.DEVICE_ID);
 		} catch (JSONException e) {
-			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + context.getClass().toString() + " : " + e.getMessage());
+			e.printStackTrace();
+//			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + context.getClass().toString() + " : " + e.getMessage());
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught", "JSON Exception in generating query");
 //			FirebaseCrash.report(e);
 		}
 		try {
 			jsonquery.put("min", query.getMin());
 		} catch (JSONException e) {
-			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + context.getClass().toString() + " : " + e.getMessage());
+			e.printStackTrace();
+//			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + context.getClass().toString() + " : " + e.getMessage());
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught", "JSON Exception in generating query");
 //			FirebaseCrash.report(e);
 		}
@@ -228,7 +230,7 @@ public class Query {
 			jsonquery.put("max", query.getMax());
 		} catch (JSONException e) {
 			e.printStackTrace();
-			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + context.getClass().toString() + " : " + e.getMessage());
+//			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + context.getClass().toString() + " : " + e.getMessage());
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught", "JSON Exception in generating query");
 //			FirebaseCrash.report(e);
 		}
@@ -236,7 +238,7 @@ public class Query {
 			jsonquery.put("fromTime", query.getFromTime());
 		} catch (JSONException e) {
 			e.printStackTrace();
-			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + context.getClass().toString() + " : " + e.getMessage());
+//			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + context.getClass().toString() + " : " + e.getMessage());
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught", "JSON Exception in generating query");
 //			FirebaseCrash.report(e);
 		}
@@ -244,7 +246,7 @@ public class Query {
 			jsonquery.put("toTime", query.getToTime());
 		} catch (JSONException e) {
 			e.printStackTrace();
-			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + context.getClass().toString() + " : " + e.getMessage());
+//			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + context.getClass().toString() + " : " + e.getMessage());
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught", "JSON Exception in generating query");
 //			FirebaseCrash.report(e);
 		}
@@ -252,20 +254,20 @@ public class Query {
 			jsonquery.put("expiryTime", query.getExpiryTime());
 		} catch (JSONException e) {
 			e.printStackTrace();
-			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + context.getClass().toString() + " : " + e.getMessage());
+//			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + context.getClass().toString() + " : " + e.getMessage());
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught", "JSON Exception in generating query");
 //			FirebaseCrash.report(e);
 		}
 		try {
 			jsonquery.put("latitude", query.getLatitude());
 		} catch (JSONException e) {
-			LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+context.getClass().toString()+" : "+e.getMessage());
+//			LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+context.getClass().toString()+" : "+e.getMessage());
 			System.out.println("null value in latitude...inserting null");
 			try {
 				jsonquery.put("latitude", JSONObject.NULL);
 			} catch (JSONException e1) {
 				e1.printStackTrace();
-				LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + context.getClass().toString() + " : " + e.getMessage());
+//				LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + context.getClass().toString() + " : " + e.getMessage());
 //				FirebaseCrash.logcat(Log.ERROR, "Exception caught", "JSON Exception in generating query");
 //				FirebaseCrash.report(e);
 			}
@@ -273,14 +275,14 @@ public class Query {
 		try {
 			jsonquery.put("longitude", query.getLongitude());
 		} catch (JSONException e) {
-			LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+context.getClass().toString()+" : "+e.getMessage());
+//			LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+context.getClass().toString()+" : "+e.getMessage());
 			try {
 				System.out.println("null value in longitude");
-				LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + context.getClass().toString() + " : " + e.getMessage());
+//				LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + context.getClass().toString() + " : " + e.getMessage());
 				jsonquery.put("longitude", JSONObject.NULL);
 			} catch (JSONException e1) {
 				e1.printStackTrace();
-				LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + context.getClass().toString() + " : " + e.getMessage());
+//				LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + context.getClass().toString() + " : " + e.getMessage());
 //				FirebaseCrash.logcat(Log.ERROR, "Exception caught", "JSON Exception in generating query");
 //				FirebaseCrash.report(e);
 			}
@@ -289,21 +291,21 @@ public class Query {
 			jsonquery.put("frequency", query.getFrequency() == -1 ? JSONObject.NULL : query.getFrequency());
 		} catch (JSONException e) {
 			e.printStackTrace();
-			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + context.getClass().toString() + " : " + e.getMessage());
+//			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + context.getClass().toString() + " : " + e.getMessage());
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught", "JSON Exception in generating query");
 //			FirebaseCrash.report(e);
 		}
 		try {
 			jsonquery.put("dataReqd", query.getSensorName());
 		} catch (JSONException e) {
-			LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+context.getClass().toString()+" : "+e.getMessage());
+//			LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+context.getClass().toString()+" : "+e.getMessage());
 			e.printStackTrace();
 		}
 		try {
 			jsonquery.put("queryNo", query.getQueryNo());
 		} catch (JSONException e) {
 			e.printStackTrace();
-			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + context.getClass().toString() + " : " + e.getMessage());
+//			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + context.getClass().toString() + " : " + e.getMessage());
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught", "JSON Exception in generating query");
 //			FirebaseCrash.report(e);
 		}

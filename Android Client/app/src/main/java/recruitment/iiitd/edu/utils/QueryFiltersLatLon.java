@@ -40,7 +40,7 @@ public class QueryFiltersLatLon implements InputFilter {
 			}
 
 		} catch (NumberFormatException nfe) {
-			LogTimer.blockingDeque.add(System.currentTimeMillis()+" "+ this.getClass().toString()+ " "+nfe.getMessage());
+//			LogTimer.blockingDeque.add(System.currentTimeMillis()+" "+ this.getClass().toString()+ " "+nfe.getMessage());
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught", "Collecting data");
 //			FirebaseCrash.report(nfe);
  }

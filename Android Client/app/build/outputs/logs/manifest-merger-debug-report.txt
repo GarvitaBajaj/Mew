@@ -1,10 +1,10 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:2:1-98:12
-INJECTED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:2:1-98:12
-INJECTED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:2:1-98:12
-INJECTED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:2:1-98:12
-MERGED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:2:1-98:12
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:2:1-93:12
+INJECTED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:2:1-93:12
+INJECTED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:2:1-93:12
+INJECTED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:2:1-93:12
+MERGED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:2:1-93:12
 INJECTED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\debug\AndroidManifest.xml:2:1-4:12
 INJECTED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\debug\AndroidManifest.xml:2:1-4:12
 INJECTED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\debug\AndroidManifest.xml:2:1-4:12
@@ -15,11 +15,11 @@ INJECTED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\debug\AndroidM
 		INJECTED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\debug\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:2:1-98:12
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:2:1-93:12
 		INJECTED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\debug\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:2:1-98:12
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:2:1-93:12
 		INJECTED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\debug\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:2:11-69
@@ -88,7 +88,7 @@ ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManif
 	android:name
 		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:20:22-70
 application
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:22:5-96:19
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:22:5-91:19
 	android:label
 		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:25:9-41
 	android:icon
@@ -98,7 +98,7 @@ ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManif
 	android:theme
 		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:26:9-40
 activity#recruitment.iiitd.edu.mew.HomeScreen
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:27:9-37:20
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:27:9-32:20
 	android:label
 		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:30:13-45
 	android:launchMode
@@ -107,118 +107,108 @@ ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManif
 		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:29:13-49
 	android:name
 		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:28:13-39
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:32:13-36:29
-action#android.intent.action.MAIN
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:33:17-69
-	android:name
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:33:25-66
-category#android.intent.category.LAUNCHER
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:35:17-77
-	android:name
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:35:27-74
 receiver#recruitment.iiitd.edu.rabbitmq.SubscribeReceiver
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:39:9-46:20
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:34:9-41:20
 	android:enabled
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:41:13-35
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:36:13-35
 	android:exported
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:42:13-37
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:37:13-37
 	android:name
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:40:13-76
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:35:13-76
 intent-filter#recruitment.iiitd.edu.amqpIntent.BROADCAST
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:43:13-45:29
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:38:13-40:29
 action#recruitment.iiitd.edu.amqpIntent.BROADCAST
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:44:17-85
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:39:17-85
 	android:name
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:44:25-82
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:39:25-82
 receiver#recruitment.iiitd.edu.mew.MyAdmin
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:47:9-54:20
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:42:9-49:20
 	android:permission
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:48:19-76
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:43:19-76
 	android:name
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:47:19-42
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:42:19-42
 meta-data#android.app.device_admin
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:49:13-50:59
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:44:13-45:59
 	android:resource
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:50:24-56
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:45:24-56
 	android:name
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:49:24-63
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:44:24-63
 intent-filter#android.app.action.DEVICE_ADMIN_ENABLED
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:51:13-53:29
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:46:13-48:29
 action#android.app.action.DEVICE_ADMIN_ENABLED
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:52:17-82
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:47:17-82
 	android:name
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:52:25-79
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:47:25-79
 receiver#recruitment.iiitd.edu.mew.StartScreen
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:55:9-58
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:50:9-58
 	android:name
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:55:19-46
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:50:19-46
 receiver#recruitment.iiitd.edu.mew.StopScreen
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:56:9-57
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:51:9-57
 	android:name
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:56:19-45
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:51:19-45
 service#recruitment.iiitd.edu.mew.ExtractParameters
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:57:9-59:38
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:52:9-54:38
 	android:enabled
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:59:13-35
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:54:13-35
 	android:name
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:58:13-46
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:53:13-46
 service#recruitment.iiitd.edu.mew.RunningApplications
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:60:9-56
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:55:9-56
 	android:name
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:60:18-53
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:55:18-53
 receiver#recruitment.iiitd.edu.mew.NetworkChangeReceiver
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:62:7-69:20
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:57:7-64:20
 	android:label
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:64:13-50
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:59:13-50
 	android:name
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:63:13-50
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:58:13-50
 intent-filter#android.net.conn.CONNECTIVITY_CHANGE+android.net.wifi.WIFI_STATE_CHANGED
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:65:13-68:29
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:60:13-63:29
 action#android.net.conn.CONNECTIVITY_CHANGE
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:66:17-79
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:61:17-79
 	android:name
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:66:25-76
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:61:25-76
 action#android.net.wifi.WIFI_STATE_CHANGED
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:67:17-78
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:62:17-78
 	android:name
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:67:25-75
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:62:25-75
 activity#recruitment.iiitd.edu.mew.QueryForm
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:71:9-78:20
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:66:9-73:20
 	android:parentActivityName
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:74:13-53
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:69:13-53
 	android:label
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:73:13-62
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:68:13-62
 	android:name
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:72:13-38
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:67:13-38
 meta-data#android.support.PARENT_ACTIVITY
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:75:13-77:72
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:70:13-72:72
 	android:value
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:77:17-69
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:72:17-69
 	android:name
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:76:17-63
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:71:17-63
 activity#recruitment.iiitd.edu.mew.SettingsActivity
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:79:9-86:20
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:74:9-81:20
 	android:parentActivityName
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:82:13-53
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:77:13-53
 	android:label
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:81:13-60
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:76:13-60
 	android:name
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:80:13-45
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:75:13-45
 service#recruitment.iiitd.edu.sensing.SensorReadings
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:88:9-80
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:83:9-80
 	android:name
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:88:18-77
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:83:18-77
 receiver#recruitment.iiitd.edu.sensing.AlarmReceiver
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:90:9-94:20
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:85:9-89:20
 	android:name
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:90:19-77
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:85:19-77
 intent-filter#recruitment.iiitd.edu.subscription.DATACOLLECTION
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:91:13-93:29
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:86:13-88:29
 action#recruitment.iiitd.edu.subscription.DATACOLLECTION
-ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:92:17-92
+ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:87:17-92
 	android:name
-		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:92:25-89
+		ADDED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml:87:25-89
 uses-sdk
 INJECTED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\garvita\Desktop\Mew\Android Client\app\src\main\AndroidManifest.xml

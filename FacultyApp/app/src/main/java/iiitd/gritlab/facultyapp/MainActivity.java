@@ -1,0 +1,100 @@
+package iiitd.gritlab.facultyapp;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import recruitment.iiitd.edu.mew.HomeScreen;
+import recruitment.iiitd.edu.mew.SettingsActivity;
+import recruitment.iiitd.edu.model.Query;
+import recruitment.iiitd.edu.utils.Constants;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText ed1,ed2,ed3;
+    int aRequestCode=1234;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ed1=(EditText)findViewById(R.id.editText);
+        ed2=(EditText)findViewById(R.id.editText2);
+        ed3=(EditText)findViewById(R.id.editText6);
+        //start Homescreen of library for initialising the variables and starting the subscriber thread
+        Intent i=new Intent(this, HomeScreen.class);
+        i.putExtra("returnResult",true);
+        startActivityForResult(i,aRequestCode);
+    }
+
+    @Override
+    protected void onActivityResult( int aRequestCode, int aResultCode, Intent aData ) {
+        super.onActivityResult(aRequestCode, aResultCode, aData);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_home_screen, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings) {
+            Intent i = new Intent(this, SettingsActivity.class);
+            startActivity(i);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    public void fireQueries(View view) {
+        if (matchIP()) {
+            Query q = new Query(this);
+            q.setSensorName("WiFi");
+            q.setFromTime(System.currentTimeMillis() + 60000); //one minute from now, start issuing requests
+            q.setToTime(q.getFromTime() + Integer.parseInt(ed2.getText().toString()));
+            q.setMin(0);
+            q.setSelection("broadcast");
+            JSONObject jsonQuery = Query.generateJSONQuery(q);
+            System.out.println(jsonQuery.toString());
+            try {
+                Query.sendQueryToServer(jsonQuery, this);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        else{
+            Toast.makeText(this,"Please enter a valid MAC address", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+    protected boolean matchIP(){
+        String entered=ed3.getText().toString();
+        String regexPattern="([0-9A-Fa-f]{2}[:-]?){5}([0-9A-Fa-f]{2})";
+        Pattern pattern = Pattern.compile(regexPattern);
+        Matcher matcher = pattern.matcher(entered);
+        return matcher.matches();
+   }
+}

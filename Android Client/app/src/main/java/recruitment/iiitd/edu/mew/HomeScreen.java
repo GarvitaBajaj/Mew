@@ -20,6 +20,7 @@ import android.os.PowerManager;
 import android.os.SystemClock;
 import android.provider.Settings;
 //import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -56,8 +57,8 @@ import recruitment.iiitd.edu.model.DatabaseHelper;
 import recruitment.iiitd.edu.model.Query;
 import recruitment.iiitd.edu.rabbitmq.RabbitMQConnections;
 import recruitment.iiitd.edu.utils.Constants;
-import recruitment.iiitd.edu.utils.LogTimer;
-import recruitment.iiitd.edu.utils.MobilityTrace;
+//import recruitment.iiitd.edu.utils.LogTimer;
+//import recruitment.iiitd.edu.utils.MobilityTrace;
 
 
 public class HomeScreen extends AppCompatActivity {
@@ -65,8 +66,9 @@ public class HomeScreen extends AppCompatActivity {
 	private final String TAG = this.getClass().getCanonicalName();
 	private Switch resourceProvider,queryListener;
 	boolean mockLocation=false;
+	protected static SharedPreferences sharedPreferences;
 	File directory = new File(new File(Environment.getExternalStorageDirectory()+"/Mew/").getPath(),"Query_Timestamps");
-	LogTimer logTimer;
+//	LogTimer logTimer;
 	Intent i1 ;
 	Context mContext;
 //	public boolean screenAlarms=false;
@@ -93,7 +95,7 @@ public class HomeScreen extends AppCompatActivity {
 			}
 
 		} catch (Exception e) {
-			LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e.getMessage());
+//			LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -263,15 +265,24 @@ public class HomeScreen extends AppCompatActivity {
 			}
 		});
 
-		SharedPreferences sharedpreferences = getApplicationContext().getSharedPreferences("StateValues", Context.MODE_PRIVATE);
-		SharedPreferences.Editor edit=sharedpreferences.edit();
+		sharedPreferences = getApplicationContext().getSharedPreferences("StateValues", Context.MODE_PRIVATE);
+		SharedPreferences.Editor edit=sharedPreferences.edit();
 		edit.putString("DEVICEID", Constants.DEVICE_ID);
 		edit.commit();
 
-		logTimer = new LogTimer(this);
-		LogTimer.blockingDeque.add(System.currentTimeMillis()+":"+"Application_started"+"\n");
-		logTimer.startTimer();
+        if (getIntent().hasExtra("returnResult")&& getIntent().getBooleanExtra("returnResult", true)) {
+            System.out.println("Activity requesting a result" );
+            Intent intent = new Intent();
+            intent.putExtra("HomeResult", "true");
+            setResult(RESULT_OK, intent);
+            NavUtils.navigateUpFromSameTask(this);
+        }
+//		logTimer = new LogTimer(this);
+//		LogTimer.blockingDeque.add(System.currentTimeMillis()+":"+"Application_started"+"\n");
+//		logTimer.startTimer();
 	}
+
+
 
 	public void clearDB(View v){
 		DatabaseHelper db=new DatabaseHelper(this);
@@ -361,7 +372,7 @@ public class HomeScreen extends AppCompatActivity {
 
 	@Override
 	public void onBackPressed(){
-		moveTaskToBack(true);
+//		moveTaskToBack(true);
 	}
 
 	@Override
@@ -391,7 +402,7 @@ public class HomeScreen extends AppCompatActivity {
 //			//cancel the alarms used to turn on/off the screens
 //			cancelScreenAlarms();
 //		}
-		logTimer.stoptimertask();
+//		logTimer.stoptimertask();
 		android.os.Process.killProcess(android.os.Process.myPid());
 		System.exit(0);
 	}
@@ -409,7 +420,8 @@ public class HomeScreen extends AppCompatActivity {
 			Log.d("Screen Alarms","Cancelled");
 		} catch (Exception e) {
 			Log.e(TAG, "AlarmManager update was not canceled. " + e.toString());
-			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
+			e.printStackTrace();
+//			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught", "Cancelling screen alarms");
 //			FirebaseCrash.report(e);
 		}
@@ -468,7 +480,7 @@ public class HomeScreen extends AppCompatActivity {
 						} catch (Exception e) {
 							noQueries--;
 //							Log.d("parsing exception", String.valueOf(row_index));
-							LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e.getMessage());
+//							LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e.getMessage());
 //							FirebaseCrash.logcat(Log.ERROR, "Exception Caught", "Error generating queries");
 //							FirebaseCrash.report(e);
 							continue;
@@ -487,12 +499,12 @@ public class HomeScreen extends AppCompatActivity {
 					writer.close();
 				} catch (IOException e1) {
 					e1.printStackTrace();
-					LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e1.getMessage());
+//					LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e1.getMessage());
 //					FirebaseCrash.logcat(Log.ERROR, "Exception caught", "Sending queries");
 //					FirebaseCrash.report(e1);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
-					LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
+//					LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
 //					FirebaseCrash.logcat(Log.ERROR, "Exception caught", "Sending queries");
 //					FirebaseCrash.report(e);
 				}
@@ -549,7 +561,7 @@ public class HomeScreen extends AppCompatActivity {
 			}
 		}catch(Exception e){
 			e.printStackTrace();
-			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
+//			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught", "Sending queries");
 //			FirebaseCrash.report(e);
 		}

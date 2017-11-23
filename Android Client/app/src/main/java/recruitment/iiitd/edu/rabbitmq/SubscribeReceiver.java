@@ -20,7 +20,7 @@ import recruitment.iiitd.edu.model.QueryModel;
 //import recruitment.iiitd.edu.sensing.AccReadings;
 import recruitment.iiitd.edu.sensing.SensorReadings;
 import recruitment.iiitd.edu.utils.Constants;
-import recruitment.iiitd.edu.utils.LogTimer;
+//import recruitment.iiitd.edu.utils.LogTimer;
 
 public class SubscribeReceiver extends BroadcastReceiver {
 
@@ -46,7 +46,7 @@ public class SubscribeReceiver extends BroadcastReceiver {
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
-			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
+//			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught", e.getMessage());
 //			FirebaseCrash.report(e);
 		}
@@ -89,7 +89,7 @@ public class SubscribeReceiver extends BroadcastReceiver {
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
-			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
+//			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught", e.getMessage());
 //			FirebaseCrash.report(e);
 		}
@@ -107,7 +107,7 @@ public class SubscribeReceiver extends BroadcastReceiver {
 			return queryModel;
 		} catch (JSONException e) {
 			e.printStackTrace();
-			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
+//			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught", e.getMessage());
 //			FirebaseCrash.report(e);
 		}

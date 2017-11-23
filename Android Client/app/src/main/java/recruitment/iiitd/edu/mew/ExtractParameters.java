@@ -30,8 +30,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import recruitment.iiitd.edu.rabbitmq.RabbitMQConnections;
+//import recruitment.iiitd.edu.utils.Constants;
 import recruitment.iiitd.edu.utils.Constants;
-import recruitment.iiitd.edu.utils.MobilityTrace;
+//import recruitment.iiitd.edu.utils.MobilityTrace;
 import recruitment.iiitd.edu.utils.NetworkUtil;
 
 
@@ -165,20 +166,20 @@ public class ExtractParameters extends Service {
 		}
 		locManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-		if(mockLocation) {
-			try{
-				if (locManager.getProvider("Test") == null) {
-					//todo if this part crashes here, run a normal thread to update location in the background
-					locManager.addTestProvider("Test", false, false, false, false, false, false, false, 0, 1);
-				}
-				locManager.setTestProviderEnabled("Test", true);
-				locManager.requestLocationUpdates("Test", 0, 0, locListener);
-			}catch (Exception e){
-				Toast.makeText(this,"Please enable Mock Locations in Developer Options",Toast.LENGTH_SHORT).show();
-			}
-			MobilityTrace.getInstance(getApplicationContext());
-		}
-		else{
+//		if(mockLocation) {
+//			try{
+//				if (locManager.getProvider("Test") == null) {
+//					//todo if this part crashes here, run a normal thread to update location in the background
+//					locManager.addTestProvider("Test", false, false, false, false, false, false, false, 0, 1);
+//				}
+//				locManager.setTestProviderEnabled("Test", true);
+//				locManager.requestLocationUpdates("Test", 0, 0, locListener);
+//			}catch (Exception e){
+//				Toast.makeText(this,"Please enable Mock Locations in Developer Options",Toast.LENGTH_SHORT).show();
+//			}
+////			MobilityTrace.getInstance(getApplicationContext());
+//		}
+//		else{
 			locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, Constants.TIME_BETWEEN_LOCATION_UPDATES, Constants.DISTANCE_BETWEEN_LOCATION_UPDATES, locListener);
 			if (locManager.getAllProviders().contains(LocationManager.NETWORK_PROVIDER))
 				locManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, Constants.TIME_BETWEEN_LOCATION_UPDATES, Constants.DISTANCE_BETWEEN_LOCATION_UPDATES, locListener);
@@ -201,7 +202,7 @@ public class ExtractParameters extends Service {
 			}
 
 			isNetworkEnabled = locManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-		}
+//		}
 
 		this.registerReceiver(this.mBatInfoReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
 

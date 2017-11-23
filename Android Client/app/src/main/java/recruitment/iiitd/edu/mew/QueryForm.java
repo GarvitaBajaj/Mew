@@ -22,7 +22,7 @@ import java.io.IOException;
 
 import recruitment.iiitd.edu.model.Query;
 import recruitment.iiitd.edu.utils.Constants;
-import recruitment.iiitd.edu.utils.LogTimer;
+//import recruitment.iiitd.edu.utils.LogTimer;
 import recruitment.iiitd.edu.utils.QueryFiltersLatLon;
 
 
@@ -85,8 +85,9 @@ public class QueryForm extends AppCompatActivity {
 			query.setToTime(fromTime + Integer.parseInt(ed5.getText().toString()) * 1000);
 			query.setExpiryTime(System.currentTimeMillis() + (15 * 60 * 1000));
 		}catch (Exception e){
-			LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e.getMessage());
+//			LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e.getMessage());
 			query = null;
+			e.printStackTrace();
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught", "Generating query");
 //			FirebaseCrash.report(e);
 		}

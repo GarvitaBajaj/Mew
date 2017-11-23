@@ -23,7 +23,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
 
 		NetworkUtil networkUtil = new NetworkUtil();
     	speed= networkUtil.getSpeed(context);
-        SharedPreferences sharedpreferences = ExtractParameters.sharedpreferences;
+        SharedPreferences sharedpreferences = HomeScreen.sharedPreferences;
         Editor editor = sharedpreferences.edit();
 		editor.putInt("LINKSPEED", speed);
 		editor.commit();

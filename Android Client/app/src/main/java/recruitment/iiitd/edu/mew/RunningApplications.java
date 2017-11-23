@@ -17,7 +17,7 @@ import java.util.Map;
 
 import recruitment.iiitd.edu.rabbitmq.RabbitMQConnections;
 import recruitment.iiitd.edu.utils.Constants;
-import recruitment.iiitd.edu.utils.LogTimer;
+//import recruitment.iiitd.edu.utils.LogTimer;
 import recruitment.iiitd.edu.utils.NetworkUtil;
 
 public class RunningApplications extends IntentService {
@@ -37,14 +37,15 @@ public class RunningApplications extends IntentService {
 
 		SharedPreferences sharedpreferences = null;
 		try{
-			sharedpreferences= ExtractParameters.sharedpreferences;
+			sharedpreferences= HomeScreen.sharedPreferences;
 			Editor edit=sharedpreferences.edit();
 			edit.putBoolean("GPSRunning", GPSenabled);
 			NetworkUtil networkUtil = new NetworkUtil();
 			edit.putFloat("LINKSPEED", networkUtil.getSpeed(this));
 			edit.commit();
 		}catch (Exception e){
-			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
+			e.printStackTrace();
+//			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught", e.getMessage());
 //			FirebaseCrash.report(e);
 		}

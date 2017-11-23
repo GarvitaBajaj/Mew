@@ -22,7 +22,7 @@ import java.util.concurrent.TimeoutException;
 
 import recruitment.iiitd.edu.mew.SettingsActivity;
 import recruitment.iiitd.edu.utils.Constants;
-import recruitment.iiitd.edu.utils.LogTimer;
+//import recruitment.iiitd.edu.utils.LogTimer;
 
 /**
  * Created by garvitab on 23-09-2015.
@@ -52,7 +52,7 @@ public class RabbitMQData extends AsyncTask<JSONObject, Void, Void> {
 			factory.setUri(uri);
 		} catch (KeyManagementException | NoSuchAlgorithmException | URISyntaxException e1) {
 			e1.printStackTrace();
-			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e1.getMessage());
+//			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e1.getMessage());
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught", e1.getMessage());
 //			FirebaseCrash.report(e1);
 		}
@@ -76,7 +76,8 @@ public class RabbitMQData extends AsyncTask<JSONObject, Void, Void> {
 			connection.close();
 		} catch (Exception e) {
 			Log.d(Constants.TAG,"Exception caught");
-			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
+			e.printStackTrace();
+//			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught",e.getMessage());
 //			FirebaseCrash.report(e);
 //		} catch (JSONException e) {

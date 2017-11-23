@@ -36,7 +36,7 @@ import recruitment.iiitd.edu.model.DatabaseHelper;
 import recruitment.iiitd.edu.model.QueryModel;
 import recruitment.iiitd.edu.rabbitmq.RabbitMQConnections;
 import recruitment.iiitd.edu.utils.Constants;
-import recruitment.iiitd.edu.utils.LogTimer;
+//import recruitment.iiitd.edu.utils.LogTimer;
 import recruitment.iiitd.edu.utils.Pair;
 
 public class SensorReadings extends Service {
@@ -67,7 +67,7 @@ public class SensorReadings extends Service {
             query = db.getQueryByNumber(queryNo);
             db.closeDb();
         } catch (Exception e) {
-            LogTimer.error(e.getMessage() + " for query# " + queryNo);
+//            LogTimer.error(e.getMessage() + " for query# " + queryNo);
             e.printStackTrace();
             return;
         }
@@ -113,7 +113,7 @@ public class SensorReadings extends Service {
                 startAlarm.set(AlarmManager.RTC_WAKEUP, startTime, startPendingIntent);
                 stopAlarm.set(AlarmManager.RTC_WAKEUP, endTime, stopPendingIntent);
             } catch (Exception e) {
-                LogTimer.error(e.getMessage() + " Query Processing Error for Query# " + queryNo);
+//                LogTimer.error(e.getMessage() + " Query Processing Error for Query# " + queryNo);
                 e.printStackTrace();
                 return;
             }

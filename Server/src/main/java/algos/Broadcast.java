@@ -42,12 +42,10 @@ public class Broadcast implements Algo{
 	private static Lock weightLock = new ReentrantLock();
 	Connection connect=null;
 	JSONObject query;
-	RandomSingleton random = null;
 	int duration=0;
 	String choice="";
 
 	public void run() {
-		random = RandomSingleton.getInstance();
 		Map<String, Integer> diffValues=new HashMap<>();
 		System.out.println("USING BROADCAST ALGORITHM");
 		try {
@@ -92,7 +90,7 @@ public class Broadcast implements Algo{
 			thisQuery.setQueryID(queryID);
 
 			// check if sufficient providers are available
-			String countNodes="select sum(provider=1 and "+powerSensor+" > 0) from nodes;";
+			String countNodes="select sum(providermode=1 and "+powerSensor+" > 0) from nodes;";
 			PreparedStatement checkNodes=connect.prepareStatement(countNodes);
 			ResultSet nodeCount=checkNodes.executeQuery();
 			nodeCount.next();

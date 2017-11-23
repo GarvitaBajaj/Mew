@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Attendance-Register</string>
+    <string name="app_name">StudentApp</string>
     <string name="labelSelect">Your role:</string>
 </resources>

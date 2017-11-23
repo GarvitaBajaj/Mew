@@ -34,7 +34,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import recruitment.iiitd.edu.mew.SettingsActivity;
 import recruitment.iiitd.edu.utils.Constants;
-import recruitment.iiitd.edu.utils.LogTimer;
+//import recruitment.iiitd.edu.utils.LogTimer;
 import recruitment.iiitd.edu.utils.Pair;
 
 /**
@@ -81,7 +81,7 @@ public class RabbitMQConnections {
 			factory.setNetworkRecoveryInterval(10000);
 		} catch (KeyManagementException | NoSuchAlgorithmException | URISyntaxException e1) {
 			e1.printStackTrace();
-			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e1.getMessage());
+//			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e1.getMessage());
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught", e1.getMessage());
 //			FirebaseCrash.report(e1);
 		}
@@ -134,7 +134,7 @@ public class RabbitMQConnections {
 			factory.setNetworkRecoveryInterval(10000);
 		} catch (KeyManagementException | NoSuchAlgorithmException | URISyntaxException e1) {
 			e1.printStackTrace();
-			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e1.getMessage());
+//			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e1.getMessage());
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught", e1.getMessage());
 //			FirebaseCrash.report(e1);
 		}
@@ -189,14 +189,14 @@ public class RabbitMQConnections {
 						connection.close();
 //					}
 				} catch (InterruptedException e) {
-						LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e.getMessage());
+//						LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e.getMessage());
 						e.printStackTrace();
 //					FirebaseCrash.logcat(Log.ERROR, "Exception caught", e.getMessage());
 //					FirebaseCrash.report(e);
 				} catch (Exception e) {
 					Log.d("MEW", "Connection broken: " + e.getMessage());
 					e.printStackTrace();
-						LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
+//						LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
 //					FirebaseCrash.logcat(Log.ERROR, "Exception caught", e.getMessage());
 //					FirebaseCrash.report(e);
 //					try {
@@ -275,7 +275,7 @@ public class RabbitMQConnections {
 //													i++;
 												} catch (IOException e) {
 													e.printStackTrace();
-													LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
+//													LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
 //													FirebaseCrash.logcat(Log.ERROR, "Exception caught", e.getMessage());
 //													FirebaseCrash.report(e);
 												}
@@ -287,7 +287,7 @@ public class RabbitMQConnections {
 												writer.flush();
 
 											} catch (IOException e) {
-												LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e.getMessage());
+//												LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e.getMessage());
 												e.printStackTrace();
 //												FirebaseCrash.logcat(Log.ERROR, "Exception caught", e.getMessage());
 //												FirebaseCrash.report(e);
@@ -295,13 +295,13 @@ public class RabbitMQConnections {
 											try {
 												writer.close();
 											} catch (IOException e) {
-												LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e.getMessage());
+//												LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e.getMessage());
 												e.printStackTrace();
 //												FirebaseCrash.logcat(Log.ERROR, "Exception caught", e.getMessage());
 //												FirebaseCrash.report(e);
 											}
 										} catch (Exception e) {
-											LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e.getMessage());
+//											LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e.getMessage());
 											e.printStackTrace();
 //											FirebaseCrash.logcat(Log.ERROR, "Exception caught", e.getMessage());
 //											FirebaseCrash.report(e);
@@ -326,30 +326,34 @@ public class RabbitMQConnections {
 						channel.close();
 						connection.close();
 					} catch (InterruptedException e) {
-						LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e.getMessage());
+						e.printStackTrace();
+//						LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e.getMessage());
 //						FirebaseCrash.logcat(Log.ERROR, "Exception caught", e.getMessage());
 //						FirebaseCrash.report(e);
 //						break;
 					}catch (ShutdownSignalException e2){
-						LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e2.getMessage());
+						e2.printStackTrace();
+//						LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e2.getMessage());
 //						FirebaseCrash.logcat(Log.ERROR, "Exception caught", e2.getMessage() );
 //						FirebaseCrash.report(e2);
 						e2.getReason();
 					}catch (ConnectException e){
 						Log.e("Connection Error","Make sure server is up and running");
-						LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
+
+//						LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
 //						FirebaseCrash.logcat(Log.ERROR, "Exception caught",e.getMessage());
 //						FirebaseCrash.report(e);
 					}catch (Exception e1) {
 						Log.d(TAG, "Connection broken: " + e1.getClass().getName());
 						e1.printStackTrace();
-						LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e1.getMessage());
+//						LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e1.getMessage());
 //						FirebaseCrash.logcat(Log.ERROR, "Exception caught", e1.getMessage());
 //						FirebaseCrash.report(e1);
 						try {
 							Thread.sleep(4000); //sleep and then try again
 						} catch (InterruptedException e) {
-							LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e.getMessage());
+							e.printStackTrace();
+//							LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e.getMessage());
 //							FirebaseCrash.logcat(Log.ERROR, "Exception caught", e.getMessage());
 //							FirebaseCrash.report(e);
 //							break;

@@ -18,7 +18,7 @@ import java.io.IOException;
 import au.com.bytecode.opencsv.CSVReader;
 import recruitment.iiitd.edu.rabbitmq.RabbitMQConnections;
 import recruitment.iiitd.edu.utils.Constants;
-import recruitment.iiitd.edu.utils.LogTimer;
+//import recruitment.iiitd.edu.utils.LogTimer;
 
 /**
  * Created by garvitab on 22-09-2015.

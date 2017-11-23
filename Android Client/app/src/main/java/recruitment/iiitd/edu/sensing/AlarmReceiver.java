@@ -13,7 +13,7 @@ import recruitment.iiitd.edu.model.DatabaseHelper;
 import recruitment.iiitd.edu.model.QueryModel;
 import recruitment.iiitd.edu.rabbitmq.SubscribeReceiver;
 import recruitment.iiitd.edu.utils.Constants;
-import recruitment.iiitd.edu.utils.LogTimer;
+//import recruitment.iiitd.edu.utils.LogTimer;
 import recruitment.iiitd.edu.utils.Pair;
 
 public class AlarmReceiver extends BroadcastReceiver {
@@ -41,7 +41,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 		if (intent.getExtras().get("intent").equals(Constants.START_DATA_REQUEST))// && query.getSensorName().equalsIgnoreCase("accelerometer"))
 		{
 			SubscribeReceiver.runningServices.getAndIncrement();
-			LogTimer.blockingDeque.add(System.currentTimeMillis()+":Started collection for "+queryNo+"\n");
+//			LogTimer.blockingDeque.add(System.currentTimeMillis()+":Started collection for "+queryNo+"\n");
 			Log.d(Constants.TAG, "Starting service for " + queryNo+ "filename: "+filename );
 			SensorReadings.processRequest(context, queryNo, Constants.START_DATA_REQUEST,query.getSensorName(),null);
 
@@ -49,7 +49,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 		else if (intent.getExtras().get("intent").equals(Constants.STOP_DATA_REQUEST))// && query.getSensorName().equalsIgnoreCase("accelerometer"))
 		{
 			SubscribeReceiver.runningServices.getAndDecrement();
-			LogTimer.blockingDeque.add(System.currentTimeMillis()+":Stopped collection for "+queryNo+"\n");
+//			LogTimer.blockingDeque.add(System.currentTimeMillis()+":Stopped collection for "+queryNo+"\n");
 			String fileName=Environment.getExternalStorageDirectory().getAbsolutePath()+"/Mew/DataCollection/"+queryNo+"/"+query.getSensorName()+".csv";
 			Log.d(Constants.TAG, "Stopping service for " + queryNo + " system time " + System.currentTimeMillis() + " and query end time " + query.getEndTime()+ " filename:"+filename);
 			SensorReadings.processRequest(context, queryNo, Constants.STOP_DATA_REQUEST,query.getSensorName(), fileName);
