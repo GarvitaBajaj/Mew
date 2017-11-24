@@ -494,9 +494,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="listen">Serve new data requests</string>
     <string name="participation">Send device state to server</string>
-    <string name="pref_default_ipaddress">192.168.X.X</string>
-    <string name="pref_default_password">guest</string>
-    <string name="pref_default_user_name">guest</string>
+    <string name="pref_default_ipaddress">192.168.19.103</string>
+    <string name="pref_default_password">test123</string>
+    <string name="pref_default_user_name">test</string>
     <string name="pref_header_general">General</string>
     <string name="pref_title_ipaddress">Mew Server IP Address</string>
     <string name="pref_title_password">Mew Password</string>

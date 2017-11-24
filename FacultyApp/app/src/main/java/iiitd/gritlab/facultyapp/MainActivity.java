@@ -68,21 +68,27 @@ public class MainActivity extends AppCompatActivity {
 
     public void fireQueries(View view) {
         if (matchIP()) {
+            //save the query number for reference - data processing
+            //check whether ReceivedFile folder is created properly
+            //launch a timertask to issue regular queries
             Query q = new Query(this);
             q.setSensorName("WiFi");
             q.setFromTime(System.currentTimeMillis() + 60000); //one minute from now, start issuing requests
-            q.setToTime(q.getFromTime() + Integer.parseInt(ed2.getText().toString()));
+            q.setToTime(q.getFromTime() + Integer.parseInt(ed2.getText().toString())*1000*60);
             q.setMin(0);
             q.setSelection("broadcast");
             JSONObject jsonQuery = Query.generateJSONQuery(q);
             System.out.println(jsonQuery.toString());
             try {
                 Query.sendQueryToServer(jsonQuery, this);
+                //wait for the data to arrive - q.setToTime()+60000
+
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+
         }
         else{
             Toast.makeText(this,"Please enter a valid MAC address", Toast.LENGTH_SHORT).show();

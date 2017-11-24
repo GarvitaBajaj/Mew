@@ -12,11 +12,11 @@
      </string>
  -->
     <string name="pref_title_user_name">User Name</string>
-    <string name="pref_default_user_name">guest</string>
+    <string name="pref_default_user_name">test</string>
     <string name="pref_title_password">Mew Password</string>
-    <string name="pref_default_password">guest</string>
+    <string name="pref_default_password">test123</string>
     <string name="pref_title_ipaddress">Mew Server IP Address</string>
-    <string name="pref_default_ipaddress">192.168.X.X</string>
+    <string name="pref_default_ipaddress">192.168.19.103</string>
 
     <!--
     <string name="pref_title_add_friends_to_messages">Add friends to messages</string>

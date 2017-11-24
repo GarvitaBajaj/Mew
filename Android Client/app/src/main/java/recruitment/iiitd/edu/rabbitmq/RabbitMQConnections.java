@@ -81,6 +81,9 @@ public class RabbitMQConnections {
 			factory.setNetworkRecoveryInterval(10000);
 		} catch (KeyManagementException | NoSuchAlgorithmException | URISyntaxException e1) {
 			e1.printStackTrace();
+			//Settings screen should open up and ask for the updated values
+			Intent openSettings=new Intent(mContext,SettingsActivity.class);
+			mContext.startActivity(openSettings);
 //			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e1.getMessage());
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught", e1.getMessage());
 //			FirebaseCrash.report(e1);
@@ -188,14 +191,11 @@ public class RabbitMQConnections {
 						ch.close();
 						connection.close();
 //					}
-				} catch (InterruptedException e) {
-//						LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e.getMessage());
-						e.printStackTrace();
-//					FirebaseCrash.logcat(Log.ERROR, "Exception caught", e.getMessage());
-//					FirebaseCrash.report(e);
 				} catch (Exception e) {
 					Log.d("MEW", "Connection broken: " + e.getMessage());
 					e.printStackTrace();
+//						Intent openSettings=new Intent(mContext,SettingsActivity.class);
+//						mContext.startActivity(openSettings);
 //						LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
 //					FirebaseCrash.logcat(Log.ERROR, "Exception caught", e.getMessage());
 //					FirebaseCrash.report(e);

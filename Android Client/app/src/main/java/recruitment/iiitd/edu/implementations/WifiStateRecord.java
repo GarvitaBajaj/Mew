@@ -28,10 +28,11 @@ public class WifiStateRecord implements WifiStateListener {
     private WifiManager wifiManager;
     private ArrayList<String> recordedValues;
     private Context context;
-    private static int POLL_INTERVAL = 1000;
+    private static int POLL_INTERVAL ;
     private static final String TAG = "WifiRecord";
     private String ioPair;
     private boolean mRunning = false;
+    WifiInfo wifiInfo;
 
     private Handler mHandler = new Handler();
 
@@ -53,7 +54,7 @@ public class WifiStateRecord implements WifiStateListener {
         public void run() {
             int strength = getStrength();
             Log.d("ABC", strength + "");
-            recordedValues.add(System.currentTimeMillis() + ", " + strength + ", " + wifiManager.isWifiEnabled());
+            recordedValues.add(System.currentTimeMillis() + ", " + strength + ", " + wifiManager.isWifiEnabled()+", "+wifiInfo.getBSSID());
             mHandler.postDelayed(mPollTask, POLL_INTERVAL);
         }
     };
@@ -135,7 +136,7 @@ public class WifiStateRecord implements WifiStateListener {
 
     public int getStrength() {
         if (wifiManager != null) {
-            WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+            wifiInfo = wifiManager.getConnectionInfo();
             Log.e("WiFi","Signal strength = "+wifiInfo.getRssi());
             return WifiManager.calculateSignalLevel(wifiInfo.getRssi(), 5);
         } else {

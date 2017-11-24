@@ -50,9 +50,9 @@ public class SensorReadings extends Service {
     private static TreeMap<Long, String> queryStopTime = new TreeMap<>();
 
 
-    AccelerometerRecord accelerometerRecord;
-    WifiStateRecord wifiStateRecord;
-    MicRecord micRecord;
+    static AccelerometerRecord accelerometerRecord;
+    static WifiStateRecord wifiStateRecord;
+    static MicRecord micRecord;
 
     int myID;
     String queryNo;
@@ -219,15 +219,16 @@ public class SensorReadings extends Service {
 
 
     public static void stopCollection(String sensorName) {
-//        if (sensorName.equalsIgnoreCase(Constants.SENSORS.ACCELEROMETER.getValue())) {
-//            accelerometerRecord.stop();
-//        }
-//        if (sensorName.equalsIgnoreCase(Constants.SENSORS.WIFI.getValue())) {
-//            wifiStateRecord.stop();
-//        }
-//        if (sensorName.equalsIgnoreCase(Constants.SENSORS.MIC.getValue())) {
-//            micRecord.stop();
-//        }
+        if (sensorName.equalsIgnoreCase(Constants.SENSORS.ACCELEROMETER.getValue())) {
+            accelerometerRecord.stop();
+        }
+        if (sensorName.equalsIgnoreCase(Constants.SENSORS.WIFI.getValue())) {
+            wifiStateRecord.stop();
+        }
+        if (sensorName.equalsIgnoreCase(Constants.SENSORS.MIC.getValue())) {
+            micRecord.stop();
+        }
+
         Log.e("TYPE","Need to call stop() here");
     }
 
@@ -292,7 +293,7 @@ public class SensorReadings extends Service {
         if (sensorName.equalsIgnoreCase(Constants.SENSORS.WIFI.getValue())) {
             Log.d(TAG, "WIFI");
             wifiStateRecord = new WifiStateRecord();
-            wifiStateRecord.startRecording(this, 1000, queryNo,file);
+            wifiStateRecord.startRecording(this, 30000, queryNo,file);
         }
         if (sensorName.equalsIgnoreCase(Constants.SENSORS.MIC.getValue())) {
             Log.d(TAG, "MIC");
@@ -308,15 +309,15 @@ public class SensorReadings extends Service {
     public void onDestroy() {
         super.onDestroy();
         Log.d(TAG, "Calling onDestroy !!!");//this is called only when the last stopping intent is called. We need to publish more data if left
-        if (sensorName.equalsIgnoreCase(Constants.SENSORS.ACCELEROMETER.getValue())) {
-            accelerometerRecord.stop();
-        }
-        if (sensorName.equalsIgnoreCase(Constants.SENSORS.WIFI.getValue())) {
-            wifiStateRecord.stop();
-        }
-        if (sensorName.equalsIgnoreCase(Constants.SENSORS.MIC.getValue())) {
-           micRecord.stop();
-        }
+//        if (sensorName.equalsIgnoreCase(Constants.SENSORS.ACCELEROMETER.getValue())) {
+//            accelerometerRecord.stop();
+//        }
+//        if (sensorName.equalsIgnoreCase(Constants.SENSORS.WIFI.getValue())) {
+//            wifiStateRecord.stop();
+//        }
+//        if (sensorName.equalsIgnoreCase(Constants.SENSORS.MIC.getValue())) {
+//           micRecord.stop();
+//        }
 
         Map<String, Object> setServicing = new HashMap<>();
         setServicing.put("TYPE", Constants.MESSAGE_TYPE.ENDSERVICING.getValue());

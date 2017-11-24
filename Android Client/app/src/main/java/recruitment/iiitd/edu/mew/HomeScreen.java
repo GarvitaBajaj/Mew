@@ -1,5 +1,6 @@
 package recruitment.iiitd.edu.mew;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.AlarmManager;
@@ -11,6 +12,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.Build;
@@ -20,7 +22,9 @@ import android.os.PowerManager;
 import android.os.SystemClock;
 import android.provider.Settings;
 //import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.NavUtils;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -63,8 +67,12 @@ import recruitment.iiitd.edu.utils.Constants;
 
 public class HomeScreen extends AppCompatActivity {
 
-	private final String TAG = this.getClass().getCanonicalName();
-	private Switch resourceProvider,queryListener;
+	private static final int TAG_CODE_PERMISSION = 0;
+
+	private static String[] PERMISSIONS = {Manifest.permission.RECORD_AUDIO,Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION};
+
+    private final String TAG = this.getClass().getCanonicalName();
+	private Switch resourceProvider;//,queryListener;
 	boolean mockLocation=false;
 	protected static SharedPreferences sharedPreferences;
 	File directory = new File(new File(Environment.getExternalStorageDirectory()+"/Mew/").getPath(),"Query_Timestamps");
@@ -197,8 +205,8 @@ public class HomeScreen extends AppCompatActivity {
 
 		Constants.DEVICE_ID= Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
 
-		TextView deviceID=(TextView)findViewById(R.id.textView4);
-		deviceID.setText(Constants.DEVICE_ID);
+//		TextView deviceID=(TextView)findViewById(R.id.textView4);
+//		deviceID.setText(Constants.DEVICE_ID);
 
 		final RabbitMQConnections rabbitMQ= RabbitMQConnections.getInstance(this);
 		rabbitMQ.publishToAMQP();
@@ -208,12 +216,13 @@ public class HomeScreen extends AppCompatActivity {
 		i1=new Intent(this, ExtractParameters.class);
 
 		resourceProvider = (Switch) findViewById(R.id.mySwitch);
-		queryListener = (Switch) findViewById(R.id.mySwitch2);
+//		queryListener = (Switch) findViewById(R.id.mySwitch);
+//        queryListener=new Switch(this);
 
 		if(savedInstanceState!=null)
 		{
 			resourceProvider.setChecked(savedInstanceState.getBoolean("service1"));
-			queryListener.setChecked(savedInstanceState.getBoolean("service2"));
+//			queryListener.setChecked(savedInstanceState.getBoolean("service2"));
 		}
 
 		resourceProvider.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -240,35 +249,45 @@ public class HomeScreen extends AppCompatActivity {
 					}
 					stopService(i1);
 					Log.d(Constants.TAG, "SERVICE STOPPED");
+                    Map<String, Object> states = new HashMap<String, Object>();
+                    states.put("TYPE", Constants.MESSAGE_TYPE.LVNGPROVIDER.getValue());
+                    states.put("NODE", Constants.DEVICE_ID);
+                    rabbitMQ.addMessageToQueue(states, Constants.RESOURCE_ROUTING_KEY);
 				}
 			}
 		});
 
-		queryListener.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-										 boolean isChecked) {
-
-				if (isChecked) {
-					Map<String, Object> states = new HashMap<String, Object>();
-					states.put("TYPE", Constants.MESSAGE_TYPE.PROVIDER.getValue());
-					states.put("NODE", Constants.DEVICE_ID);
-					rabbitMQ.addMessageToQueue(states, Constants.RESOURCE_ROUTING_KEY);
-				} else {
-					Map<String, Object> states = new HashMap<String, Object>();
-					states.put("TYPE", Constants.MESSAGE_TYPE.LVNGPROVIDER.getValue());
-					states.put("NODE", Constants.DEVICE_ID);
-					rabbitMQ.addMessageToQueue(states, Constants.RESOURCE_ROUTING_KEY);
-				}
-
-			}
-		});
+//		queryListener
+//
+//		queryListener.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//
+//			@Override
+//			public void onCheckedChanged(CompoundButton buttonView,
+//										 boolean isChecked) {
+//
+//				if (isChecked) {
+//					Map<String, Object> states = new HashMap<String, Object>();
+//					states.put("TYPE", Constants.MESSAGE_TYPE.PROVIDER.getValue());
+//					states.put("NODE", Constants.DEVICE_ID);
+//					rabbitMQ.addMessageToQueue(states, Constants.RESOURCE_ROUTING_KEY);
+//				} else {
+//					Map<String, Object> states = new HashMap<String, Object>();
+//					states.put("TYPE", Constants.MESSAGE_TYPE.LVNGPROVIDER.getValue());
+//					states.put("NODE", Constants.DEVICE_ID);
+//					rabbitMQ.addMessageToQueue(states, Constants.RESOURCE_ROUTING_KEY);
+//				}
+//
+//			}
+//		});
 
 		sharedPreferences = getApplicationContext().getSharedPreferences("StateValues", Context.MODE_PRIVATE);
 		SharedPreferences.Editor edit=sharedPreferences.edit();
 		edit.putString("DEVICEID", Constants.DEVICE_ID);
 		edit.commit();
+
+        if(!hasPermissions(this, PERMISSIONS)){
+            ActivityCompat.requestPermissions(this, PERMISSIONS, TAG_CODE_PERMISSION);
+        }
 
         if (getIntent().hasExtra("returnResult")&& getIntent().getBooleanExtra("returnResult", true)) {
             System.out.println("Activity requesting a result" );
@@ -283,6 +302,16 @@ public class HomeScreen extends AppCompatActivity {
 	}
 
 
+    public static boolean hasPermissions(Context context, String... permissions) {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permissions != null) {
+            for (String permission : permissions) {
+                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
 	public void clearDB(View v){
 		DatabaseHelper db=new DatabaseHelper(this);
@@ -293,14 +322,14 @@ public class HomeScreen extends AppCompatActivity {
 	protected void onSaveInstanceState (Bundle savedInstanceState){
 		super.onSaveInstanceState(savedInstanceState);
 		savedInstanceState.putBoolean("service1", resourceProvider.isChecked());
-		savedInstanceState.putBoolean("service2", queryListener.isChecked());
+//		savedInstanceState.putBoolean("service2", queryListener.isChecked());
 	}
 
 	@Override
 	public void onRestoreInstanceState(Bundle savedInstanceState) {
 		super.onRestoreInstanceState(savedInstanceState);
 		resourceProvider.setChecked(savedInstanceState.getBoolean("service1"));
-		queryListener.setChecked(savedInstanceState.getBoolean("service2"));
+//		queryListener.setChecked(savedInstanceState.getBoolean("service2"));
 	}
 
 	@Override
@@ -390,22 +419,27 @@ public class HomeScreen extends AppCompatActivity {
 		super.onResume();
 	}
 
-	public void exit(View view)
-	{
-		//release all locks if held
-		if(wifiLock.isHeld())
-			wifiLock.release();
-//		if(screenAlarms) {
-//			if (mWakeLock.isHeld())
-//				mWakeLock.release();
+//	public void exit(View view)
+//	{
+//		//release all locks if held
+//		if(wifiLock.isHeld())
+//			wifiLock.release();
+////		if(screenAlarms) {
+////			if (mWakeLock.isHeld())
+////				mWakeLock.release();
+////
+////			//cancel the alarms used to turn on/off the screens
+////			cancelScreenAlarms();
+////		}
+////		logTimer.stoptimertask();
+//        Intent intent = new Intent();
+//        intent.putExtra("killApp", "true");
+//        setResult(RESULT_OK, intent);
+//        finish();
+//		android.os.Process.killProcess(android.os.Process.myPid());
+//		System.exit(0);
 //
-//			//cancel the alarms used to turn on/off the screens
-//			cancelScreenAlarms();
-//		}
-//		logTimer.stoptimertask();
-		android.os.Process.killProcess(android.os.Process.myPid());
-		System.exit(0);
-	}
+//	}
 
 	private void cancelScreenAlarms() {
 		AlarmManager alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);

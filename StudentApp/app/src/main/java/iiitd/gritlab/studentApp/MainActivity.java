@@ -1,5 +1,6 @@
 package iiitd.gritlab.studentApp;
 
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = new Intent(this, HomeScreen.class);
+        intent.putExtra("returnResult",false);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         Intent intent = new Intent(this, HomeScreen.class);
         intent.putExtra("returnResult",false);
         startActivity(intent);

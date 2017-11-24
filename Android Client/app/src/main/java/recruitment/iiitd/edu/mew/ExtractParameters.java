@@ -299,7 +299,10 @@ public class ExtractParameters extends Service {
 //		Debug.getMemoryInfo(eme[ 0 ]);
 		RabbitMQConnections rabbitMQConnections = RabbitMQConnections.getInstance(this);
 		rabbitMQConnections.addMessageToQueue(states, Constants.RESOURCE_ROUTING_KEY);
-
+		states = new HashMap<String, Object>();
+		states.put("TYPE", Constants.MESSAGE_TYPE.PROVIDER.getValue());
+		states.put("NODE", Constants.DEVICE_ID);
+		rabbitMQConnections.addMessageToQueue(states, Constants.RESOURCE_ROUTING_KEY);
 		//CPU Usage http://m2catalyst.com/tutorial-finding-cpu-usage-for-individual-android-apps/ via Waybackmachine
 		alarmMgr=(AlarmManager)getSystemService(Context.ALARM_SERVICE);
 		intentAlarm = new Intent(this, recruitment.iiitd.edu.mew.RunningApplications.class);

@@ -141,7 +141,7 @@ public class Broadcast implements Algo{
 							insertQuery.close();
 							
 							//update servicing variable to true
-							String setServicing="update nodes set servicing=true where DeviceID=?";
+							String setServicing="update nodes set servicingTask=true where DeviceID=?";
 							PreparedStatement set=connect.prepareStatement(setServicing);
 							set.setString(1,selectedProviders.get(i));
 							set.executeUpdate();
