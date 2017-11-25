@@ -55,7 +55,7 @@ public class MySQLcredentials extends JDialog {
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
-			String dbString="jdbc:mysql://localhost:"+port+"/"+db;
+			String dbString="jdbc:mysql://localhost:"+port+"/"+db+"?autoReconnect=true";
 			Connection con=DriverManager.getConnection(dbString,username,password);
 			JOptionPane.showInternalMessageDialog(sqlObject.getContentPane(), "Database connection established");
 			System.out.println("Database connection established");

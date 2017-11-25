@@ -2,7 +2,7 @@ package iiitd.gritlab.facultyapp;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,16 +21,17 @@ import java.util.regex.Pattern;
 import recruitment.iiitd.edu.mew.HomeScreen;
 import recruitment.iiitd.edu.mew.SettingsActivity;
 import recruitment.iiitd.edu.model.Query;
-import recruitment.iiitd.edu.utils.Constants;
 
 public class MainActivity extends AppCompatActivity {
 
     EditText ed1,ed2,ed3;
     int aRequestCode=1234;
+    Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mContext=this;
         setContentView(R.layout.activity_main);
         ed1=(EditText)findViewById(R.id.editText);
         ed2=(EditText)findViewById(R.id.editText2);
@@ -74,15 +75,21 @@ public class MainActivity extends AppCompatActivity {
             Query q = new Query(this);
             q.setSensorName("WiFi");
             q.setFromTime(System.currentTimeMillis() + 60000); //one minute from now, start issuing requests
-            q.setToTime(q.getFromTime() + Integer.parseInt(ed2.getText().toString())*1000*60);
+            int duration=Integer.parseInt(ed2.getText().toString())*1000*60;
+            q.setToTime(q.getFromTime() + duration);
             q.setMin(0);
             q.setSelection("broadcast");
             JSONObject jsonQuery = Query.generateJSONQuery(q);
-            System.out.println(jsonQuery.toString());
             try {
                 Query.sendQueryToServer(jsonQuery, this);
-                //wait for the data to arrive - q.setToTime()+60000
-
+                final String[] params = {q.getQueryNo(),ed3.getText().toString()};
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                       new CountStudents(mContext).execute(params);
+                    }
+                }, duration+120000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (JSONException e) {

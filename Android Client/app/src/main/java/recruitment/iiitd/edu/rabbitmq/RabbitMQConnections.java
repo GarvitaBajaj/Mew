@@ -192,7 +192,7 @@ public class RabbitMQConnections {
 						connection.close();
 //					}
 				} catch (Exception e) {
-					Log.d("MEW", "Connection broken: " + e.getMessage());
+//					Log.d("MEW", "Connection broken: " + e.getMessage());
 					e.printStackTrace();
 //						Intent openSettings=new Intent(mContext,SettingsActivity.class);
 //						mContext.startActivity(openSettings);
@@ -225,21 +225,21 @@ public class RabbitMQConnections {
 						Connection connection = factory.newConnection();
 						Channel channel = connection.createChannel();
 						channel.basicQos(0);
-						DeclareOk q = channel.queueDeclare();
+						DeclareOk q=channel.queueDeclare();
+//						DeclareOk q = channel.queueDeclare("queue.ps.resources",true,false,false,null);
 						String bindingKey = Constants.DEVICE_ID;
 						channel.queueBind(q.getQueue(), selectionExchangeName , bindingKey);
 
 						QueueingConsumer consumer = new QueueingConsumer(channel);
-						channel.basicConsume(q.getQueue(), true, consumer);
+						channel.basicConsume(q.getQueue(), false, consumer);
 
 						// Process deliveries
 						while (isSubscribing.get()) {
-
 							QueueingConsumer.Delivery delivery = consumer.nextDelivery();
-
 							String message = new String(delivery.getBody());
 							String routingKey = delivery.getEnvelope().getRoutingKey();
-
+                            channel.basicAck(delivery.getEnvelope().getDeliveryTag(),
+                                    true);
 							final JSONObject jsonObject=new JSONObject(message);
 
 							if(!isSubscribing.get()){
@@ -320,8 +320,7 @@ public class RabbitMQConnections {
 								localIntent.putExtra(Constants.AMQP_SUBSCRIBED_MESSAGE, message);
 								mContext.sendBroadcast(localIntent);
 							}
-//							System.out.println("Delivery tag "+delivery.getEnvelope().getDeliveryTag());
-							channel.basicAck(delivery.getEnvelope().getDeliveryTag(),false);
+
 						}
 						channel.close();
 						connection.close();

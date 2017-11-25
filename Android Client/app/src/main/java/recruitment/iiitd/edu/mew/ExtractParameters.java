@@ -283,6 +283,7 @@ public class ExtractParameters extends Service {
 		edit2.putFloat("LATITUDE", Float.valueOf(lat.toString()));
 		edit2.putFloat("LONGITUDE", Float.valueOf(lon.toString()));
 		edit2.putString("DEVICEID", Constants.DEVICE_ID);
+		edit2.putFloat("BATTERY", 0);
 		edit2.commit();
 
 		Map<String, Object> states=new HashMap<String,Object>();
