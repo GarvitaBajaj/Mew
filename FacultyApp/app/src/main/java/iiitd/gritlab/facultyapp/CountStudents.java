@@ -3,6 +3,7 @@ package iiitd.gritlab.facultyapp;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Environment;
+import android.os.Vibrator;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -65,6 +66,10 @@ public class CountStudents extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute(String a)
     {
-        Toast.makeText(mContext, "Students around: "+count, Toast.LENGTH_LONG).show();
+        Vibrator v = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(1000);
+        Toast.makeText(mContext, "Students around: "+a, Toast.LENGTH_LONG).show();
+        GraphCount.populateSeries(Integer.parseInt(a));
     }
+
 }

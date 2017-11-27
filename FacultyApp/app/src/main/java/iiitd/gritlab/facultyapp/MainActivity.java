@@ -1,8 +1,11 @@
 package iiitd.gritlab.facultyapp;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -27,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     EditText ed1,ed2,ed3;
     int aRequestCode=1234;
     Context mContext;
+    static AlarmManager alarmMgr;
+    static PendingIntent alarmIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,33 +74,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void fireQueries(View view) {
         if (matchIP()) {
-            //save the query number for reference - data processing
-            //check whether ReceivedFile folder is created properly
-            //launch a timertask to issue regular queries
-            Query q = new Query(this);
-            q.setSensorName("WiFi");
-            q.setFromTime(System.currentTimeMillis() + 60000); //one minute from now, start issuing requests
-            int duration=Integer.parseInt(ed2.getText().toString())*1000*60;
-            q.setToTime(q.getFromTime() + duration);
-            q.setMin(0);
-            q.setSelection("broadcast");
-            JSONObject jsonQuery = Query.generateJSONQuery(q);
-            try {
-                Query.sendQueryToServer(jsonQuery, this);
-                final String[] params = {q.getQueryNo(),ed3.getText().toString()};
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                       new CountStudents(mContext).execute(params);
-                    }
-                }, duration+120000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
+             //fire query every time defined by the UI
+            alarmMgr = (AlarmManager)this.getSystemService(Context.ALARM_SERVICE);
+            Intent intent = new Intent(this, FireQuery.class);
+            intent.putExtra("duration",Integer.parseInt(ed2.getText().toString())*1000*60);
+            intent.putExtra("macID",ed3.getText().toString());
+            alarmIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
+            alarmMgr.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,0,Integer.parseInt(ed1.getText().toString())*60*1000, alarmIntent);
+            Intent next=new Intent(this, GraphCount.class);
+            startActivity(next);
         }
         else{
             Toast.makeText(this,"Please enter a valid MAC address", Toast.LENGTH_SHORT).show();

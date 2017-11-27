@@ -24,6 +24,9 @@
         </activity>
         <activity android:name="recruitment.iiitd.edu.mew.SettingsActivity"
             android:parentActivityName="recruitment.iiitd.edu.mew.HomeScreen"/>
+        <activity android:name=".GraphCount" android:launchMode="singleTask"/>
+        <receiver android:name=".FireQuery" />
+
     </application>
 
 </manifest>
