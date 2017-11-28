@@ -28,7 +28,6 @@ import java.util.Random;
 
 public class GraphCount extends AppCompatActivity {
 
-    int times = 10;
     static XYSeries series;
     static XYSeriesRenderer renderer;
     static XYMultipleSeriesDataset dataset;
@@ -40,8 +39,6 @@ public class GraphCount extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph);
-//        mReceiver = new CountStudentsResultReceiver(new Handler());
-//        mReceiver.setReceiver(this);
         context = this;
         renderer = new XYSeriesRenderer();
         renderer.setLineWidth(2);
@@ -51,10 +48,9 @@ public class GraphCount extends AppCompatActivity {
         dataset = new XYMultipleSeriesDataset();
         dataset.addSeries(series);
         mRenderer = new XYMultipleSeriesRenderer();
-        mRenderer.setAxisTitleTextSize(16);
-        mRenderer.setChartTitleTextSize(20);
-        mRenderer.setLabelsTextSize(15);
-        mRenderer.setLegendTextSize(15);
+        mRenderer.setLabelsTextSize(28);
+        mRenderer.setLegendTextSize(28);
+        mRenderer.setYLabelsPadding(10);
         mRenderer.setMargins(new int[]{20, 30, 15, 0});
         mRenderer.setPanEnabled(true, true);
         mRenderer.setZoomEnabled(true, true);
@@ -73,11 +69,6 @@ public class GraphCount extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-//        Intent msgIntent = new Intent(context, CountStudentsBgd.class);
-//        msgIntent.putExtra("queryNo",  q.getQueryNo());
-//        msgIntent.putExtra("macID",intent.getStringExtra("macID"));
-//        context.startService(msgIntent);
-//        System.out.println("Intent started");
     }
 
     @Override
@@ -86,7 +77,6 @@ public class GraphCount extends AppCompatActivity {
     }
 
     static void populateSeries(int value) {
-//        Random r = new Random();
         System.out.println("value = " + value);
         System.out.println("inside populate series");
         System.out.println("series.getItemCount() = " + series.getItemCount());
@@ -114,7 +104,6 @@ public class GraphCount extends AppCompatActivity {
     public void cancelAlarm(View v) {
         MainActivity.alarmMgr.cancel(MainActivity.alarmIntent);
         Toast.makeText(this.getApplicationContext(), "No longer monitoring students", Toast.LENGTH_SHORT).show();
-//        startActivity(new Intent(this.getApplicationContext(),MainActivity.class));
     }
 
 }
