@@ -1,3 +1,0 @@
-# Referenced at C:\Users\garvita\Desktop\Mew\AttendanceRegister\app\build\intermediates\manifests\full\debug\AndroidManifest.xml:29
--keep class android.support.multidex.MultiDexApplication { <init>(...); }
-

@@ -1,4 +1,0 @@
-#Wed Nov 22 15:43:54 IST 2017
-base.0=C\:\\Users\\garvita\\Desktop\\Mew\\AttendanceRegister\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\2
-path.0=classes.dex
-renamed.0=classes.dex
