@@ -308,54 +308,54 @@ public class HomeScreen extends AppCompatActivity {
 			startActivity(i);
 			return true;
 		}
-
-		if(id==R.id.action_query){
-			Intent i=new Intent(this,QueryForm.class);
-			i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-			startActivity(i);
-		}
-
-		if(id==R.id.action_backup){
-
-			File file1 = new File(new File(Environment.getExternalStorageDirectory() + "/Mew/").getPath());
-			final File to = new File(file1.getAbsolutePath() + System.currentTimeMillis());
-			file1.renameTo(to);
-
-			Intent intent = new Intent(Intent.ACTION_SEND_MULTIPLE);
-			intent.putExtra(Intent.EXTRA_EMAIL, new String[] {"garvitab@iiitd.ac.in"});//,"apurv09064@iiitd.ac.in"});
-			intent.putExtra(Intent.EXTRA_SUBJECT, "Log file for "+Constants.DEVICE_ID);
-			intent.putExtra(Intent.EXTRA_TEXT, "This is an auto generated email. It contains the log file for the last experiment run.");
-			ArrayList<Uri> uris = new ArrayList<Uri>();
-
-			File directory = new File(to,"/Logging/");
-			File file=new File(directory,"logging.csv");
-			if (!file.exists() || !file.canRead()) {
-				Toast.makeText(this, "Logging.csv unavailable", Toast.LENGTH_SHORT).show();
-				finish();
-			}
-			Uri uri = Uri.parse("file://" + file);
-			uris.add(0,uri);
-			directory = new File(to,"/Query_Timestamps/");
-			file=new File(directory,"queries.csv");
-			if (!file.exists() || !file.canRead()) {
-				Toast.makeText(this, "Queries.csv unavailable", Toast.LENGTH_SHORT).show();
-			}
-			else {
-				uri = Uri.parse("file://" + file);
-				uris.add(1, uri);
-			}
-			file=new File(directory,"timestamps.csv");
-			if (!file.exists() || !file.canRead()) {
-				Toast.makeText(this, "timestamps.csv unavailable", Toast.LENGTH_LONG).show();
-			}
-			else {
-				uri = Uri.parse("file://" + file);
-				uris.add(2, uri);
-			}
-			intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
-			intent.setType("message/rfc822");
-			startActivity(intent);
-		}
+//
+//		if(id==R.id.action_query){
+//			Intent i=new Intent(this,QueryForm.class);
+//			i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//			startActivity(i);
+//		}
+//
+//		if(id==R.id.action_backup){
+//
+//			File file1 = new File(new File(Environment.getExternalStorageDirectory() + "/Mew/").getPath());
+//			final File to = new File(file1.getAbsolutePath() + System.currentTimeMillis());
+//			file1.renameTo(to);
+//
+//			Intent intent = new Intent(Intent.ACTION_SEND_MULTIPLE);
+//			intent.putExtra(Intent.EXTRA_EMAIL, new String[] {"garvitab@iiitd.ac.in"});//,"apurv09064@iiitd.ac.in"});
+//			intent.putExtra(Intent.EXTRA_SUBJECT, "Log file for "+Constants.DEVICE_ID);
+//			intent.putExtra(Intent.EXTRA_TEXT, "This is an auto generated email. It contains the log file for the last experiment run.");
+//			ArrayList<Uri> uris = new ArrayList<Uri>();
+//
+//			File directory = new File(to,"/Logging/");
+//			File file=new File(directory,"logging.csv");
+//			if (!file.exists() || !file.canRead()) {
+//				Toast.makeText(this, "Logging.csv unavailable", Toast.LENGTH_SHORT).show();
+//				finish();
+//			}
+//			Uri uri = Uri.parse("file://" + file);
+//			uris.add(0,uri);
+//			directory = new File(to,"/Query_Timestamps/");
+//			file=new File(directory,"queries.csv");
+//			if (!file.exists() || !file.canRead()) {
+//				Toast.makeText(this, "Queries.csv unavailable", Toast.LENGTH_SHORT).show();
+//			}
+//			else {
+//				uri = Uri.parse("file://" + file);
+//				uris.add(1, uri);
+//			}
+//			file=new File(directory,"timestamps.csv");
+//			if (!file.exists() || !file.canRead()) {
+//				Toast.makeText(this, "timestamps.csv unavailable", Toast.LENGTH_LONG).show();
+//			}
+//			else {
+//				uri = Uri.parse("file://" + file);
+//				uris.add(2, uri);
+//			}
+//			intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
+//			intent.setType("message/rfc822");
+//			startActivity(intent);
+//		}
 		return super.onOptionsItemSelected(item);
 	}
 

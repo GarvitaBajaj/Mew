@@ -7,14 +7,4 @@
           android:orderInCategory="100"
           app:showAsAction="never"/>
 
-    <item android:id="@+id/action_query"
-          android:title="@string/query"
-          android:orderInCategory="100"
-          app:showAsAction="never"/>
-
-    <item android:id="@+id/action_backup"
-          android:title="@string/backup"
-          android:orderInCategory="100"
-          app:showAsAction="never"/>
-
 </menu>
