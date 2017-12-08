@@ -1,0 +1,350 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:2:1-32:12
+MERGED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:2:1-110:12
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\30b166dcef0d2968299c1f56caf64cd9\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\c0f7143e5f29c6926696ab4d06dc5f5f\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\94ad13d8ae82fbb415d146b726f9349e\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\4b0e7da289326b45891f52f1533b5be5\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\e5ed80b6db9b23020282c952b1028f69\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\d0235685135f49596603524a4e3eee81\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\c9dc0866e14eb34e758412101f786544\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\169f16a39b30bf457bc38155b286ab28\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\94055fd76377b42c01bc8784bffb6a43\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\34487032cb2c7d87e9d71189c0d4c87e\AndroidManifest.xml:17:1-31:12
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\08bb1cb61e791efea11d404bd8d52112\AndroidManifest.xml:17:1-30:12
+INJECTED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:2:1-32:12
+	package
+		ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:3:5-47
+		INJECTED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:2:1-32:12
+		INJECTED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:2:1-32:12
+		INJECTED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:2:11-69
+application
+ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:5:5-30:19
+MERGED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:29:5-108:19
+MERGED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:29:5-108:19
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\30b166dcef0d2968299c1f56caf64cd9\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\30b166dcef0d2968299c1f56caf64cd9\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\c0f7143e5f29c6926696ab4d06dc5f5f\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\c0f7143e5f29c6926696ab4d06dc5f5f\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\94ad13d8ae82fbb415d146b726f9349e\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\94ad13d8ae82fbb415d146b726f9349e\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\4b0e7da289326b45891f52f1533b5be5\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\4b0e7da289326b45891f52f1533b5be5\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\e5ed80b6db9b23020282c952b1028f69\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\e5ed80b6db9b23020282c952b1028f69\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\d0235685135f49596603524a4e3eee81\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\d0235685135f49596603524a4e3eee81\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\c9dc0866e14eb34e758412101f786544\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\c9dc0866e14eb34e758412101f786544\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\169f16a39b30bf457bc38155b286ab28\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\169f16a39b30bf457bc38155b286ab28\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\94055fd76377b42c01bc8784bffb6a43\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\94055fd76377b42c01bc8784bffb6a43\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\34487032cb2c7d87e9d71189c0d4c87e\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\34487032cb2c7d87e9d71189c0d4c87e\AndroidManifest.xml:25:5-29:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\08bb1cb61e791efea11d404bd8d52112\AndroidManifest.xml:24:5-28:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\08bb1cb61e791efea11d404bd8d52112\AndroidManifest.xml:24:5-28:19
+	android:supportsRtl
+		ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:10:9-35
+	android:label
+		ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:8:9-41
+	android:roundIcon
+		ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:9:9-54
+	android:icon
+		ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:7:9-43
+	android:allowBackup
+		ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:11:9-40
+activity#iiitd.gritlab.distractionMonitor.MainActivity
+ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:12:9-17:16
+	android:launchMode
+		ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:12:80-111
+	android:name
+		ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:12:19-79
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:13:13-16:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:14:17-69
+	android:name
+		ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:14:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:15:17-77
+	android:name
+		ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:15:27-74
+activity#recruitment.iiitd.edu.mew.HomeScreen
+ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:18:9-24:20
+MERGED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:34:9-46:20
+MERGED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:34:9-46:20
+	android:label
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:37:13-45
+	android:parentActivityName
+		ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:19:13-87
+	android:launchMode
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:38:13-48
+	android:alwaysRetainTaskState
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:36:13-49
+	android:name
+		ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:18:19-70
+activity#recruitment.iiitd.edu.mew.SettingsActivity
+ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:25:9-26:80
+MERGED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:92:9-99:20
+MERGED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:92:9-99:20
+	android:label
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:94:13-60
+	android:parentActivityName
+		ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:26:13-78
+	android:name
+		ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:25:19-76
+activity#iiitd.gritlab.distractionMonitor.GraphCount
+ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:27:9-111
+	android:launchMode
+		ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:27:78-109
+	android:name
+		ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:27:19-77
+receiver#iiitd.gritlab.distractionMonitor.FireQuery
+ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:28:9-79
+	android:name
+		ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:28:19-76
+uses-sdk
+INJECTED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml
+MERGED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:7:5-9:41
+MERGED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\30b166dcef0d2968299c1f56caf64cd9\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\30b166dcef0d2968299c1f56caf64cd9\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\c0f7143e5f29c6926696ab4d06dc5f5f\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\c0f7143e5f29c6926696ab4d06dc5f5f\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\94ad13d8ae82fbb415d146b726f9349e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\94ad13d8ae82fbb415d146b726f9349e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\4b0e7da289326b45891f52f1533b5be5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\4b0e7da289326b45891f52f1533b5be5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\e5ed80b6db9b23020282c952b1028f69\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\e5ed80b6db9b23020282c952b1028f69\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\d0235685135f49596603524a4e3eee81\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\d0235685135f49596603524a4e3eee81\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\c9dc0866e14eb34e758412101f786544\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\c9dc0866e14eb34e758412101f786544\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\169f16a39b30bf457bc38155b286ab28\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\169f16a39b30bf457bc38155b286ab28\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\94055fd76377b42c01bc8784bffb6a43\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\94055fd76377b42c01bc8784bffb6a43\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\34487032cb2c7d87e9d71189c0d4c87e\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\34487032cb2c7d87e9d71189c0d4c87e\AndroidManifest.xml:21:5-23:58
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\08bb1cb61e791efea11d404bd8d52112\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\08bb1cb61e791efea11d404bd8d52112\AndroidManifest.xml:20:5-22:41
+INJECTED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\30b166dcef0d2968299c1f56caf64cd9\AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml
+supports-screens
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:11:5-54
+	android:xlargeScreens
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:11:23-51
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:13:5-79
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:13:22-76
+uses-permission#android.permission.DISABLE_KEYGUARD
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:14:5-75
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:14:22-72
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:15:5-68
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:15:22-65
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:16:5-76
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:16:22-73
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:17:5-76
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:17:22-73
+uses-permission#android.permission.INTERNET
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:18:5-67
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:18:22-64
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:19:5-75
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:19:22-72
+uses-permission#com.android.alarm.permission.SET_ALARM
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:20:5-78
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:20:22-75
+uses-permission#android.permission.VIBRATE
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:21:5-66
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:21:22-63
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:22:5-81
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:22:22-78
+uses-permission#com.google.android.gms.permission.ACTIVITY_RECOGNITION
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:23:5-94
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:23:22-91
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:24:5-80
+IMPLIED from C:\Users\garvita\Desktop\Mew\DistractionMonitor\app\src\main\AndroidManifest.xml:2:1-32:12 reason: recruitment.iiitd.edu.mew requested WRITE_EXTERNAL_STORAGE
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:24:22-77
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:25:5-71
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:25:22-68
+uses-permission#android.permission.WRITE_SETTINGS
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:26:5-73
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:26:22-70
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:27:5-79
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:27:22-76
+receiver#recruitment.iiitd.edu.rabbitmq.SubscribeReceiver
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:48:9-55:20
+	android:enabled
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:50:13-35
+	android:exported
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:51:13-37
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:49:13-76
+intent-filter#recruitment.iiitd.edu.amqpIntent.BROADCAST
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:52:13-54:29
+action#recruitment.iiitd.edu.amqpIntent.BROADCAST
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:53:17-85
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:53:25-82
+receiver#recruitment.iiitd.edu.mew.MyAdmin
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:56:9-66:20
+	android:permission
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:58:13-70
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:57:13-61
+meta-data#android.app.device_admin
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:59:13-61:52
+	android:resource
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:61:17-49
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:60:17-56
+intent-filter#android.app.action.DEVICE_ADMIN_ENABLED
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:63:13-65:29
+action#android.app.action.DEVICE_ADMIN_ENABLED
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:64:17-82
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:64:25-79
+receiver#recruitment.iiitd.edu.mew.StartScreen
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:67:9-74
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:67:19-71
+receiver#recruitment.iiitd.edu.mew.StopScreen
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:68:9-73
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:68:19-70
+service#recruitment.iiitd.edu.mew.ExtractParameters
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:70:9-72:38
+	android:enabled
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:72:13-35
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:71:13-71
+service#recruitment.iiitd.edu.mew.RunningApplications
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:73:9-81
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:73:18-78
+receiver#recruitment.iiitd.edu.mew.NetworkChangeReceiver
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:75:9-82:20
+	android:label
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:77:13-50
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:76:13-75
+intent-filter#android.net.conn.CONNECTIVITY_CHANGE+android.net.wifi.WIFI_STATE_CHANGED
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:78:13-81:29
+action#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:79:17-79
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:79:25-76
+action#android.net.wifi.WIFI_STATE_CHANGED
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:80:17-78
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:80:25-75
+activity#recruitment.iiitd.edu.mew.QueryForm
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:84:9-91:20
+	android:parentActivityName
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:87:13-78
+	android:label
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:86:13-62
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:85:13-63
+meta-data#android.support.PARENT_ACTIVITY
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:88:13-90:72
+	android:value
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:90:17-69
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:89:17-63
+service#recruitment.iiitd.edu.sensing.SensorReadings
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:101:9-80
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:101:18-77
+receiver#recruitment.iiitd.edu.sensing.AlarmReceiver
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:103:9-107:20
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:103:19-77
+intent-filter#recruitment.iiitd.edu.subscription.DATACOLLECTION
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:104:13-106:29
+action#recruitment.iiitd.edu.subscription.DATACOLLECTION
+ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:105:17-92
+	android:name
+		ADDED from [:app-release:] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\app-release.aar\0a7fb4a334cc58fa410139027f0f5816\AndroidManifest.xml:105:25-89
+meta-data#android.support.VERSION
+ADDED from [com.android.support:appcompat-v7:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\30b166dcef0d2968299c1f56caf64cd9\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\94ad13d8ae82fbb415d146b726f9349e\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\94ad13d8ae82fbb415d146b726f9349e\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\4b0e7da289326b45891f52f1533b5be5\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\4b0e7da289326b45891f52f1533b5be5\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\e5ed80b6db9b23020282c952b1028f69\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\e5ed80b6db9b23020282c952b1028f69\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\d0235685135f49596603524a4e3eee81\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\d0235685135f49596603524a4e3eee81\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\c9dc0866e14eb34e758412101f786544\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\c9dc0866e14eb34e758412101f786544\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\169f16a39b30bf457bc38155b286ab28\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\169f16a39b30bf457bc38155b286ab28\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\94055fd76377b42c01bc8784bffb6a43\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\94055fd76377b42c01bc8784bffb6a43\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\34487032cb2c7d87e9d71189c0d4c87e\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\34487032cb2c7d87e9d71189c0d4c87e\AndroidManifest.xml:26:9-28:38
+	android:value
+		ADDED from [com.android.support:appcompat-v7:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\30b166dcef0d2968299c1f56caf64cd9\AndroidManifest.xml:28:13-35
+	android:name
+		ADDED from [com.android.support:appcompat-v7:26.1.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\30b166dcef0d2968299c1f56caf64cd9\AndroidManifest.xml:27:13-51
+meta-data#android.arch.lifecycle.VERSION
+ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\08bb1cb61e791efea11d404bd8d52112\AndroidManifest.xml:25:9-27:47
+	android:value
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\08bb1cb61e791efea11d404bd8d52112\AndroidManifest.xml:27:13-44
+	android:name
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\garvita\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\08bb1cb61e791efea11d404bd8d52112\AndroidManifest.xml:26:13-58
