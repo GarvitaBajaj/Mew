@@ -3,6 +3,8 @@ package iiitd.gritlab.facultyapp;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Environment;
+import android.os.FileObserver;
 import android.os.Handler;
 
 import org.json.JSONException;
@@ -18,6 +20,9 @@ import recruitment.iiitd.edu.model.Query;
  */
 
 public class FireQuery extends BroadcastReceiver{
+
+    static MonitorQueries directoryFileObserver;
+    String MewPath=Environment.getExternalStorageDirectory().getAbsolutePath() + "/Mew/ReceivedFile/";
     @Override
     public void onReceive(final Context context, Intent intent) {
 //        System.out.println("Firing query");
@@ -41,6 +46,10 @@ public class FireQuery extends BroadcastReceiver{
         final String[] params = macIDs.toArray(new String[macIDs.size()+1]);
         params[macIDs.size()]=q.getQueryNo();// {q.getQueryNo(),macIDs.toArray()};
 //        System.out.println("params = " + Arrays.toString(params));
+        String pathname= MewPath.concat("9d6706888645b1aa1515079026783");
+        System.out.println("pathname = " + pathname);
+        directoryFileObserver = new MonitorQueries(pathname, FileObserver.CREATE); //this should be called once the file directory has been created. Calling it before does nothing when the event happens
+        directoryFileObserver.startWatching();
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
