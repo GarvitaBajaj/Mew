@@ -12,22 +12,23 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import recruitment.iiitd.edu.mew.HomeScreen;
 import recruitment.iiitd.edu.mew.SettingsActivity;
-import recruitment.iiitd.edu.model.Query;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText ed1,ed2,ed3;
+    EditText ed1,ed2;
+    Spinner s1;
     int aRequestCode=1234;
     Context mContext;
     static AlarmManager alarmMgr;
@@ -40,13 +41,32 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ed1=(EditText)findViewById(R.id.editText);
         ed2=(EditText)findViewById(R.id.editText2);
-        ed3=(EditText)findViewById(R.id.editText6);
+        addLectureHalls();
+        APLabels.setLabels();
         //start Homescreen of library for initialising the variables and starting the subscriber thread
         Intent i=new Intent(this, HomeScreen.class);
         i.putExtra("returnResult",true);
         startActivityForResult(i,aRequestCode);
     }
 
+    public void addLectureHalls() {
+        s1 = (Spinner) findViewById(R.id.spinner);
+        List<String> list = new ArrayList<String>();
+        list.add("C01");
+        list.add("C02");
+        list.add("C03");
+        list.add("C11");
+        list.add("C12");
+        list.add("C13");
+        list.add("C21");
+        list.add("C22");
+        list.add("C23");
+        list.add("C24");
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        s1.setAdapter(dataAdapter);
+    }
     @Override
     protected void onActivityResult( int aRequestCode, int aResultCode, Intent aData ) {
         super.onActivityResult(aRequestCode, aResultCode, aData);
@@ -73,25 +93,25 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void fireQueries(View view) {
-        if (matchIP()) {
+//        if (matchIP()) {
              //fire query every time defined by the UI
             alarmMgr = (AlarmManager)this.getSystemService(Context.ALARM_SERVICE);
             Intent intent = new Intent(this, FireQuery.class);
             intent.putExtra("duration",Integer.parseInt(ed2.getText().toString())*1000*60);
-            intent.putExtra("macID",ed3.getText().toString());
+            intent.putExtra("lectureHall",String.valueOf(s1.getSelectedItem()));
             alarmIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
             alarmMgr.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,0,Integer.parseInt(ed1.getText().toString())*60*1000, alarmIntent);
             Intent next=new Intent(this, GraphCount.class);
             startActivity(next);
-        }
-        else{
-            Toast.makeText(this,"Please enter a valid MAC address", Toast.LENGTH_SHORT).show();
-        }
+//        }
+//        else{
+//            Toast.makeText(this,"Please enter a valid MAC address", Toast.LENGTH_SHORT).show();
+//        }
     }
 
 
     protected boolean matchIP(){
-        String entered=ed3.getText().toString();
+        String entered=String.valueOf(s1.getSelectedItem());
         String regexPattern="([0-9A-Fa-f]{2}[:-]?){5}([0-9A-Fa-f]{2})";
         Pattern pattern = Pattern.compile(regexPattern);
         Matcher matcher = pattern.matcher(entered);

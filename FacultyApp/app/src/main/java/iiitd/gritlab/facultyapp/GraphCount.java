@@ -77,9 +77,9 @@ public class GraphCount extends AppCompatActivity {
     }
 
     static void populateSeries(int value) {
-        System.out.println("value = " + value);
-        System.out.println("inside populate series");
-        System.out.println("series.getItemCount() = " + series.getItemCount());
+//        System.out.println("value = " + value);
+//        System.out.println("inside populate series");
+//        System.out.println("series.getItemCount() = " + series.getItemCount());
         if (value == -1) {
             series.add(0, 0);
         }

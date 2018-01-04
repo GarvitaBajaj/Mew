@@ -8,6 +8,9 @@ import android.os.Handler;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Arrays;
+import java.util.List;
+
 import recruitment.iiitd.edu.model.Query;
 
 /**
@@ -17,7 +20,7 @@ import recruitment.iiitd.edu.model.Query;
 public class FireQuery extends BroadcastReceiver{
     @Override
     public void onReceive(final Context context, Intent intent) {
-        System.out.println("Firing query");
+//        System.out.println("Firing query");
         int duration=intent.getIntExtra("duration",60000);
         Query q = new Query(context);
         q.setSensorName("WiFi");
@@ -33,7 +36,11 @@ public class FireQuery extends BroadcastReceiver{
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        final String[] params = {q.getQueryNo(),intent.getStringExtra("macID")};
+        String lectureHall=intent.getStringExtra("lectureHall");
+        List<String> macIDs=APLabels.labels.get(lectureHall);
+        final String[] params = macIDs.toArray(new String[macIDs.size()+1]);
+        params[macIDs.size()]=q.getQueryNo();// {q.getQueryNo(),macIDs.toArray()};
+//        System.out.println("params = " + Arrays.toString(params));
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override

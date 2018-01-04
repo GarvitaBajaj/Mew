@@ -1,4 +1,18 @@
 <resources>
     <string name="app_name">FacultyApp</string>
     <string name="action_settings">Settings</string>
+
+   <!-- <string-array name="halls">
+        <string>C01</string>
+        <string>C02</string>
+        <string>C03</string>
+        <string>C11</string>
+        <string>C12</string>
+        <string>C13</string>
+        <string>C21</string>
+        <string>C22</string>
+        <string>C23</string>
+        <string>C24</string>
+
+    </string-array>-->
 </resources>
