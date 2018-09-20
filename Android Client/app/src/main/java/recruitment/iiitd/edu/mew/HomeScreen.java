@@ -11,7 +11,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,6 +19,8 @@ import android.os.PowerManager;
 import android.os.SystemClock;
 import android.provider.Settings;
 //import android.support.v7.app.ActionBarActivity;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -29,9 +30,11 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 //import com.google.firebase.crash.FirebaseCrash;
+
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
 
 import org.json.JSONObject;
 
@@ -45,19 +48,24 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
 import au.com.bytecode.opencsv.CSVReader;
+import recruitment.iiitd.edu.contextAwareness.ActivityRecognitionService;
+import recruitment.iiitd.edu.contextAwareness.UserActivity;
 import recruitment.iiitd.edu.model.DatabaseHelper;
 import recruitment.iiitd.edu.model.Query;
 import recruitment.iiitd.edu.rabbitmq.RabbitMQConnections;
 import recruitment.iiitd.edu.utils.Constants;
 import recruitment.iiitd.edu.utils.LogTimer;
 import recruitment.iiitd.edu.utils.MobilityTrace;
+import com.google.android.gms.awareness.Awareness;
+//import com.google.android.gms.location.ActivityRecognitionClient;
+import com.google.android.gms.location.ActivityRecognition;
+import com.google.android.gms.tasks.Task;
 
 
 public class HomeScreen extends AppCompatActivity {
@@ -70,7 +78,6 @@ public class HomeScreen extends AppCompatActivity {
 	Intent i1 ;
 	Context mContext;
 	public boolean screenAlarms=false;
-
 	//varibles specific to locking/unlocking the screen at regular intervals
 	public static WifiManager wm;
 	public static WifiManager.WifiLock wifiLock;
@@ -141,7 +148,7 @@ public class HomeScreen extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home_screen);
-		wm = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
+		wm = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 		wifiLock = wm.createWifiLock(WifiManager.WIFI_MODE_FULL_HIGH_PERF, TAG);
 		deviceManger = (DevicePolicyManager)getSystemService(Context.DEVICE_POLICY_SERVICE);
 		activityManager = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
@@ -220,6 +227,8 @@ public class HomeScreen extends AppCompatActivity {
 			public void onCheckedChanged(CompoundButton buttonView,
 										 boolean isChecked) {
 				if (isChecked) {
+//					mActivityRecognitionClient.requestActivityUpdates(5*60*1000,PendingIntent.getService(getApplicationContext(), 0, new Intent(getApplicationContext(), UserActivity.class), PendingIntent.FLAG_UPDATE_CURRENT));
+					Log.d(TAG,"Connecting to Google API");
 					if (wifiLock != null) { // May be null if wm is null
 						if (!wifiLock.isHeld()) {
 							wifiLock.acquire();
@@ -555,4 +564,6 @@ public class HomeScreen extends AppCompatActivity {
 		}
 
 	}
+
+
 }

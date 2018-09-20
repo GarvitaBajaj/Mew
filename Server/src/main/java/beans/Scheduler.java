@@ -1,17 +1,15 @@
 package beans;
 
-import java.sql.Timestamp;
-import java.util.Date;
-import java.util.TreeMap;
-
+import algoHelpers.Algo;
+import algoHelpers.AlgoFactory;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.stereotype.Component;
 
-import algoHelpers.Algo;
-import algoHelpers.AlgoFactory;
-import algos.*;
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.TreeMap;
 
 @Component
 public class Scheduler {

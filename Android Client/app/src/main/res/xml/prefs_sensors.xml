@@ -1,0 +1,40 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceCategory android:title="Sensors supported">
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="sen_accelerometer"
+        android:summary="Allow"
+        android:title="Accelerometer" />
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="sen_microphone"
+        android:summary="allow"
+        android:title="Microphone" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="sen_barometer"
+        android:summary="allow"
+        android:title="Barometer" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="sen_gyroscope"
+        android:summary="allow"
+        android:title="Gyroscope" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="sen_ppg"
+        android:summary="allow"
+        android:title="PPG" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="sen_wifi"
+        android:summary="allow"
+        android:title="WiFi" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="sen_gps"
+        android:summary="allow"
+        android:title="GPS" />
+</PreferenceCategory>
+</PreferenceScreen>
