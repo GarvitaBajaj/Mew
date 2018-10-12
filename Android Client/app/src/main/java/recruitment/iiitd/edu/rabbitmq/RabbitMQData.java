@@ -44,7 +44,7 @@ public class RabbitMQData extends AsyncTask<JSONObject, Void, Void> {
 
 	@Override
 	protected Void doInBackground(JSONObject... strings) {
-		String uri = "amqp://"+ username +":"+ password +"@"+ ipaddress +":5672/%2f";
+		String uri = "amqp://"+ "test" +":"+ "test123" +"@"+ "192.168.19.103" +":5672/%2f";
 
 		factory = new ConnectionFactory();
 		try {
@@ -58,35 +58,37 @@ public class RabbitMQData extends AsyncTask<JSONObject, Void, Void> {
 		}
 		JSONObject msg=strings[0];
 
-		Log.d(Constants.TAG,"JSON Message: "+msg.toString());
+//		Log.d(Constants.TAG,"JSON Message: "+msg.toString());
 
 		try {
 			Connection connection = factory.newConnection();
 			Channel ch = connection.createChannel();
 			ch.confirmSelect();
-			Log.e("TYPE",selectionExchangeName+": "+exchangeType+": "+durable);
+//			System.out.println(selectionExchangeName);
+//			Log.e("TYPE",selectionExchangeName+": "+exchangeType+": "+durable);
 			ch.exchangeDeclare(selectionExchangeName, exchangeType , durable);
 			//if the routing key does not exist, AMQP will silently drop the messages without waiting for an acknowledgement from the broker
 			//see http://forum.spring.io/forum/spring-projects/integration/amqp/130602-rabbittemplate-send-not-throwing-exception-on-non-existing-exchange-and-routing-key
 			String routingKey = msg.getString("requesterID");
-			Log.d(Constants.TAG," Requester id : "+routingKey);
+//			Log.d(Constants.TAG," Requester id : "+routingKey);
 			ch.basicPublish(selectionExchangeName, routingKey, null, msg.toString().getBytes());
 			ch.waitForConfirmsOrDie(30000);
 			ch.close();
 			connection.close();
 		} catch (Exception e) {
+			e.printStackTrace();
 			Log.d(Constants.TAG,"Exception caught");
-			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
+//			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught",e.getMessage());
 //			FirebaseCrash.report(e);
 //		} catch (JSONException e) {
 //			e.printStackTrace();
 //			LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e.getMessage());
 ////			FirebaseCrash.logcat(Log.ERROR, "Exception caught", e.getMessage());
-////			FirebaseCrash.report(e);
+////			FirebaseCrash.report(e);ass().toString()+" : "+e.getMessage());
+//////			e.printStackTrace();
 //		} catch (IOException e) {
-//			LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getClass().toString()+" : "+e.getMessage());
-//			e.printStackTrace();
+//			LogTimer.blockingDeque.add(System.currentTimeMillis()+": "+this.getCl
 ////			FirebaseCrash.logcat(Log.ERROR, "Exception caught", e.getMessage());
 ////			FirebaseCrash.report(e);
 //		} catch (TimeoutException e) {

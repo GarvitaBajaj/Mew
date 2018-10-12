@@ -10,9 +10,9 @@ public class Constants extends Application {
 
 	//*********************time delays****************************
 	public static final int DELAY_QUERY_PROCESSING=2 * 60 * 1000;		//2 minutes delay to start the sensor data collection
-	public static final int TIME_BETWEEN_LOCATION_UPDATES=60*1000;	//5 seconds
+	public static final int TIME_BETWEEN_LOCATION_UPDATES=5*60*1000;	//5 seconds
 	public static final float DISTANCE_BETWEEN_LOCATION_UPDATES=500;	//500 mts
-	public static final long TIME_BTW_RES_UPDATES=60*1000;	//30 seconds
+	public static final long TIME_BTW_RES_UPDATES=5*60*1000;	//30 seconds
 
 
 	//*********************routing keys***************************
@@ -40,6 +40,8 @@ public class Constants extends Application {
 	public static final int NUMBER_OF_QUERIES=100;
 	public static final int QUERY_DURATION=10*60*1000;
 	//********************sensing*********************************
+	public static final int ACC_SERVICE_START_ID = 5001;
+	public static final int ACC_SERVICE_STOP_ID = 5002;
 	public static final int SENSOR_SERVICE_START_ID = 5001;
 	public static final int SENSOR_SERVICE_STOP_ID = 5002;
 	public static final int SERVICE_START_ID=1357;

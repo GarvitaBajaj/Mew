@@ -1,5 +1,6 @@
 package recruitment.iiitd.edu.mew;
 
+import android.app.ActivityManager;
 import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +14,8 @@ import android.util.Log;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import recruitment.iiitd.edu.rabbitmq.RabbitMQConnections;
@@ -36,19 +39,24 @@ public class RunningApplications extends IntentService {
 			GPSenabled=true;
 
 		SharedPreferences sharedpreferences = null;
+		ActivityManager actvityManager = (ActivityManager)
+				this.getSystemService( ACTIVITY_SERVICE );
+		List<ActivityManager.RunningAppProcessInfo> procInfos = actvityManager.getRunningAppProcesses();
+		System.out.println("PROCESSES RUNNING: "+String.valueOf(procInfos.size()));
 		try{
 			sharedpreferences= ExtractParameters.sharedpreferences;
 			Editor edit=sharedpreferences.edit();
 			edit.putBoolean("GPSRunning", GPSenabled);
+			edit.putInt("ACTIVITIES",procInfos.size());
 			NetworkUtil networkUtil = new NetworkUtil();
 			edit.putFloat("LINKSPEED", networkUtil.getSpeed(this));
 			edit.commit();
 		}catch (Exception e){
-			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
+			e.printStackTrace();
+//			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e.getMessage());
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught", e.getMessage());
 //			FirebaseCrash.report(e);
 		}
-
 		if(sharedpreferences != null) {
 			Map<String, Object> states = new HashMap<String, Object>();
 			states.put("TYPE", Constants.MESSAGE_TYPE.INFO.getValue());
@@ -59,6 +67,7 @@ public class RunningApplications extends IntentService {
 		else{
 			Log.e("RunningApplications","Shared Preference is NULL");
 		}
+
 
 		stopSelf();
 	}

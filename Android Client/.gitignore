@@ -1,5 +1,10 @@
-/.gradle
-/.idea
-/build
+/.gradle/*
+/.idea/*
+/build/*
+/gradle/*
 build.gradle
 settings.gradle
+build.gradle
+gradlew
+gradlew.bat
+AndroidClient.iml
