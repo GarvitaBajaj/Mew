@@ -1,1 +1,6 @@
 /target
+/.settings
+/.idea
+.classpath
+.project
+MewInteraceMaven.iml

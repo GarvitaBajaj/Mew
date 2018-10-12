@@ -4,29 +4,27 @@
 
 package interfaces;
 
+import beans.Scheduler;
+import com.rabbitmq.client.*;
+import com.rabbitmq.client.AMQP.Queue.DeclareOk;
+import messageHandling.LeaveListener;
+import messageHandling.LeaveProvider;
+import messageHandling.UpdateResources;
+import net.miginfocom.swing.MigLayout;
+import org.json.JSONObject;
+import org.springframework.context.annotation.Bean;
+import utils.Pair;
+
+import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.Map;
+import java.util.ResourceBundle;
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.TimeoutException;
-
-import javax.swing.*;
-import com.rabbitmq.client.*;
-import com.rabbitmq.client.AMQP.Queue.DeclareOk;
-
-import org.json.JSONObject;
-import messageHandling.*;
-
-import beans.*;
-
-import org.springframework.context.annotation.Bean;
-import net.miginfocom.swing.*;
-import utils.Constants;
-import utils.Pair;
 
 /**
  * @author Garvita Bajaj
@@ -61,7 +59,7 @@ public class RabbitMQConfigurations extends JFrame {
 		}
 		return rabbitObject;
 	}
-	public ConnectionFactory conFactory;
+//	public ConnectionFactory conFactory;
 
 
 	private void initializeRabbitMQ(ActionEvent e) {
@@ -75,13 +73,13 @@ public class RabbitMQConfigurations extends JFrame {
 		dispose();
 	}
 
-	public void addMessageToQueue(Map<String,Object> msg, String routing_key){
+	public void addMessageToQueue(Map<String,Object> msg, String routing_key) throws Exception{
 		Pair<String,String> resourcePair=new Pair<>(new JSONObject(msg).toString(),routing_key);
 		queue.add(resourcePair);
 		publishThread();
 	}
 
-	public void publishThread(){
+	public void publishThread() throws Exception{
 		try {
 			Connection connection = conFact.newConnection();
 			Channel ch = connection.createChannel();
@@ -94,8 +92,6 @@ public class RabbitMQConfigurations extends JFrame {
 			ch.close();
 			connection.close();
 		} catch (InterruptedException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -241,8 +237,7 @@ public class RabbitMQConfigurations extends JFrame {
 			System.out.println("Queries Queue Created");
 			Consumer consumer2 = new DefaultConsumer(channel2) {
 				@Override
-				public void handleDelivery(String consumerTag, Envelope envelope,
-						AMQP.BasicProperties properties, byte[] body) throws IOException {
+				public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
 					String message = new String(body, "UTF-8");
 					JSONObject jsonMsgs = new JSONObject(message);
 

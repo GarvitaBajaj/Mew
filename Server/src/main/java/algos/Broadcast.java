@@ -1,31 +1,24 @@
 package algos;
 
+import algoHelpers.Algo;
+import background.MewServerResponseGateway;
+import interfaces.MainScreen;
+import org.json.JSONObject;
+import org.springframework.stereotype.Component;
+import utils.Provider;
+import utils.RandomSingleton;
+import utils.SensingQuery;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-import java.util.stream.Collectors;
-
-import org.json.JSONObject;
-import org.springframework.stereotype.Component;
-
-import algoHelpers.Algo;
-import background.MewServerResponseGateway;
-import interfaces.MainScreen;
-import utils.Provider;
-import utils.ProviderAS;
-import utils.RandomSingleton;
-import utils.SensingQuery;
 
 @Component
 public class Broadcast implements Algo{
@@ -68,7 +61,7 @@ public class Broadcast implements Algo{
 			}
 			if(sensorName.equalsIgnoreCase("Gyroscope"))
 			{
-				powerSensor="gyrpower";
+				powerSensor="GyrPower";
 			}
 			if(sensorName.equalsIgnoreCase("Microphone"))
 			{
@@ -92,7 +85,7 @@ public class Broadcast implements Algo{
 			thisQuery.setQueryID(queryID);
 
 			// check if sufficient providers are available
-			String countNodes="select sum(provider=1 and "+powerSensor+" > 0) from nodes;";
+			String countNodes="select sum(ProviderMode=1 and "+powerSensor+" > 0) from nodes;";
 			PreparedStatement checkNodes=connect.prepareStatement(countNodes);
 			ResultSet nodeCount=checkNodes.executeQuery();
 			nodeCount.next();
@@ -134,16 +127,17 @@ public class Broadcast implements Algo{
 							sendQuery.put("Query",query);
 							System.out.println(sendQuery.toString());
 							test.publishQueryToProviders(sendQuery.toString(), selectedProviders.get(i));
-							String insertQueryStr = "insert into queries(queryID, providerID, QueryAllocation) values (?,?,?)";
+							String insertQueryStr = "insert into queries(queryID, providerID, QueryAllocation, QueryJSON) values (?,?,?,?)";
 							PreparedStatement insertQuery=connect.prepareStatement(insertQueryStr);
 							insertQuery.setString(1, queryID);
 							insertQuery.setString(2, selectedProviders.get(i));
 							insertQuery.setString(3, query.getString("selection"));
+							insertQuery.setString(4,query.toString());
 							insertQuery.executeUpdate();
 							insertQuery.close();
 							
 							//update servicing variable to true
-							String setServicing="update nodes set servicing=true where DeviceID=?";
+							String setServicing="update nodes set servicingTask=true where DeviceID=?";
 							PreparedStatement set=connect.prepareStatement(setServicing);
 							set.setString(1,selectedProviders.get(i));
 							set.executeUpdate();
@@ -160,7 +154,8 @@ public class Broadcast implements Algo{
 			}
 			else {
 				System.out.println("Min providers not available");
-				String setServiced="insert into queries(queryID, providerID, QueryJson, serviced) values ('"+queryID+"','unavailable','"+ query.toString()+"',2)";
+				String selectionType=query.getString("selection");
+				String setServiced="insert into queries(queryID, providerID, QueryAllocation,QueryJSON, serviced) values ('"+queryID+"','unavailable','"+selectionType+"',"+query.toString()+"'"+"',2)";
 				PreparedStatement set=connect.prepareStatement(setServiced);
 				set.executeUpdate();
 			}
