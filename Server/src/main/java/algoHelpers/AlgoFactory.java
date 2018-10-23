@@ -45,6 +45,16 @@ public class AlgoFactory {
 			}
 			return null;
 		}
+		if("nvgreedy".equalsIgnoreCase(type)){
+			Class<?> t = null;
+			try{
+				t = Class.forName("algos.NVGreedy");
+				return (Algo) t.getConstructor(JSONObject.class).newInstance(query);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return null;
+		}
 		return null;
 	}
 }

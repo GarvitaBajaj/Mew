@@ -1,6 +1,7 @@
 /target
-/.settings
-/.idea
+/.idea/*
+/.settings/*
 .classpath
 .project
-MewInteraceMaven.iml
+MewInterfaceMaven.iml
+/target/*

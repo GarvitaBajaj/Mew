@@ -118,8 +118,8 @@ public class PublishQueries extends TimerTask{
 //        provider++;
 //        query.setMin(random.nextInt(Constants.MAX_PROVIDERS - Constants.MIN_PROVIDERS + 1) + Constants.MIN_PROVIDERS);
 //        query.setMax(query.getMin());
-        query.setMax(2);
-        query.setMin(2);
+        query.setMax(Constants.MIN_PROVIDERS);
+        query.setMin(Constants.MIN_PROVIDERS);
         query.setFromTime(System.currentTimeMillis() + Constants.DELAY);    //Start query 5 minutes from now
         query.setToTime(query.getFromTime() + Constants.QUERY_DURATION);
         query.setSensorName("Accelerometer");

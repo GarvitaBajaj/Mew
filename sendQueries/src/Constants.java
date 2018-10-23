@@ -8,7 +8,7 @@ public class Constants {
     public static String QUEUE_NAME="queue.ps.queries";
 
     //***********Experiment Setup************************
-    public static int MIN_PROVIDERS=2;
+    public static int MIN_PROVIDERS=10;
     public static int MAX_PROVIDERS=7;
     public static String PROVIDER="1921681910324041";//        "{"1b93c9dc3a9f8f9c","44792dfb2b2301b4","4a5395f3320fa158","59c30ba85acb465f","5b09a9fc25b1a66e","8d7ed6d3ee453134","98728455d9ec50cd","9d6706888645b1aa","a30c120312e2ecc9","a348016717671f24","c72706c39647bc10","d0dbd90ba2c6b816","d3b99c5c1be691d0","d5d28042b406772d"};
     public static int QUERY_DURATION=5*60*1000;    //in milliseconds

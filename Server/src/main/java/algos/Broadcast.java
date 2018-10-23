@@ -45,7 +45,7 @@ public class Broadcast implements Algo{
 		System.out.println("USING BROADCAST ALGORITHM");
 		try {
 			
-			int minProviders=query.getInt("min");
+//			int minProviders=query.getInt("min");
 
 			String sensorName=query.getString("dataReqd");
 
@@ -94,7 +94,7 @@ public class Broadcast implements Algo{
 			checkNodes.close();
 			//find providers only if available providers is greater than or equal to minProviders
 
-			if(availableCount>=minProviders) {
+			if(availableCount>=1) {
 				//continue processing 
 				List<Provider> allProviders=new ArrayList<Provider>();
 				try {
@@ -153,9 +153,10 @@ public class Broadcast implements Algo{
 
 			}
 			else {
-				System.out.println("Min providers not available");
+				System.out.println("No providers are available");
 				String selectionType=query.getString("selection");
 				String setServiced="insert into queries(queryID, providerID, QueryAllocation,QueryJSON, serviced) values ('"+queryID+"','unavailable','"+selectionType+"',"+query.toString()+"'"+"',2)";
+				System.out.println(setServiced);
 				PreparedStatement set=connect.prepareStatement(setServiced);
 				set.executeUpdate();
 			}

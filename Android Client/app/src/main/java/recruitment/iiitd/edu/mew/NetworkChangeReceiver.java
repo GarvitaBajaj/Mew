@@ -44,6 +44,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
     	cellIDs=networkUtil.getCellIds(context);
     	editor.putString("MTOWERS",cellIDs);
 		editor.putInt("LINKSPEED", speed);
+		editor.putLong("LOGTIME", System.currentTimeMillis());
 		editor.commit();
 		System.out.println(sharedpreferences.getAll());
 		Map<String, Object> states=new HashMap<String,Object>();

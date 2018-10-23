@@ -70,7 +70,7 @@ public class ExtractParameters extends Service implements SensorEventListener, G
 	boolean isNetworkEnabled = false;
 	public static WifiManager wm;
 	WifiManager.WifiLock wifiLock;
-	boolean isGPSEnabled = false;
+	boolean isGPSEnabled = false, barrunning=false;
     //	public static WifiManager.WifiLock lock;
     GoogleApiClient mGoogleApiClient;
 
@@ -123,6 +123,7 @@ public class ExtractParameters extends Service implements SensorEventListener, G
 				Editor edit=sharedpreferences.edit();
 				edit.putFloat("LATITUDE", Float.valueOf(lat.toString()));
 				edit.putFloat("LONGITUDE", Float.valueOf(lon.toString()));
+				edit.putLong("LOGTIME", System.currentTimeMillis());
 				edit.commit();
 			}
 		}
@@ -143,6 +144,7 @@ public class ExtractParameters extends Service implements SensorEventListener, G
 				Editor edit=sharedpreferences.edit();
 				edit.putFloat("LATITUDE", Float.valueOf(lat.toString()));
 				edit.putFloat("LONGITUDE", Float.valueOf(lon.toString()));
+				edit.putLong("LOGTIME", System.currentTimeMillis());
 				edit.commit();
 //				Log.d("mobility", "Location changed to " + lat.toString() + "," + lon.toString());
 			}else{
@@ -159,6 +161,7 @@ public class ExtractParameters extends Service implements SensorEventListener, G
 			value=(float)level/scale;
 			Editor edit=sharedpreferences.edit();
 			edit.putFloat("BATTERY", value);
+			edit.putLong("LOGTIME", System.currentTimeMillis());
 			edit.commit();
 			if(value==0.05f){
 				Map<String, Object> states = new HashMap<String, Object>();
@@ -227,6 +230,7 @@ public class ExtractParameters extends Service implements SensorEventListener, G
 					Editor edit = sharedpreferences.edit();
 					edit.putFloat("LATITUDE", Float.valueOf(Double.valueOf(lastKnownLocation.getLatitude()).toString()));
 					edit.putFloat("LONGITUDE", Float.valueOf(Double.valueOf(lastKnownLocation.getLongitude()).toString()));
+					edit.putLong("LOGTIME", System.currentTimeMillis());
 					edit.commit();
 				}
 				isNetworkEnabled = locManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
@@ -274,6 +278,7 @@ public class ExtractParameters extends Service implements SensorEventListener, G
 			//this device does not have a barometer - set barometer power to -1.0f
 //			Log.d("Extract paramters","barometer absent");
 			barpower=-1.0f;
+			barrunning=false;
 		}
 		else{
 			mBarometer=mSensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
@@ -352,12 +357,14 @@ public class ExtractParameters extends Service implements SensorEventListener, G
 		edit2.putFloat("ACCPOWER", accpower);
 		edit2.putFloat("GYRPOWER", gyrpower);
 		edit2.putFloat("BARPOWER",barpower);
+		edit2.putBoolean("BarRunning",barrunning);
 		edit2.putFloat("PPGPOWER",ppgpower);
 		edit2.putFloat("LATITUDE", Float.valueOf(lat.toString()));
 		edit2.putFloat("LONGITUDE", Float.valueOf(lon.toString()));
 		edit2.putString("DEVICEID", Constants.DEVICE_ID);
 		edit2.putFloat("MICPOWER",Float.valueOf("0.5"));
 		edit2.putFloat("WIFIPOWER",Float.valueOf("0.7"));
+		edit2.putLong("LOGTIME", System.currentTimeMillis());
 		edit2.commit();
 
 		Map<String, Object> states=new HashMap<String,Object>();

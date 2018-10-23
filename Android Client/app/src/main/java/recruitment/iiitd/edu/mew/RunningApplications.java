@@ -50,6 +50,7 @@ public class RunningApplications extends IntentService {
 			edit.putInt("ACTIVITIES",procInfos.size());
 			NetworkUtil networkUtil = new NetworkUtil();
 			edit.putFloat("LINKSPEED", networkUtil.getSpeed(this));
+			edit.putLong("LOGTIME", System.currentTimeMillis());
 			edit.commit();
 		}catch (Exception e){
 			e.printStackTrace();

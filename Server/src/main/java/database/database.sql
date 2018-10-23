@@ -1,16 +1,15 @@
 create database IF NOT EXISTS mew;
 use mew;
-drop TABLE IF EXISTS nodes;
-create table mew.nodes (DeviceID varchar(30), battery double, linkspeed int(11), AccRunning boolean, AccPower double, GPSRunning boolean, GPSPower double, GyrRunning boolean, GyrPower double, SensorsAvailable int, servicingTask boolean, 
-					old_lat double, old_lon double, new_lat double, new_lon double, providerMode boolean, MicPower double, WiFiPower double, BarRunning boolean, BarPower double, PPGRunning boolean, PpgPower double, Context int, ActivitiesRunning int, WiFiAPs varchar(1000), MTowers varchar(1000),  KEY (DeviceID));
+drop TABLE IF EXISTS mew.nodes;
+create table mew.nodes (LogTime bigint(15), DeviceID varchar(30), battery double, linkspeed int(11), AccRunning boolean, AccPower double, GPSRunning boolean, GPSPower double, GyrRunning boolean, GyrPower double, SensorsAvailable int, servicingTask boolean,
+					old_lat double, old_lon double, new_lat double, new_lon double, providerMode boolean, MicPower double, WiFiPower double, BarRunning boolean, BarPower double, PPGRunning boolean, PpgPower double, Context int, ActivitiesRunning int, WiFiAPs varchar(1000), MTowers varchar(1000), PRIMARY KEY (DeviceID));
 
 -- NODES AUDIT TABLE
 drop TABLE IF EXISTS nodes_audit;
-create table mew.nodes_audit (DeviceID varchar(30), battery double, linkspeed int(11), AccRunning boolean, AccPower double, GPSRunning boolean, GPSPower double, GyrRunning boolean, GyrPower double, SensorsAvailable int, servicingTask boolean, 
+create table mew.nodes_audit (LogTime bigint(15), DeviceID varchar(30), battery double, linkspeed int(11), AccRunning boolean, AccPower double, GPSRunning boolean, GPSPower double, GyrRunning boolean, GyrPower double, SensorsAvailable int, servicingTask boolean,
                     old_lat double, old_lon double, new_lat double, new_lon double, providerMode boolean, MicPower double, WiFiPower double, BarRunning boolean, BarPower double, PPGRunning boolean, PpgPower double, Context int, ActivitiesRunning int, WiFiAPs varchar(1000), MTowers varchar(1000),
                     Actions VARCHAR(8),
-                    dt_datetime datetime NOT NULL DEFAULT 0, unix_timestamp bigint(16), 
-                    PRIMARY KEY (DeviceID, unix_timestamp));
+                    dt_datetime datetime NOT NULL DEFAULT 0, unix_timestamp bigint(16));
 
 -- NODES TABLE TRIGGERS
 DROP TRIGGER IF EXISTS mew.nodes_ai;
@@ -31,15 +30,15 @@ CREATE TRIGGER mew.nodes_ad BEFORE DELETE ON mew.nodes FOR EACH ROW
 -- NVALUES TABLE
 drop TABLE IF EXISTS mew.nvalues;
 
-create table mew.nvalues (DeviceID varchar(30), nvalue double, weight double, existing boolean,
-PRIMARY KEY (DeviceID) );
+create table mew.nvalues (DeviceID varchar(30), nvalue double, weight double, existing boolean, PRIMARY KEY (DeviceID));
 
 -- NVALUES AUDIT
 drop TABLE IF EXISTS mew.nvalues_audit;
 
 create table mew.nvalues_audit (DeviceID varchar(30), nvalue double, weight double, existing boolean,
-	Actions VARCHAR(8), dt_datetime timestamp NOT NULL DEFAULT 0, unix_timestamp bigint(16),
-	PRIMARY KEY (DeviceID, unix_timestamp));
+	Actions VARCHAR(8), dt_datetime timestamp NOT NULL DEFAULT 0, unix_timestamp bigint(16));
+    
+	#PRIMARY KEY (DeviceID, unix_timestamp));
 
 
 -- NVALUES TRIGGERS

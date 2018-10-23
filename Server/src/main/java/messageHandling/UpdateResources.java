@@ -35,6 +35,7 @@ public class UpdateResources extends Thread {
 		boolean gpsenabled,servicing,barrunning = false, ppgrunning=false;
 		int lspeed, context=4,activities=-1;
 		String noderef,wifiaps,mtowers;
+		long logtime;
 		int sensors=0;		//number of other sensors present on the device
 
 		try {
@@ -48,6 +49,7 @@ public class UpdateResources extends Thread {
 			System.out.println("\nA node sent its parameters "+state);
 			wifiaps=state.getString("WiFiAPs");
 			mtowers=state.getString("MTOWERS");
+			logtime=state.getLong("LOGTIME");
 			if(wifiaps.length()>=1000){
 				wifiaps=wifiaps.substring(0,999);
 			}
@@ -62,7 +64,7 @@ public class UpdateResources extends Thread {
 					ppgpower=state.getDouble("PPGPOWER");
 					activities=state.getInt("ACTIVITIES");
 					context=state.getInt("CONTEXT");
-//					barrunning=state.getBoolean("BarRunning");
+					barrunning=state.getBoolean("BarRunning");
 //					ppgrunning=state.getBoolean("PpgRunning");
 					
 					//			System.out.println("Value of mic power is: "+ micpower);
@@ -82,10 +84,11 @@ public class UpdateResources extends Thread {
 						sensors++;
 				}catch(JSONException e) {
 					System.out.println("This is not the first info packet from this device");
+					e.printStackTrace();
 				}
 				if((Double.compare(latitude, 200.0)==0 && Double.compare(longitude, 200.0)==0)){
 
-					String command="insert into nodes(DeviceID, Battery, LinkSpeed, AccRunning, AccPower, GPSRunning,GPSPower,GyrPower,SensorsAvailable, micpower,wifipower,barrunning,barpower,ppgrunning,ppgpower,ActivitiesRunning,Context, providerMode,WiFiAPs,MTowers) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+					String command="insert into nodes(DeviceID, Battery, LinkSpeed, AccRunning, AccPower, GPSRunning,GPSPower,GyrPower,SensorsAvailable, micpower,wifipower,barrunning,barpower,ppgrunning,ppgpower,ActivitiesRunning,Context, providerMode,WiFiAPs,MTowers, LogTime) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 					preparedStatement=connect.prepareStatement(command);
 					preparedStatement.setString(1, noderef);
 					preparedStatement.setDouble(2, blevel);
@@ -107,10 +110,11 @@ public class UpdateResources extends Thread {
 					preparedStatement.setInt(18,1);
 					preparedStatement.setString(19,wifiaps);
 					preparedStatement.setString(20,mtowers);
+					preparedStatement.setLong(21,logtime);
 				}
 				else{
 
-					String command="insert into nodes(DeviceID, Battery, LinkSpeed, AccRunning, AccPower, GPSRunning,GPSPower,GyrPower,SensorsAvailable,old_lat,old_lon,micpower,wifipower,barrunning,barpower,ppgrunning,ppgpower,ActivitiesRunning,Context,providerMode,WiFiAPs,MTowers) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+					String command="insert into nodes( DeviceID, Battery, LinkSpeed, AccRunning, AccPower, GPSRunning,GPSPower,GyrPower,SensorsAvailable,old_lat,old_lon,micpower,wifipower,barrunning,barpower,ppgrunning,ppgpower,ActivitiesRunning,Context,providerMode,WiFiAPs,MTowers, LogTime) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 					preparedStatement=connect.prepareStatement(command);
 					preparedStatement.setString(1, noderef);
 					preparedStatement.setDouble(2, blevel);
@@ -134,6 +138,7 @@ public class UpdateResources extends Thread {
 					preparedStatement.setInt(20,1);
 					preparedStatement.setString(21,wifiaps);
 					preparedStatement.setString(22,mtowers);
+					preparedStatement.setLong(23,logtime);
 				}
 				preparedStatement.executeUpdate();	
 				preparedStatement.close();
@@ -143,7 +148,7 @@ public class UpdateResources extends Thread {
 				//			System.out.println("Exception caught in writing to SQL: key already exists");
 				try{
 					if((Double.compare(latitude, 200.0)==0 && Double.compare(longitude, 200.0)==0)){
-						String command="UPDATE nodes SET Battery=?, LinkSpeed=?,ActivitiesRunning=?,Context=?,WiFiAPs=?,MTowers=? where DeviceID=?";
+						String command="UPDATE nodes SET Battery=?, LinkSpeed=?,ActivitiesRunning=?,Context=?,WiFiAPs=?,MTowers=?,LogTime=? where DeviceID=?";
 						preparedStatement=connect.prepareStatement(command);
 						preparedStatement.setDouble(1, blevel);
 						preparedStatement.setInt(2, lspeed);
@@ -151,7 +156,8 @@ public class UpdateResources extends Thread {
 						preparedStatement.setInt(4,context);
 						preparedStatement.setString(5,wifiaps);
 						preparedStatement.setString(6,mtowers);
-						preparedStatement.setString(7, noderef);
+						preparedStatement.setLong(7,logtime);
+						preparedStatement.setString(8, noderef);
 						preparedStatement.executeUpdate();
 						preparedStatement.close();
 						System.out.println("Values updated");
@@ -171,7 +177,8 @@ public class UpdateResources extends Thread {
 						old_new_lat=location.getDouble(1);
 						old_new_lon=location.getDouble(2);
 
-						String command="UPDATE nodes SET Battery=?, LinkSpeed=?,ActivitiesRunning=?,Context=?, old_lat=?,old_lon=?,new_lat=?,new_lon=?,WiFiAPs=?,MTowers=? where DeviceID=?";
+						String command="UPDATE nodes SET Battery=?, LinkSpeed=?,ActivitiesRunning=?,Context=?, old_lat=?,old_lon=?,new_lat=?,new_lon=?,WiFiAPs=?,MTowers=?,LogTime=? where DeviceID=?";
+						System.out.println(logtime);
 						preparedStatement=connect.prepareStatement(command);
 						preparedStatement.setDouble(1, blevel);
 						preparedStatement.setInt(2, lspeed);
@@ -183,7 +190,8 @@ public class UpdateResources extends Thread {
 						preparedStatement.setDouble(8,longitude);
 						preparedStatement.setString(9,wifiaps);
 						preparedStatement.setString(10,mtowers);
-						preparedStatement.setString(11, noderef);
+						preparedStatement.setLong(11,logtime);
+						preparedStatement.setString(12, noderef);
 						preparedStatement.executeUpdate();
 						preparedStatement.close();
 						System.out.println("Values updated");
