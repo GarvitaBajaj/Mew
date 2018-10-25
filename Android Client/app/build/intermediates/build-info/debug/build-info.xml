@@ -6,28 +6,28 @@
     density="xxhdpi"
     format="10"
     plugin-version="3.1.1"
-    timestamp="1539933643242"
+    timestamp="1540444382441"
     token="3688117203299498543"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="663" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="54" />
+        duration="0" />
     <task
         name="verifier"
-        duration="13" />
+        duration="0" />
 
     <artifact
-        location="C:\Users\garvita\Desktop\MewPublic\Android Client\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+        location="C:\Users\garvita\Desktop\MewPublic\Android Client\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
         type="SPLIT" />
     <artifact
-        location="C:\Users\garvita\Desktop\MewPublic\Android Client\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+        location="C:\Users\garvita\Desktop\MewPublic\Android Client\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
         type="SPLIT" />
     <artifact
         location="C:\Users\garvita\Desktop\MewPublic\Android Client\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
@@ -62,13 +62,13 @@
 
     <build
         build-mode="FULL"
-        timestamp="1539933643242"
+        timestamp="1540444382441"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="C:\Users\garvita\Desktop\MewPublic\Android Client\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            location="C:\Users\garvita\Desktop\MewPublic\Android Client\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\garvita\Desktop\MewPublic\Android Client\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            location="C:\Users\garvita\Desktop\MewPublic\Android Client\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\garvita\Desktop\MewPublic\Android Client\app\build\intermediates\split-apk\debug\slices\slice_3.apk"

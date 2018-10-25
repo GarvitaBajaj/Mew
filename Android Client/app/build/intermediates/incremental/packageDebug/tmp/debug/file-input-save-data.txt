@@ -1,7 +1,11 @@
 #Internal package file, do not edit.
-#Sun Oct 21 12:42:28 IST 2018
+#Wed Oct 24 14:36:12 IST 2018
+1.base=C\:\\Users\\garvita\\Desktop\\MewPublic\\Android Client\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\42
 0.baseType=DIRECTORY
-0.base=C\:\\Users\\garvita\\Desktop\\MewPublic\\Android Client\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\30
+1.baseType=DIRECTORY
+count=2
+1.set=DEX
 0.path=classes.dex
 0.set=DEX
-count=1
+0.base=C\:\\Users\\garvita\\Desktop\\MewPublic\\Android Client\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\43
+1.path=classes.dex
