@@ -1,16 +1,9 @@
 /.gradle
 /.idea
 /build/*
-build.gradle
-settings.gradle
 /gradle/*
 /build/*
 Android Client.iml
-build.gradle
-gradle.properties
-gradlew
-gradlew.bat
 /.idea/*
-/.gradle/*
 /app/build/*
 /app/app.iml
