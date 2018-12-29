@@ -4,21 +4,19 @@
 
 package interfaces;
 
-import java.awt.Dialog;
-import java.awt.event.*;
+import com.ibatis.common.jdbc.ScriptRunner;
+import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
+import net.miginfocom.swing.MigLayout;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.Reader;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.util.*;
-import javax.swing.*;
-
-import com.mysql.jdbc.Statement;
-import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
-
-import net.miginfocom.swing.*;
-import com.ibatis.common.jdbc.ScriptRunner;
+import java.util.ResourceBundle;
 
 /**
  * @author Garvita Bajaj
@@ -55,7 +53,7 @@ public class MySQLcredentials extends JDialog {
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver");
-			String dbString="jdbc:mysql://localhost:"+port+"/"+db;
+			String dbString="jdbc:mysql://localhost:"+port+"/"+db+"?autoReconnect=true";
 			Connection con=DriverManager.getConnection(dbString,username,password);
 			JOptionPane.showInternalMessageDialog(sqlObject.getContentPane(), "Database connection established");
 			System.out.println("Database connection established");

@@ -110,7 +110,7 @@ public class SettingsActivity extends PreferenceActivity {
         }
 
         // In the simplified UI, fragments are not used at all and we instead
-        // use the older PreferenceActivity APIs.
+        // use the older SensorPreferenceActivity APIs.
 
         // Add 'general' preferences.
         addPreferencesFromResource(R.xml.pref_general);
@@ -130,7 +130,7 @@ public class SettingsActivity extends PreferenceActivity {
         // Bind the summaries of EditText/List/Dialog/Ringtone preferences to
         // their values. When their values change, their summaries are updated
         // to reflect the new value, per the Android Design guidelines.
-        bindPreferenceSummaryToValue(findPreference("example_text"));
+        bindPreferenceSummaryToValue(findPreference("username"));
 //        bindPreferenceSummaryToValue(findPreference("example_list"));
 //        bindPreferenceSummaryToValue(findPreference("notifications_new_message_ringtone"));
 //        bindPreferenceSummaryToValue(findPreference("sync_frequency"));

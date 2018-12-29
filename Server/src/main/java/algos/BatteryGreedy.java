@@ -1,26 +1,19 @@
 package algos;
 
-import java.sql.Connection;
+import algoHelpers.Algo;
+import background.MewServerResponseGateway;
+import database.DatabaseHelper;
+import org.json.JSONObject;
+import org.springframework.stereotype.Component;
+import utils.Provider;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-
-import org.json.JSONObject;
-import database.*;
-import org.springframework.stereotype.Component;
-
-import algoHelpers.Algo;
-import background.MewServerResponseGateway;
-import interfaces.MainScreen;
-import utils.Provider;
-import utils.RandomSingleton;
-import utils.SensingQuery;
 
 @Component
 public class BatteryGreedy implements Algo {
@@ -55,7 +48,7 @@ public class BatteryGreedy implements Algo {
 			}
 			if(sensorName.equalsIgnoreCase("Gyroscope"))
 			{
-				powerSensor="gyrpower";
+				powerSensor="GyrPower";
 			}
 			if(sensorName.equalsIgnoreCase("Microphone"))
 			{
@@ -69,7 +62,7 @@ public class BatteryGreedy implements Algo {
 			String queryID=query.getString("queryNo");
 
 			// check if sufficient providers are available
-			String countNodes="select sum(provider=1 and "+powerSensor+" > 0) from nodes;";
+			String countNodes="select sum(ProviderMode=1 and "+powerSensor+" > 0) from nodes;";
 			PreparedStatement checkNodes=connect.prepareStatement(countNodes);
 			ResultSet nodeCount=checkNodes.executeQuery();
 			nodeCount.next();
@@ -137,7 +130,7 @@ public class BatteryGreedy implements Algo {
 							insertQuery.close();
 							
 							//update servicing variable to true
-							String setServicing="update nodes set servicing=true where DeviceID=?";
+							String setServicing="update nodes set servicingTask=true where DeviceID=?";
 							PreparedStatement set=connect.prepareStatement(setServicing);
 							set.setString(1,selectedProviders.get(i));
 							set.executeUpdate();
@@ -154,7 +147,8 @@ public class BatteryGreedy implements Algo {
 			}
 			else {
 				System.out.println("Min providers not available");
-				String setServiced="insert into queries(queryID, providerID, QueryJson, serviced) values ('"+queryID+"','unavailable','"+ query.toString()+"',2)";
+				String selectionType=query.getString("selection");
+				String setServiced="insert into queries(queryID, providerID, QueryAllocation,QueryJSON, serviced) values ('"+queryID+"','unavailable','"+selectionType+"',"+query.toString()+"'"+"',2)";
 				PreparedStatement set=connect.prepareStatement(setServiced);
 				set.executeUpdate();
 			}

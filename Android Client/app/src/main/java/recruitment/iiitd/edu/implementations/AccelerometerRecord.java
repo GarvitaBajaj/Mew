@@ -35,7 +35,7 @@ public class AccelerometerRecord implements AccelerometerListener {
             this.context=context;
             if (mSensorManager == null || mAccelerometer == null) {
                 mSensorManager = (SensorManager) context.getSystemService(SENSOR_SERVICE);
-                mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
+                mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
             }
             return mSensorManager;
         }
@@ -46,7 +46,7 @@ public class AccelerometerRecord implements AccelerometerListener {
             queryNo = queryNumber;
             this.ioPair=ioPair;
             readings = new ArrayList<>();
-            Log.e("TYPE","File name here"+ioPair);
+//            Log.e("TYPE","File name here"+ioPair);
             mSensorManager.registerListener(this, mAccelerometer, samplingRate);
         }
 
@@ -61,7 +61,7 @@ public class AccelerometerRecord implements AccelerometerListener {
         public void onSensorChanged(SensorEvent var1) {
             long timeMillis = System.currentTimeMillis();
             Sensor sensor = var1.sensor;
-            if (sensor.getType() == Sensor.TYPE_LINEAR_ACCELERATION) {
+            if (sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
                 readings.add(timeMillis + "," + var1.values[0] + "," + var1.values[1] + "," + var1.values[2]);
             }
 

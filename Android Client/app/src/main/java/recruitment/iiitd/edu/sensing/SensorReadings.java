@@ -29,7 +29,7 @@ import recruitment.iiitd.edu.implementations.AccelerometerRecord;
 //import recruitment.iiitd.edu.implementations.LocationRecord;
 //import recruitment.iiitd.edu.implementations.MicRecord;
 //import recruitment.iiitd.edu.implementations.NetworkStateRecord;
-//import recruitment.iiitd.edu.implementations.WifiStateRecord;
+import recruitment.iiitd.edu.implementations.WifiStateRecord;
 import recruitment.iiitd.edu.implementations.MicRecord;
 import recruitment.iiitd.edu.implementations.WifiStateRecord;
 import recruitment.iiitd.edu.model.DatabaseHelper;
@@ -50,9 +50,9 @@ public class SensorReadings extends Service {
     private static TreeMap<Long, String> queryStopTime = new TreeMap<>();
 
 
-    AccelerometerRecord accelerometerRecord;
-    WifiStateRecord wifiStateRecord;
-    MicRecord micRecord;
+    static AccelerometerRecord accelerometerRecord;
+    static WifiStateRecord wifiStateRecord;
+    static MicRecord micRecord;
 
     int myID;
     String queryNo;
@@ -75,14 +75,14 @@ public class SensorReadings extends Service {
             return;
         // type process
         if (requestType.equalsIgnoreCase(Constants.PROCESS_DATA_REQUEST)) {
-            Log.d(TAG, "Process Type request received for Query " + query.getId());
+//            Log.d(TAG, "Process Type request received for Query " + query.getId());
             // add to queues
             try {
                 Pair<BufferedWriter, File> ioPair = createFile(query.getQueryNo(), sensorName);
                 fileMap.put(query.getQueryNo(), ioPair);
                 queryStartTime.put(query.getStartTime(), query.getQueryNo());
                 queryStopTime.put(query.getEndTime(), query.getQueryNo());
-                Log.d(TAG, "Query Duration " + (query.getEndTime() - query.getStartTime()) + "Query Start Time - " + query.getStartTime() + ": End Time - " + query.getEndTime());
+//                Log.d(TAG, "Query Duration " + (query.getEndTime() - query.getStartTime()) + "Query Start Time - " + query.getStartTime() + ": End Time - " + query.getEndTime());
                 // update start and stop pending intents
                 Long startTime = queryStartTime.firstKey();
                 String startQueryNo = queryStartTime.get(startTime);
@@ -122,7 +122,7 @@ public class SensorReadings extends Service {
             // type start
             // if not already running start service
             // if running add next start pending intent
-            Log.d(TAG, "Start Type Request QueryID " + query.getId() + "  Removing from Queue " + query.getStartTime());
+//            Log.d(TAG, "Start Type Request QueryID " + query.getId() + "  Removing from Queue " + query.getStartTime());
             queryStartTime.remove(query.getStartTime());
             if (!queryStartTime.isEmpty()) {
 
@@ -159,7 +159,7 @@ public class SensorReadings extends Service {
                 if (ioPair.getLeft() != null) {
                     ioPair.getLeft().close();
                     collectionSucess = true;
-                    Log.d(TAG, "Data Collected For Query# " + query.getQueryNo());
+//                    Log.d(TAG, "Data Collected For Query# " + query.getQueryNo());
                 } else {
                     DatabaseHelper db = new DatabaseHelper(context);
                     db.deleteQuery(query.getId());
@@ -185,7 +185,7 @@ public class SensorReadings extends Service {
                     RabbitMQConnections publishResource = RabbitMQConnections.getInstance(context);
                     publishResource.addMessageToQueue(queryServiced, Constants.RESOURCE_ROUTING_KEY);
 
-                    Log.d(TAG, "Deleted From DB QueryID " + query.getId());
+//                    Log.d(TAG, "Deleted From DB QueryID " + query.getId());
                     DatabaseHelper db = new DatabaseHelper(context);
                     db.deleteQuery(query.getId());
                     db.closeDb();
@@ -219,16 +219,16 @@ public class SensorReadings extends Service {
 
 
     public static void stopCollection(String sensorName) {
-//        if (sensorName.equalsIgnoreCase(Constants.SENSORS.ACCELEROMETER.getValue())) {
-//            accelerometerRecord.stop();
-//        }
-//        if (sensorName.equalsIgnoreCase(Constants.SENSORS.WIFI.getValue())) {
-//            wifiStateRecord.stop();
-//        }
-//        if (sensorName.equalsIgnoreCase(Constants.SENSORS.MIC.getValue())) {
-//            micRecord.stop();
-//        }
-        Log.e("TYPE","Need to call stop() here");
+        if (sensorName.equalsIgnoreCase(Constants.SENSORS.ACCELEROMETER.getValue())) {
+            accelerometerRecord.stop();
+        }
+        if (sensorName.equalsIgnoreCase(Constants.SENSORS.WIFI.getValue())) {
+            wifiStateRecord.stop();
+        }
+        if (sensorName.equalsIgnoreCase(Constants.SENSORS.MIC.getValue())) {
+            micRecord.stop();
+        }
+//        Log.e("TYPE","Need to call stop() here");
     }
 
     private static Pair<BufferedWriter, File> createFile(String queryNo, String sensorName) {
@@ -282,7 +282,7 @@ public class SensorReadings extends Service {
         queryIntent = intent_received;
         sensorName = queryIntent.getExtras().getString(Constants.REQUESTED_SENSOR_NAME);
         queryNo = queryIntent.getExtras().getString(Constants.QUERY_NO);
-        Log.e("intent URI", intent_received.toUri(0));
+//        Log.e("intent URI", intent_received.toUri(0));
         String file=queryIntent.getExtras().getString(Constants.FILENAME);
         if (sensorName.equalsIgnoreCase(Constants.SENSORS.ACCELEROMETER.getValue())) {
             Log.e("DATA","Recording started");
@@ -307,7 +307,7 @@ public class SensorReadings extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d(TAG, "Calling onDestroy !!!");//this is called only when the last stopping intent is called. We need to publish more data if left
+//        Log.d(TAG, "Calling onDestroy !!!");//this is called only when the last stopping intent is called. We need to publish more data if left
         if (sensorName.equalsIgnoreCase(Constants.SENSORS.ACCELEROMETER.getValue())) {
             accelerometerRecord.stop();
         }

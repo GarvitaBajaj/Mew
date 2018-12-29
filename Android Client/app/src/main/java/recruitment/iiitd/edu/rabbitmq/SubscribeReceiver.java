@@ -72,9 +72,9 @@ public class SubscribeReceiver extends BroadcastReceiver {
 
 			if (query.getStartTime() > System.currentTimeMillis()) {
 
-//				if (query.getSensorName().equalsIgnoreCase("accelerometer")) {
+				if (query.getSensorName().equalsIgnoreCase("accelerometer")) {
 					SensorReadings.processRequest(context, query.getQueryNo(), Constants.PROCESS_DATA_REQUEST,sensorName,null);
-//				}
+				}
 			} else {
 				System.out.println(System.currentTimeMillis() + " > " + query.getStartTime());
 				System.out.println("Can't collect data for a past time frame. Dropping query# " + query.getQueryNo());

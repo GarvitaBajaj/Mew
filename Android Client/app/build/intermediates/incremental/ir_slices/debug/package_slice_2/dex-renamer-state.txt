@@ -1,0 +1,4 @@
+#Wed Oct 24 14:36:11 IST 2018
+base.0=C\:\\Users\\garvita\\Desktop\\MewPublic\\Android Client\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\33
+path.0=classes.dex
+renamed.0=classes.dex

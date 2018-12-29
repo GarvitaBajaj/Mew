@@ -1,19 +1,17 @@
 package algos;
 
+import algoHelpers.Algo;
+import algoHelpers.BaseMethods;
+import background.MewServerResponseGateway;
+import org.json.JSONObject;
+import org.springframework.stereotype.Component;
+import utils.Provider;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import background.*;
-import org.json.JSONObject;
-import utils.Provider;
-import org.springframework.stereotype.Component;
-
-import com.fasterxml.jackson.databind.deser.Deserializers.Base;
-
-import algoHelpers.Algo;
-import algoHelpers.BaseMethods;
 
 @Component
 public class RandomAllocation implements Algo{
@@ -50,6 +48,14 @@ public class RandomAllocation implements Algo{
 			if(sensorName.equalsIgnoreCase("Gyroscope"))
 			{
 				powerSensor="GyrPower";
+			}
+			if(sensorName.equalsIgnoreCase("Microphone"))
+			{
+				powerSensor="MicPower";
+			}
+			if(sensorName.equalsIgnoreCase("WiFi"))
+			{
+				powerSensor="WiFiPower";
 			}
 
 			// add condition for selecting providers with that sensor available
@@ -97,11 +103,31 @@ public class RandomAllocation implements Algo{
 				{
 					BaseMethods.sendQuery(query, selectedProviders.get(i));
 					//add code to decrease the nice value here if the provider has been selected
+						MewServerResponseGateway test = MewServerResponseGateway.getInstance();
+						JSONObject sendQuery=new JSONObject();
+						sendQuery.put("Query",query);
+						System.out.println(sendQuery.toString());
+						test.publishQueryToProviders(sendQuery.toString(), selectedProviders.get(i));
+						String insertQueryStr = "insert into queries(queryID, providerID, QueryAllocation, QueryJSON) values (?,?,?,?)";
+						PreparedStatement insertQuery=connect.prepareStatement(insertQueryStr);
+						insertQuery.setString(1, queryID);
+						insertQuery.setString(2, selectedProviders.get(i));
+						insertQuery.setString(3, query.getString("selection"));
+						insertQuery.setString(4,query.toString());
+						insertQuery.executeUpdate();
+						insertQuery.close();
+
+						//update servicing variable to true
+						String setServicing="update nodes set servicingTask=true where DeviceID=?";
+						PreparedStatement set=connect.prepareStatement(setServicing);
+						set.setString(1,selectedProviders.get(i));
+						set.executeUpdate();
+						set.close();
 				}
 			}else {
 				System.out.println("Min providers not available");
 				String selectionType=query.getString("selection");
-				String setServiced="insert into queries(queryID, providerID, QueryAllocation, serviced) values ('"+queryID+"','unavailable','"+selectionType+"',2)";
+				String setServiced="insert into queries(queryID, providerID, QueryAllocation,QueryJSON, serviced) values ('"+queryID+"','unavailable','"+selectionType+"',"+query.toString()+"'"+"',2)";
 				PreparedStatement set=connect.prepareStatement(setServiced);
 				set.executeUpdate();
 				set.close();

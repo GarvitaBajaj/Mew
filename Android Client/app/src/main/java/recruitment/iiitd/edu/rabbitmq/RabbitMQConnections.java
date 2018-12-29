@@ -73,12 +73,14 @@ public class RabbitMQConnections {
 
 	private RabbitMQConnections() {
 		registerPreferenceListener();
-		uri = "amqp://"+ username +":"+ password +"@"+ ipaddress +":5672/%2f";
+		//uri = "amqp://"+ username +":"+ password +"@"+ ipaddress +":5672/%2f";
+		uri="amqp://test:test123@192.168.19.103:5672/%2f";
 		factory = new ConnectionFactory();
 		try {
 			factory.setAutomaticRecoveryEnabled(true);
 			factory.setUri(uri);
 			factory.setNetworkRecoveryInterval(10000);
+//			Log.d("MQ",uri);
 		} catch (KeyManagementException | NoSuchAlgorithmException | URISyntaxException e1) {
 			e1.printStackTrace();
 			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e1.getMessage());
@@ -101,24 +103,27 @@ public class RabbitMQConnections {
 						String username = sharedPref.getString(SettingsActivity.SETTINGS_USERNAME, "");
 						String password = sharedPref.getString(SettingsActivity.SETTINGS_PASSWORD, "");
 						String ipaddress = sharedPref.getString(SettingsActivity.SETTINGS_IPADDRESS, "");
-						uri = "amqp://"+ username +":"+ password +"@"+ ipaddress +":5672/%2f";
-						Log.d(TAG, "Updating URI");
+						//uri = "amqp://"+ username +":"+ password +"@"+ ipaddress +":5672/%2f";
+						uri="amqp://test:test123@192.168.19.103:5672/%2f";
+//						Log.d(TAG, "Updating URI: "+uri);
 					}
 					if (key.equals(SettingsActivity.SETTINGS_IPADDRESS)){
 						SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(mContext);
 						String username = sharedPref.getString(SettingsActivity.SETTINGS_USERNAME, "");
 						String password = sharedPref.getString(SettingsActivity.SETTINGS_PASSWORD, "");
 						String ipaddress = sharedPref.getString(SettingsActivity.SETTINGS_IPADDRESS, "");
-						uri = "amqp://"+ username +":"+ password +"@"+ ipaddress +":5672/%2f";
-						Log.d(TAG, "Updating URI");
+						//uri = "amqp://"+ username +":"+ password +"@"+ ipaddress +":5672/%2f";
+						uri="amqp://test:test123@192.168.19.103:5672/%2f";
+//						Log.d(TAG, "Updating URI: "+uri);
 					}
 					if (key.equals(SettingsActivity.SETTINGS_PASSWORD)){
 						SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(mContext);
 						String username = sharedPref.getString(SettingsActivity.SETTINGS_USERNAME, "");
 						String password = sharedPref.getString(SettingsActivity.SETTINGS_PASSWORD, "");
 						String ipaddress = sharedPref.getString(SettingsActivity.SETTINGS_IPADDRESS, "");
-						uri = "amqp://"+ username +":"+ password +"@"+ ipaddress +":5672/%2f";
-						Log.d(TAG, "Updating URI");
+						//uri = "amqp://"+ username +":"+ password +"@"+ ipaddress +":5672/%2f";
+						uri="amqp://test:test123@192.168.19.103:5672/%2f";
+//						Log.e(TAG, "Updating URI: "+uri);
 					}
 
 					updateConnectionFactory();
@@ -132,6 +137,7 @@ public class RabbitMQConnections {
 			factory.setAutomaticRecoveryEnabled(true);
 			factory.setUri(uri);
 			factory.setNetworkRecoveryInterval(10000);
+//			Log.e(TAG, "Updating URI: "+uri);
 		} catch (KeyManagementException | NoSuchAlgorithmException | URISyntaxException e1) {
 			e1.printStackTrace();
 			LogTimer.blockingDeque.add(System.currentTimeMillis() + ": " + this.getClass().toString() + " : " + e1.getMessage());
@@ -253,9 +259,9 @@ public class RabbitMQConnections {
 									public void run() {
 										Random rand = new Random();
 										int  n = rand.nextInt(500) + 1;
-										Log.e("TYPE","number generated: "+n);
+//										Log.e("TYPE","number generated: "+n);
 										try {
-											Log.e("TYPE","received a new message"+jsonObject.getString("queryNo"));
+//											Log.e("TYPE","received a new message"+jsonObject.getString("queryNo"));
 											File directory;
 											File file;
 											BufferedWriter writer;
@@ -271,7 +277,7 @@ public class RabbitMQConnections {
 												file.delete();
 												try {
 													file.createNewFile();
-													Log.i("new file created", queryNo);
+//													Log.i("new file created", queryNo);
 //													i++;
 												} catch (IOException e) {
 													e.printStackTrace();

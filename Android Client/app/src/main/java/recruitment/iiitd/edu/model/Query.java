@@ -42,11 +42,19 @@ public class Query {
 	int frequency = -1;
 	static Context context;
 	Long queryTime;
+	int activity = -1;
 
 	public Query(Context context) {
 		queryTime = System.currentTimeMillis();
 		Query.context = context;
 		preferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+	}
+	public int getActivity() {
+		return activity;
+	}
+
+	public void setActivity(int activity) {
+		this.activity = activity;
 	}
 
 	/**
@@ -307,7 +315,11 @@ public class Query {
 //			FirebaseCrash.logcat(Log.ERROR, "Exception caught", "JSON Exception in generating query");
 //			FirebaseCrash.report(e);
 		}
-
+		try {
+			jsonquery.put("context", query.getActivity());
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
 		return jsonquery;
 	}
 }

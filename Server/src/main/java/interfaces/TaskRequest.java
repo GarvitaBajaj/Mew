@@ -4,15 +4,14 @@
 
 package interfaces;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-
+import net.miginfocom.swing.MigLayout;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import net.miginfocom.swing.*;
 import utils.Query;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
 
 /**
  * @author Garvita Bajaj
@@ -21,16 +20,27 @@ public class TaskRequest extends JFrame {
 
 	public static TaskRequest tr=null;
 
-	public enum Sensors_available{ACCELEROMETER("Accelerometer"),GPS("GPS"),MICROPHONE("Microphone"),WiFi("WiFi");
+	public enum Sensors_available{ACCELEROMETER("Accelerometer"),GPS("GPS"),MICROPHONE("Microphone"),WiFi("WiFi"), GYROSCOPE("Gyroscope"), HEARTRATE("Heart-Rate"),BAROMETER("Barometer");
 		 String key;
 
 		 Sensors_available(String key) { this.key = key; }
-		 
+
 		 @Override
 		    public String toString() {
 		        return key;
 		    }
-		}; 
+		};
+
+	public enum Contexts_available{INVEHICLE(0),ONFOOT(1),ONBICYCLE(2),RUNNING(3), STILL(4), WALKING(5),UNKNOWN(6);
+		Integer key;
+
+		Contexts_available(Integer key) { this.key = key; }
+
+//		@Override
+//		public Integer toInteger() {
+//			return key;
+//		}
+	};
 
 	public static TaskRequest getInstance(){
 		if(tr==null)
@@ -42,6 +52,7 @@ public class TaskRequest extends JFrame {
 	public TaskRequest() {
 		initComponents();
 		comboBox1.setModel(new DefaultComboBoxModel<>(Sensors_available.values()));
+		comboBox2.setModel(new DefaultComboBoxModel<>(Contexts_available.values()));
 	}
 
 	private void issueTaskRequest(ActionEvent e) {
@@ -55,10 +66,11 @@ public class TaskRequest extends JFrame {
 		q.setSensorName(comboBox1.getSelectedItem().toString());
 		System.out.println(type.getText().toString());
 		q.setType(type.getText().toString());
+		q.setActivity(comboBox2.getSelectedIndex());
 		JSONObject jsonQuery=q.generateJSONQuery(q);
 		try {
 			q.sendQueryToServer(jsonQuery);
-			JOptionPane.showInternalMessageDialog(tr.getContentPane(), "Task issued to the server");
+			JOptionPane.showInternalMessageDialog(tr.getContentPane(), "Task issued to server");
 			dispose();
 		} catch (JSONException e1) {
 			// TODO Auto-generated catch block
@@ -70,8 +82,12 @@ public class TaskRequest extends JFrame {
 			e1.printStackTrace();
 			JOptionPane.showInternalMessageDialog(tr.getContentPane(), "An exception occurred");
 			dispose();
+		}catch(Exception e4){
+		e4.printStackTrace();
+		JOptionPane.showInternalMessageDialog(tr.getContentPane(), "An exception occurred");
+		dispose();
 		}
-		
+		System.out.println(jsonQuery.toString());
 	}
 
 	private void initComponents() {
@@ -89,6 +105,8 @@ public class TaskRequest extends JFrame {
 		count = new JTextField();
 		label6 = new JLabel();
 		type = new JTextField();
+		label7=new JLabel();
+		comboBox2=new JComboBox();
 		issueTask = new JButton();
 
 		//======== this ========
@@ -105,7 +123,8 @@ public class TaskRequest extends JFrame {
 			"[]" +
 			"[]" +
 			"[]" +
-			"[]"));
+			"[]" +
+				"[]"));
 
 		//---- label1 ----
 		label1.setText("Sensor Data required");
@@ -132,7 +151,7 @@ public class TaskRequest extends JFrame {
 		contentPane.add(lon, "cell 1 3");
 
 		//---- label5 ----
-		label5.setText("Workers");
+		label5.setText("Participants required");
 		contentPane.add(label5, "cell 0 4");
 		contentPane.add(count, "cell 1 4");
 
@@ -141,10 +160,15 @@ public class TaskRequest extends JFrame {
 		contentPane.add(label6, "cell 0 5");
 		contentPane.add(type, "cell 1 5");
 
+		//---- label6 ----
+		label7.setText("Participant Context");
+		contentPane.add(label7, "cell 0 6");
+		contentPane.add(comboBox2, "cell 1 6");
+
 		//---- issueTask ----
 		issueTask.setText("Generate Task Request");
 		issueTask.addActionListener(e -> issueTaskRequest(e));
-		contentPane.add(issueTask, "cell 1 6");
+		contentPane.add(issueTask, "cell 1 7");
 		pack();
 		setLocationRelativeTo(getOwner());
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -165,5 +189,7 @@ public class TaskRequest extends JFrame {
 	private JLabel label6;
 	private JTextField type;
 	private JButton issueTask;
+	private JLabel label7;
+	private JComboBox comboBox2;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

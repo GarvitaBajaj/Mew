@@ -1,28 +1,21 @@
 package algos;
 
-import java.sql.Connection;
+import algoHelpers.Algo;
+import background.MewServerResponseGateway;
+import org.json.JSONObject;
+import org.springframework.stereotype.Component;
+import utils.Provider;
+import utils.ProviderAS;
+import utils.SensingQuery;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
-
-import org.json.JSONObject;
-import utils.*;
-import background.*;
-import org.springframework.stereotype.Component;
-
-import algoHelpers.Algo;
-import interfaces.MainScreen;
 
 @Component
 public class MinAST implements Algo{
@@ -60,7 +53,7 @@ public class MinAST implements Algo{
 			}
 			if(sensorName.equalsIgnoreCase("Gyroscope"))
 			{
-				powerSensor="gyrpower";
+				powerSensor="GyrPower";
 			}
 			if(sensorName.equalsIgnoreCase("Microphone"))
 			{
@@ -84,7 +77,7 @@ public class MinAST implements Algo{
 			thisQuery.setQueryID(queryID);
 
 			// check if sufficient providers are available
-			String countNodes="select sum(provider=1 and "+powerSensor+" > 0) from nodes;";
+			String countNodes="select sum(ProviderMode=1 and "+powerSensor+" > 0) from nodes;";
 			PreparedStatement checkNodes=connect.prepareStatement(countNodes);
 			ResultSet nodeCount=checkNodes.executeQuery();
 			nodeCount.next();
@@ -133,6 +126,7 @@ public class MinAST implements Algo{
 							List<Long> temp1=new ArrayList<>();
 							try{
 								while(assigned.next()){
+									System.out.println(assigned.getString(1));
 									JSONObject assigned_query=new JSONObject(assigned.getString(1));
 									temp1.add(assigned_query.getLong("fromTime"));
 								}
@@ -203,18 +197,19 @@ public class MinAST implements Algo{
 							MewServerResponseGateway test = MewServerResponseGateway.getInstance();
 							JSONObject sendQuery=new JSONObject();
 							sendQuery.put("Query",query);
-							System.out.println(sendQuery.toString());
+//							System.out.println(sendQuery.toString());
 							test.publishQueryToProviders(sendQuery.toString(), selectedProviders.get(i));
-							String insertQueryStr = "insert into queries(queryID, providerID, QueryAllocation) values (?,?,?)";
+							String insertQueryStr = "insert into queries(queryID, providerID, QueryAllocation, QueryJSON) values (?,?,?,?)";
 							PreparedStatement insertQuery=connect.prepareStatement(insertQueryStr);
 							insertQuery.setString(1, queryID);
 							insertQuery.setString(2, selectedProviders.get(i));
 							insertQuery.setString(3, query.getString("selection"));
+							insertQuery.setString(4,query.toString());
 							insertQuery.executeUpdate();
 							insertQuery.close();
 							
 							//update servicing variable to true
-							String setServicing="update nodes set servicing=true where DeviceID=?";
+							String setServicing="update nodes set servicingTask=true where DeviceID=?";
 							PreparedStatement set=connect.prepareStatement(setServicing);
 							set.setString(1,selectedProviders.get(i));
 							set.executeUpdate();
@@ -231,7 +226,8 @@ public class MinAST implements Algo{
 			}
 			else {
 				System.out.println("Min providers not available");
-				String setServiced="insert into queries(queryID, providerID, QueryJson, serviced) values ('"+queryID+"','unavailable','"+ query.toString()+"',2)";
+				String selectionType=query.getString("selection");
+				String setServiced="insert into queries(queryID, providerID, QueryAllocation,QueryJSON, serviced) values ('"+queryID+"','unavailable','"+selectionType+"',"+query.toString()+"'"+"',2)";
 				PreparedStatement set=connect.prepareStatement(setServiced);
 				set.executeUpdate();
 			}
@@ -256,7 +252,7 @@ public class MinAST implements Algo{
 
 	/**
 	 * func to calculate the aggregate sensing time of a device when a new task is allocated to it
-	 * @param temp: an array containing the start times of all tasks assigned to a device
+	 * @param temp1: an array containing the start times of all tasks assigned to a device
 	 * @return
 	 */
 	private int calculateAggSensingTime(List<Long> temp1) {

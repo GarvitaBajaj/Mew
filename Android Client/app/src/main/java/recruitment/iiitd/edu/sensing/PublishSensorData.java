@@ -32,11 +32,11 @@ public class PublishSensorData {
 			case("Gyroscope"):
 			case("WiFi"):
 			case("GPS"):
-				Log.i("QueryNo in publishData", queryNo);
+//				Log.i("QueryNo in publishData", queryNo);
 				StringBuilder data = new StringBuilder();
 				CSVReader reader;
 				try {
-					Log.e("TYPE","Sending file: "+f);
+//					Log.e("TYPE","Sending file: "+f);
 					reader = new CSVReader(new FileReader(f));
 					String[] nextLine;
 					while ((nextLine = reader.readNext()) != null) {
@@ -57,8 +57,8 @@ public class PublishSensorData {
 						servicedData.put("sensorData", data.toString());
 						servicedData.put("requesterID",requesterID);
 						servicedData.put("queryNo",queryNo);
-						System.out.println("JSON object created...entering task in background");
-						Log.e("DATA",servicedData.toString());
+//						System.out.println("JSON object created...entering task in background");
+//						Log.e("DATA",servicedData.toString());
 						RabbitMQConnections publishResource= RabbitMQConnections.getInstance(context);
 						publishResource.sendDataUsingAsync(servicedData);
 

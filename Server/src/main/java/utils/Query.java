@@ -30,6 +30,16 @@ public class Query {
 	double latitude = Double.NaN;
 	double longitude = Double.NaN;
 	int frequency = -1;
+
+	public int getActivity() {
+		return activity;
+	}
+
+	public void setActivity(int activity) {
+		this.activity = activity;
+	}
+
+	int activity = -1;
 	Long queryTime;
 
 	public Query() {
@@ -253,11 +263,16 @@ public class Query {
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
+		try {
+			jsonquery.put("context", query.getActivity());
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
 
 		return jsonquery;
 	}
 	
-	public void sendQueryToServer(JSONObject jsonQuery) throws InterruptedException, JSONException {
+	public void sendQueryToServer(JSONObject jsonQuery) throws Exception {
 		Map<String, Object> querymsg = new HashMap<String, Object>();
 		querymsg.put("Query", jsonQuery);
 		RabbitMQConfigurations publishResource= RabbitMQConfigurations.getInstance();

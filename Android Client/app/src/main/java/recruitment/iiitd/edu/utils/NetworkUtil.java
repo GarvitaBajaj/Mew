@@ -5,6 +5,15 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.Build;
+import android.telephony.CellIdentityGsm;
+import android.telephony.CellIdentityLte;
+import android.telephony.CellInfo;
+import android.telephony.CellInfoGsm;
+import android.telephony.CellInfoLte;
+import android.telephony.CellSignalStrengthGsm;
+import android.telephony.CellSignalStrengthLte;
+import android.telephony.NeighboringCellInfo;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
@@ -14,7 +23,9 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 
+import recruitment.iiitd.edu.mew.ExtractParameters;
 import recruitment.iiitd.edu.mew.HomeScreen;
 
 public class NetworkUtil {
@@ -22,6 +33,8 @@ public class NetworkUtil {
 	public static int speedInKbps=0;
 	public static final String TAG = "NETUTIL";
 	public static Context mContext;
+	NetworkInfo activeNetwork;
+	ConnectivityManager cm;
 //	private static BroadcastReceiver mConnectionReceiver;
 //	private volatile static CountDownLatch latch;
 
@@ -29,16 +42,14 @@ public class NetworkUtil {
 	{
 //		int conn=NetworkUtil.getConnectivityStatus(context);
 		mContext = context;
-		ConnectivityManager cm = (ConnectivityManager) context
+		cm = (ConnectivityManager) context
 				.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-		NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+		activeNetwork = cm.getActiveNetworkInfo();
 		if (null != activeNetwork) {
 			if(activeNetwork.getType() == ConnectivityManager.TYPE_WIFI)
 			{
-				WifiManager wifiManager = HomeScreen.wm;//(WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+				WifiManager wifiManager = ExtractParameters.wm;//(WifiManager) context.getSystemService(Context.WIFI_SERVICE);
 				WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-//				wifiInfo.
 				if (wifiInfo != null) {
 					speedInKbps = wifiInfo.getLinkSpeed()*1024; //measured in WifiInfo.LINK_SPEED_UNITS
 					Log.d(TAG, "Connected to WiFi, speed: "+speedInKbps);
@@ -59,17 +70,14 @@ public class NetworkUtil {
 //						Log.d(TAG, log);
 //						Log.d(TAG, "Wake Wifi Up");
 						wakeWifiUp();
-						boolean urlTest = isURLReachable();
+//						boolean urlTest = isURLReachable();
 						wifiInfo = wifiManager.getConnectionInfo();
 						speedInKbps = wifiInfo.getLinkSpeed()*1024;
-						Log.d(TAG, "URL Test = " + urlTest);
-
-
+//						Log.d(TAG, "URL Test = " + urlTest);
 
 //						if(speedInKbps == -1024){
 //							Log.d(TAG, "Now I don't know");
 //						}
-
 					}
 //					else{
 //						if(wakeLock!=null){
@@ -133,7 +141,7 @@ public class NetworkUtil {
 					speedInKbps= 0;
 					break;
 				}
-				Log.d(Constants.TAG,"Connected to mobile data, speed: "+speedInKbps);
+//				Log.d(Constants.TAG,"Connected to mobile data, speed: "+speedInKbps);
 			}
 				
 		}
@@ -177,7 +185,7 @@ public class NetworkUtil {
 //				}
 //			}
 //		HomeScreen.wm.disconnect();
-		HomeScreen.wm.reassociate();
+		ExtractParameters.wm.reassociate();
 //			_wifiManager.disconnect();
 //			_wifiManager.startScan();
 //			_wifiManager.reassociate();
@@ -235,6 +243,73 @@ public class NetworkUtil {
 			}
 		}
 		return false;
+	}
+
+	public String getCellIds(Context context) {
+		String cellIDs="";
+		StringBuilder sb=new StringBuilder();
+		TelephonyManager teleManager = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
+		if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+			List<NeighboringCellInfo> neighCells = teleManager.getNeighboringCellInfo();
+			for (NeighboringCellInfo neighboringCellInfo:neighCells) {
+				sb.append("["+neighboringCellInfo.getCid()+":"+neighboringCellInfo.getLac()+":"+neighboringCellInfo.getPsc()+"],");
+			}
+		} else {
+			List<CellInfo> infos = teleManager.getAllCellInfo();
+			for (CellInfo info:infos) {
+				if (info instanceof CellInfoGsm){
+					CellIdentityGsm identityGsm = ((CellInfoGsm) info).getCellIdentity();
+					sb.append("["+identityGsm.getMcc()+":"+identityGsm.getMnc()+":"+identityGsm.getCid()+":"+identityGsm.getLac()+":"+identityGsm.getPsc()+"],");
+					} else if (info instanceof CellInfoLte) {
+						CellIdentityLte identityLte = ((CellInfoLte) info).getCellIdentity();
+						sb.append("["+identityLte.getMcc()+":"+identityLte.getMnc()+":"+identityLte.getCi()+":"+identityLte.getTac()+":"+identityLte.getPci()+"],");
+				}
+			}
+		}
+//		List<NeighboringCellInfo> neighborInfo = teleManager.getNeighboringCellInfo();
+//		activeNetwork = cm.getActiveNetworkInfo();
+//		if (null != activeNetwork) {
+//			if(activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE)
+//			{
+//				int subType=activeNetwork.getSubtype();
+//				switch(subType){
+//					//2g
+//					case TelephonyManager.NETWORK_TYPE_GPRS:
+//					case TelephonyManager.NETWORK_TYPE_1xRTT:
+//					case TelephonyManager.NETWORK_TYPE_CDMA:
+//					case TelephonyManager.NETWORK_TYPE_EDGE:
+//					case TelephonyManager.NETWORK_TYPE_IDEN:
+//						for (NeighboringCellInfo cellInfo:neighborInfo){
+//							sb.append("[2g:"+cellInfo.getCid()+":"+cellInfo.getLac()+"],");
+//						}
+//						break;
+//					//3g
+//					case TelephonyManager.NETWORK_TYPE_EVDO_0:
+//					case TelephonyManager.NETWORK_TYPE_EVDO_A:
+//					case TelephonyManager.NETWORK_TYPE_HSDPA:
+//					case TelephonyManager.NETWORK_TYPE_HSPA:
+//					case TelephonyManager.NETWORK_TYPE_HSUPA:
+//					case TelephonyManager.NETWORK_TYPE_UMTS:
+//					case TelephonyManager.NETWORK_TYPE_EHRPD: // API level 11
+//					case TelephonyManager.NETWORK_TYPE_EVDO_B: // API level 9
+//					case TelephonyManager.NETWORK_TYPE_HSPAP: // API level 13
+//
+//						break;
+//					//4g
+//					case TelephonyManager.NETWORK_TYPE_LTE: // API level 11
+//
+//						break;
+//					// Unknown
+//					case TelephonyManager.NETWORK_TYPE_UNKNOWN:
+//					default:
+//
+//						break;
+//				}
+//			}
+//		}
+		cellIDs=sb.toString();
+		System.out.println("CELL IDS: "+cellIDs);
+		return cellIDs;
 	}
 //	static void downTheLatch() {
 //		latch.countDown();

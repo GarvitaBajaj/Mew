@@ -24,12 +24,12 @@ public class AlarmReceiver extends BroadcastReceiver {
 	@Override
 	public void onReceive(Context context, Intent intent) {
 
-		Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-		vibrator.vibrate(10);		//let it vibrate for at least one second :P
+//		Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+//		vibrator.vibrate(1000);		//let it vibrate for at least one second :P
 
 		String queryNo = intent.getExtras().getString("queryNo");
 		String filename=intent.getExtras().getString(Constants.FILENAME);
-		Log.d(Constants.TAG, RECEIVED_ALARM + " Query# " + queryNo + " Type " + intent.getExtras().get("intent"));
+//		Log.d(Constants.TAG, RECEIVED_ALARM + " Query# " + queryNo + " Type " + intent.getExtras().get("intent"));
 
 		DatabaseHelper db = new DatabaseHelper(context);
 		QueryModel query = db.getQueryByNumber(queryNo);
@@ -41,17 +41,18 @@ public class AlarmReceiver extends BroadcastReceiver {
 		if (intent.getExtras().get("intent").equals(Constants.START_DATA_REQUEST))// && query.getSensorName().equalsIgnoreCase("accelerometer"))
 		{
 			SubscribeReceiver.runningServices.getAndIncrement();
-			LogTimer.blockingDeque.add(System.currentTimeMillis()+":Started collection for "+queryNo+"\n");
-			Log.d(Constants.TAG, "Starting service for " + queryNo+ "filename: "+filename );
+//			LogTimer.blockingDeque.add(System.currentTimeMillis()+":Started collection for "+queryNo+"\n");
+//			Log.d(Constants.TAG, "Starting service for " + queryNo+ "filename: "+filename );
 			SensorReadings.processRequest(context, queryNo, Constants.START_DATA_REQUEST,query.getSensorName(),null);
 
 		}
 		else if (intent.getExtras().get("intent").equals(Constants.STOP_DATA_REQUEST))// && query.getSensorName().equalsIgnoreCase("accelerometer"))
 		{
+//			Log.e("TEST","STOP DATA REQUEST RECEIVED");
 			SubscribeReceiver.runningServices.getAndDecrement();
-			LogTimer.blockingDeque.add(System.currentTimeMillis()+":Stopped collection for "+queryNo+"\n");
+//			LogTimer.blockingDeque.add(System.currentTimeMillis()+":Stopped collection for "+queryNo+"\n");
 			String fileName=Environment.getExternalStorageDirectory().getAbsolutePath()+"/Mew/DataCollection/"+queryNo+"/"+query.getSensorName()+".csv";
-			Log.d(Constants.TAG, "Stopping service for " + queryNo + " system time " + System.currentTimeMillis() + " and query end time " + query.getEndTime()+ " filename:"+filename);
+//			Log.d(Constants.TAG, "Stopping service for " + queryNo + " system time " + System.currentTimeMillis() + " and query end time " + query.getEndTime()+ " filename:"+filename);
 			SensorReadings.processRequest(context, queryNo, Constants.STOP_DATA_REQUEST,query.getSensorName(), fileName);
 		}
 	}
